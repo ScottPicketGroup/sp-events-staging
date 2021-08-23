@@ -33,17 +33,15 @@ const PartiesAndEventsGrid = () => {
                   placeholder="blurred"
                   src="../../../../../images/OurFamily/estelle.png"
                   alt="Chancery Lane"
-                  style={{
-                    marginBottom: `.5rem`,
-                  }}
+                 
                 />
               </FullImageContainer>
-              <Heading2>{item.title}</Heading2>
-              <Heading3>{item.subTitle}</Heading3>
-              <BC3>
+              <Heading2 marginTop="sm">{item.title}</Heading2>
+              <Heading3 marginTop="xs">{item.subTitle}</Heading3>
+              <BC3 marginTop="sm">
                 {item.description}
               </BC3>
-              <Heading3>Discover More    &nbsp;<ArrowIcon/></Heading3>
+              <Heading3 marginTop="sm">Discover More    &nbsp;<ArrowIcon/></Heading3>
             </ItemImgLink>
           </Item>
         ))}

@@ -6,9 +6,9 @@ import { BC3, Heading1, Heading2, Heading3 } from "../../../StyledComponents/typ
 import { PartnerVenuesLandingWrapper, TextContainer } from "./PartnerVenues.css"
 const PartnerVenues = () => {
   return (
-    <SectionContainer background="lightgrey" width="100%" full>
-      <SectionWrapper>
-        <Heading1>Partner Venues</Heading1>
+    <SectionContainer background="lightgrey" width="100vw" >
+      <SectionWrapper width="73.5%">
+        <Heading1 marginBottom="sm" marginTop="lg">Partner Venues</Heading1>
         <PartnerVenuesLandingWrapper>
           <StaticImage
             placeholder="blurred"
@@ -16,13 +16,13 @@ const PartnerVenues = () => {
             alt="Chancery Lane"
             style={{
               width: `75%`,
-              marginBottom: `.5rem`,
+              marginBottom: `3.75rem`,
             }}
           />
           <TextContainer>
-            <Heading2 marginBottom="">Partner Venues</Heading2>
-            <Heading3>Sub Heading</Heading3>
-            <BC3>
+            <Heading2 marginBottom="xs">Partner Venues</Heading2>
+            <Heading3 marginBottom="sm">Sub Heading</Heading3>
+            <BC3 marginBottom="sm">
             .obacilpxe tnus atcid eativ eataeb otcetihcra isauq te sitatirev erotnevni olli ba eauq aspi euqae ,mairepa mer matot ,muitnadual euqmerolod muitnasucca metatpulov tis rorre sutan etsi sinmo ednu sitaicipsrep
             </BC3>
             <Heading3>Discover Move <ArrowIcon/></Heading3>

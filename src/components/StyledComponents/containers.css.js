@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
+import { marginBottom } from './variables'
+
 export const PageContainer = styled.div`
-width: 100%;
+width: 76%;
 display: flex;
 align-items: flex-end;
 flex-direction: column;
@@ -13,7 +15,7 @@ flex-direction: column;
 `
 
 export const PageWrapper = styled.div`
-width: 100%auto;
+width: 100%;
 height: auto;
 display: flex;
 `
@@ -23,11 +25,47 @@ export const SectionContainer = styled.div`
 display: flex;
 justify-content: flex-end;
 flex-direction: column;
-margin-top: ${props => props.marginTop ? props.marginTop : ""};
-width: ${props => props.width ? props.width : '76%'};
-padding: ${props => props.overflow === "true" ? '0 0 0 3.55rem' : props.full ? '0 3.55rem 3.75rem 3.55rem' : '0 3.55rem 0 3.55rem '};
+
+width: ${ props => props.width ? props.width : '100%'};
+padding: ${props => props.overflow === "true" ? '0 3.55rem' : props.full ? '0 3.75rem  0 2.35rem ' : '0 4rem 0 3.5rem'};
 background: ${props => props.background ? props.background : ''};
-margin-bottom: ${props => props.marginBottom ? props.marginBottom : "4.25"};
+
+margin-bottom: ${props => {
+      switch (props.marginBottom) {
+        case "xs":
+          return ".25rem"
+        case "sm":
+          return "1rem"
+        case "md":
+          return "1.5rem"
+        case "lg":
+          return "3.75rem"
+        case "xl":
+          return "8rem"
+        case "xxl":
+          return "100%"
+        default:
+          return "0"
+      }
+    }};
+    margin-top: ${props => {
+     switch (props.marginTop) {
+        case "xs":
+          return ".25rem"
+        case "sm":
+          return "1rem"
+        case "md":
+          return "1.5rem"
+        case "lg":
+          return "3.75rem"
+        case "xl":
+          return "8rem"
+        case "xxl":
+          return "100%"
+        default:
+          return "0"
+      }
+    }};
 overflow: hidden;
 @media (max-width: 450px) {
     width: 100%;
@@ -37,9 +75,40 @@ overflow: hidden;
 }
 `
 export const SectionWrapper = styled.div`
-margin-top: 3.75rem;
-width: 73.5%;
+width: ${ props => props.width ? props.width : '70%'};
 align-self: flex-end;
+margin-bottom: ${props => {
+      switch (props.marginBottom) {
+        case "sm":
+          return "1rem"
+        case "md":
+          return "1.5rem"
+        case "lg":
+          return "3.75rem"
+        case "xl":
+          return "8rem"
+        case "xxl":
+          return "100%"
+        default:
+          return "0"
+      }
+    }};
+    margin-top: ${props => {
+      switch (props.marginTop) {
+        case "sm":
+          return "1rem"
+        case "md":
+          return "1.5rem"
+        case "lg":
+          return "3.75rem"
+        case "xl":
+          return "8rem"
+        case "xxl":
+          return "100%"
+        default:
+          return "0"
+      }
+    }};
 @media (max-width: 450px) {
     width: 100%;
     padding: 0;
@@ -61,13 +130,19 @@ left: 4rem;
 
 width: 25%;
 ` 
-
+export const MenuItem = styled.p`
+transition: all 1s ease;
+font-family:  ${props => props.scrollY > props.sH && props.scrollY < props.sT + props.sH? 'CentraNo2Medium' : '.1rem' };
+:first-child {
+  font-family:  ${props => props.scrollY < props.sH  ? 'CentraNo2Medium' : '.1rem' };
+}
+`
 export const Grid = styled.div`
 width: ${props => props.full ? '100%' : '74.5%'};
 align-self: flex-end;
   display: grid;
   grid-template-columns: ${(props) => `repeat(${props.cols}, 1fr)`};
-  grid-gap: ${props => props.insta ? props.insta : props.gridGap ? props.gridGap : "3.5rem 1rem"};
+  grid-gap: ${props => props.insta ? props.insta : props.gridGap ? props.gridGap : "3.75rem 1rem"};
   
   align-items: center;
   align-items: start;

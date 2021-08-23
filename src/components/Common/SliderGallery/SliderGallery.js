@@ -5,8 +5,8 @@ import Slider from './Slider/Slider'
 
 const SliderGallery = () => {
     return (
-       <SectionContainer >
-           <Heading1>
+       <SectionContainer marginBottom="xl">
+           <Heading1 marginBottom="sm">
                Gallery
            </Heading1>
            <Slider/>

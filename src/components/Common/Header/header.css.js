@@ -6,7 +6,7 @@ justify-content: space-between;
 align-items: center;
 height: 8.45rem;
 width: 100%;
-padding: 0 5rem;
+padding: 0 3.75rem;
 @media (max-width: 450px) {
     max-height: 4.87rem;
     padding: 0 1.5rem;
@@ -15,7 +15,7 @@ padding: 0 5rem;
 export const RightWrapper = styled.div`
 display: flex;
 align-items: center;
-width: 16.6%;
+width: 12%;
 justify-content: space-between;
 @media (max-width: 450px) {
     min-width: 20%;
@@ -32,7 +32,7 @@ display: flex;
 align-items: center;
 
 svg {
-    height: 3.5rem;
+    height: 3.25rem;
 }
 `
 export const DesktopWrapper = styled.div`
@@ -53,7 +53,7 @@ display: flex;
 align-items: center;
 
 svg {
-    height: 3.5rem;
+    max-height: 2.5rem;
 }
 @media (max-width: 451px) {
     display: none;

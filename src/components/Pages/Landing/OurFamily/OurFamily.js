@@ -4,8 +4,8 @@ import { Heading1 } from '../../../StyledComponents/typography.css'
 import RestaurantGrid from './Restaurants/RestaurantGrid'
 const OurFamily = () => {
     return (
-        <SectionContainer background="lightgrey" width="100%" full>
-            <SectionWrapper>
+        <SectionContainer   marginBottom="xl">
+            <SectionWrapper marginBottom="sm" marginTop="lg" width="100%">
             <Heading1>
                 Our Family
             </Heading1>

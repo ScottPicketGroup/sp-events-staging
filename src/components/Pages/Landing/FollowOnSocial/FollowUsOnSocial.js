@@ -9,7 +9,7 @@ import {
   Item,
   SectionContainer,
 } from "../../../StyledComponents/containers.css"
-import { DesktopWrapper } from "../../../Common/Header/header.css"
+import { DesktopWrapper, MobileWrapper } from "../../../Common/Header/header.css"
 
 const FollowUsOnSocial = () => {
 
@@ -30,23 +30,30 @@ const FollowUsOnSocial = () => {
   `)
 
   return (
-    <SectionContainer marginTop="4.25rem" marginBottom="9rem" overflow="true" ref={myRef}>
-      <Heading1>Follow us on social</Heading1>
+    <SectionContainer marginTop="" marginBottom="xl" overflow="true" ref={myRef}>
+      <Heading1 marginBottom="sm">Follow us on social</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
           {images &&
             images.allFile.edges.map(image => (
               <Item key={image.node.id}>
-                <Heading1 style={{ marginTop: `20rem` }}></Heading1>
+                <Heading1 ></Heading1>
                 <GatsbyImage
                   image={getImage(image.node.childImageSharp)}
                   alt={image.node.id}
+                  style={{
+                  
+                   
+                  }}
                 />
               </Item>
             ))}
         </Grid>
       </DesktopWrapper>
+      <MobileWrapper>
       <InstaSlider images={images.allFile.edges} />
+      </MobileWrapper>
+   
     </SectionContainer>
   )
 }

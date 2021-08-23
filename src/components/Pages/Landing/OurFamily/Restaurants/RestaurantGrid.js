@@ -10,13 +10,14 @@ import {
   Grid,
   Item,
   ItemImgLink,
-} from "../OurFamily.css"
+} from "../../../../StyledComponents/containers.css"
 
 import {restaurants} from "./restaurantArray"
+import ArrowIcon from "../../../../../images/ArrowIcon"
 
 const RestaurantGrid = () => {
   return (
-    <Grid cols={3}>
+    <Grid cols={3} full>
       {restaurants &&
         restaurants.map((restaurant, i) => (
           <Item
@@ -32,17 +33,15 @@ const RestaurantGrid = () => {
                   placeholder="blurred"
                   src="../../../../../images/OurFamily/estelle.png"
                   alt="Chancery Lane"
-                  style={{
-                    marginBottom: `.5rem`,
-                  }}
+                  
                 />
               </FullImageContainer>
-              <Heading2>{restaurant.name}</Heading2>
-              <Heading3>{restaurant.location} / {restaurant.foodType}</Heading3>
-              <BC3>
-                {restaurant.description}
-              </BC3>
-              <Heading3>Visit</Heading3>
+              <Heading2 marginTop="sm">{restaurant.name}</Heading2>
+              <Heading3 marginTop="xs">{restaurant.location} / {restaurant.foodType}</Heading3>
+              <BC3 marginTop="sm" > 
+                {restaurant.description} 
+              </BC3 >
+              <Heading3 marginTop="sm">Visit <ArrowIcon/></Heading3>
             </ItemImgLink>
           </Item>
         ))}

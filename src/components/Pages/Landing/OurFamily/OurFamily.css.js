@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Grid = styled.div`
-width: 74.5%;
+width: 100%;
 align-self: flex-end;
   display: grid;
   grid-template-columns: ${(props) => `repeat(${props.cols}, 1fr)`};
@@ -12,7 +12,7 @@ align-self: flex-end;
 `;
 
 export const Item = styled.div`
-  padding: 0 0.5rem;
+
   display: block;
   transition: opacity .2s ease-out;
   
