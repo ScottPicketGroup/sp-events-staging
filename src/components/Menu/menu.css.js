@@ -57,7 +57,7 @@ export const fade = keyframes`
   }
 `
 
-export const SubMenuWrapper = styled.div`
+export const EventsSubMenuWrapper = styled.div`
 width: 50%;
 height: 100vh;
 padding-top: 6.75rem;
@@ -66,6 +66,17 @@ opacity: ${props => (props.subMenuOpen && props.active === "Events" ? 1 : 0)};
   animation: ${fade} 0.2s linear;
 `
 
+export const MenuOpenArrowWrapper = styled.span`
+stroke: ${props =>
+  props.active === "" ? "white" :
+  props.item === props.active ? "white" : 
+  props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
+  "white"};
+`
+
+export const SubMenuWrapper = styled.div`
+margin-top: 2rem;
+`
 export const MenuLogo = styled.div`
 svg {
    
