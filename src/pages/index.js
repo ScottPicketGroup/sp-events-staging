@@ -60,13 +60,14 @@ const IndexPage = () => {
     "Instagram",
   ]
 
-  var bodyRect = document.body.getBoundingClientRect()
+  var bodyRect 
   const [items] = React.useState([])
   const [heights] = React.useState([])
 
   const itemsRef = useRef([])
 
   useEffect(() => {
+    var bodyRect = document.body.getBoundingClientRect()
     itemsRef.current.map(i => {
       const meh = i.getBoundingClientRect()
 
