@@ -116,3 +116,14 @@ props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
 export const SubMenuItem = styled(Heading2)`
 ${SubMenuItemStyles}
 `
+
+export const CloseLogoWrapper = styled.div`
+fill: rgba(255, 255, 255, 100%);
+
+svg {
+    transition: all .2s ease-in-out;
+    :hover {
+       fill: rgba(255, 255, 255, 50%);
+    }
+}
+`
