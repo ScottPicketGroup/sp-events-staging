@@ -60,7 +60,7 @@ const IndexPage = () => {
     "Instagram",
   ]
 
-  var bodyRect 
+ 
   const [items] = React.useState([])
   const [heights] = React.useState([])
 

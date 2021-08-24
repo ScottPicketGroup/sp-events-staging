@@ -133,7 +133,7 @@ width: 25%;
 ` 
 export const MenuItem = styled.p`
 transition: all 1s ease;
-font-family:  ${props => props.scrollY > props.sH && props.scrollY < props.sT + props.sH? 'CentraNo2Medium' : '.1rem' };
+font-family:  ${props => props.scrollY > props.sH && props.scrollY < props.sT + props.sH? 'CentraNo2Medium' : 'CentraNo2Light' };
 :first-child {
   font-family:  ${props => props.scrollY < props.sH  ? 'CentraNo2Medium' : '.1rem' };
 }

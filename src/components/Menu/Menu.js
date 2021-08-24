@@ -11,7 +11,7 @@ const Menu = () => {
         <LogoWrapper onClick={() => setMenuOpen(true)}>
           <Logo />  
          </LogoWrapper>
-         <MenuSlideOut menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+         <MenuSlideOut menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </>
     )
 }

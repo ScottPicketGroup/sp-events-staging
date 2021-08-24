@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   html, body {
     font-size: 16px;
     font-family: 'CentraNo2', sans-serif;
-    overflow-x: hidden;
+  
   }
   a {
     color: #333333;
