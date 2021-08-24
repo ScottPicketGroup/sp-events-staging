@@ -1,7 +1,6 @@
 import React from "react"
-import { Heading2 } from "../../StyledComponents/typography.css"
-import { EventsSubMenuWrapper } from "../menu.css"
-import SubMenu from "./SubMenu"
+import { EventsSubMenuWrapper, EventsSubMenuItem } from "../menu.css"
+
 
 const eventsSubMenu = [
   "Weddings",
@@ -18,7 +17,7 @@ console.log(activeSub)
 
       <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
         {eventsSubMenu.map(item => (
-          <Heading2
+          <EventsSubMenuItem
             marginBottom="sm"
             link
             onMouseOver={() => setSubActive(item)}
@@ -27,7 +26,7 @@ console.log(activeSub)
             active={activeSub}
           >
             {item}
-          </Heading2>
+          </EventsSubMenuItem>
         ))}
       </EventsSubMenuWrapper>
 

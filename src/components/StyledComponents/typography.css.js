@@ -69,11 +69,7 @@ export const Heading1 = styled.h1`
       }
     }};
 
-color: ${props =>
-  props.active === "" ? "white" :
-  props.item === props.active ? "white" : 
-  props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
-  "white"};
+
   @media (max-width: 450px) {
     font-size: 1.5rem;
     line-height: 1.17;
@@ -87,10 +83,6 @@ export const Heading2 = styled.h2`
   line-height: 1.2;
   font-weight: 900;
 
-  color: ${props =>
-  props.item === props.active ? "white" : 
-  props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
-  "inherit"};
 
   margin-bottom: ${props => {
  switch (props.marginBottom) {

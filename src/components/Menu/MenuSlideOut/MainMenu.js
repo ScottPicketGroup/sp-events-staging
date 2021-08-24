@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading1 } from '../../StyledComponents/typography.css'
-import { MainMenuWrapper } from '../menu.css'
+import { MainMenuWrapper, MainMenuItem } from '../menu.css'
 import SubMenu from './SubMenu'
 import MenuOpenArrow from './MenuOpenArrow'
 
@@ -19,7 +19,7 @@ const MainMenu = ({active, setActive, subMenuOpen, setSubMenuOpen}) => {
         <MainMenuWrapper>
             
             {menuItems.map(item => (
-              <Heading1
+              <MainMenuItem
                 marginBottom="sm"
                 link
                 onMouseOver={() => setActive(item)}
@@ -30,7 +30,7 @@ const MainMenu = ({active, setActive, subMenuOpen, setSubMenuOpen}) => {
                 {item === "Events" ? (
                   <MenuOpenArrow setsubMenuOpen={setSubMenuOpen} subMenuOpen={subMenuOpen} active={active} item={item}/>
                 ) : null}
-              </Heading1>
+              </MainMenuItem>
             ))}
       <SubMenu active={active} setActive={setActive} />
       </MainMenuWrapper>

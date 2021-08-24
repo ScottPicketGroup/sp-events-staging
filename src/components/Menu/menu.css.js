@@ -1,5 +1,5 @@
-import styled, {keyframes} from 'styled-components'
-
+import styled, {keyframes, css} from 'styled-components'
+import { Heading1, Heading2 } from '../StyledComponents/typography.css'
 export const SlideOutContainer = styled.div`
 height: 100vh;
 width: 100vw;
@@ -87,4 +87,32 @@ svg {
         margin-left: 1rem;
     }
 }
+`
+
+export const MainMenuItem = styled(Heading1)`
+
+color: ${props =>
+  props.active == "" ? "white" :
+  props.item === props.active ? "white" : 
+  props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
+  ""};
+`
+const SubMenuItemStyles = css`
+  color: ${props =>
+ props.active == "" ? "white" :
+props.item === props.active ? "white" : 
+props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
+"white"};
+`
+
+export const EventsSubMenuItem = styled(Heading2)`
+  color: ${props =>
+ 
+props.item === props.active ? "white" : 
+props.item !== props.active ? "rgba(255, 255, 255, 50%)" :
+"white"};
+`
+
+export const SubMenuItem = styled(Heading2)`
+${SubMenuItemStyles}
 `

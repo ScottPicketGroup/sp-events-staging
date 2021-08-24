@@ -1,13 +1,12 @@
 import React from "react"
-import { Heading2 } from "../../StyledComponents/typography.css"
-import { SubMenuWrapper } from "../menu.css"
+import { SubMenuWrapper, SubMenuItem } from "../menu.css"
 
 const SubMenu = ({active, setActive}) => {
     const subMenu = ["Gallery", "Careers", "Enquires"]
   return (
     <SubMenuWrapper>
       {subMenu.map(item => (
-        <Heading2
+        <SubMenuItem
           marginBottom="sm"
           link
           onMouseOver={() => setActive(item)}
@@ -15,7 +14,7 @@ const SubMenu = ({active, setActive}) => {
           active={active}
         >
           {item}
-        </Heading2>
+        </SubMenuItem>
       ))}
     </SubMenuWrapper>
   )
