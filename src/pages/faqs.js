@@ -11,10 +11,13 @@ import {
   MenuItem,
 } from "../components/StyledComponents/containers.css"
 import Summary from "../components/Pages/FAQ/Summary"
-import FirstSection from "../components/Pages/FAQ/FirstSection"
-import SecondSection from "../components/Pages/FAQ/SecondSection"
+import FAQSection from "../components/Pages/FAQ/FAQSection"
 
-const IndexPage = () => {
+import array1 from '../contents/array1.json'
+import array2 from '../contents/array2.json'
+
+const FAQPage = () => {
+
   const image = useStaticQuery(graphql`
     query HeroImageForFAQs {
       allFile(filter: { name: { in: "landing" } }) {
@@ -103,10 +106,10 @@ const IndexPage = () => {
             <Summary />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
-            <FirstSection />
+            <FAQSection title="Heading 1" content={array1} />
           </div>
           <div ref={el => (itemsRef.current[2] = el)}>
-            <SecondSection />
+            <FAQSection title="Heading 2" content={array2}/>
           </div>
         </PageContainer>
       </PageWrapper>
@@ -114,4 +117,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default FAQPage
