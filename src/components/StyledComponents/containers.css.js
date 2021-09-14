@@ -130,6 +130,9 @@ top: 4rem;
 left: 4rem;
 
 width: 25%;
+@media (max-width: 450px) {
+  display: none
+}
 ` 
 export const MenuItem = styled.p`
 transition: all 1s ease;
