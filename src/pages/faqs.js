@@ -13,11 +13,10 @@ import {
 import Summary from "../components/Pages/FAQ/Summary"
 import FAQSection from "../components/Pages/FAQ/FAQSection"
 
-import array1 from '../contents/array1.json'
-import array2 from '../contents/array2.json'
+import array1 from "../contents/array1.json"
+import array2 from "../contents/array2.json"
 
 const FAQPage = () => {
-
   const image = useStaticQuery(graphql`
     query HeroImageForFAQs {
       allFile(filter: { name: { in: "landing" } }) {
@@ -35,12 +34,10 @@ const FAQPage = () => {
 
   const [scrollY, setScrollY] = useState(0)
 
-  const logit = () => {
-    setScrollY(window.pageYOffset)
-  }
+  const logit = () => setScrollY(window.pageYOffset)
 
   useEffect(() => {
-    function watchScroll() {
+    const watchScroll = () => {
       window.addEventListener("scroll", logit)
     }
     watchScroll()
@@ -49,32 +46,25 @@ const FAQPage = () => {
     }
   })
 
-  const menuItems = [
-    "FAQs",
-    "Heading 1",
-    "Heading 2",
-  ]
+  const menuItems = ["FAQs", "Heading 1", "Heading 2"]
 
- 
   const [items] = React.useState([])
   const [heights] = React.useState([])
 
   const itemsRef = useRef([])
 
   useEffect(() => {
-    itemsRef.current.map(i => {
+    itemsRef.current.forEach(i => {
       const meh = i.getBoundingClientRect()
 
       items.push(meh.top)
     })
-    itemsRef.current.map(i => {
+    itemsRef.current.forEach(i => {
       const scrollTop = i.scrollHeight
       heights.push(scrollTop)
     })
     itemsRef.current = itemsRef.current.slice(0, items.length)
-
-    return () => {}
-  }, [])
+  }, [heights, items])
 
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
@@ -109,7 +99,7 @@ const FAQPage = () => {
             <FAQSection title="Heading 1" content={array1} />
           </div>
           <div ref={el => (itemsRef.current[2] = el)}>
-            <FAQSection title="Heading 2" content={array2}/>
+            <FAQSection title="Heading 2" content={array2} />
           </div>
         </PageContainer>
       </PageWrapper>

@@ -121,7 +121,7 @@ export const MenuLogo = styled.div`
 
 export const MainMenuItem = styled(Heading1)`
   color: ${props =>
-    props.active == ""
+    props.active === ""
       ? "white"
       : props.item === props.active
       ? "white"
@@ -131,7 +131,7 @@ export const MainMenuItem = styled(Heading1)`
 `
 const SubMenuItemStyles = css`
   color: ${props =>
-    props.active == ""
+    props.active === ""
       ? "white"
       : props.item === props.active
       ? "white"
