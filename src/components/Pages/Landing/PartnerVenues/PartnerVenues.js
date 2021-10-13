@@ -12,7 +12,7 @@ const PartnerVenues = () => {
         <PartnerVenuesLandingWrapper>
           <StaticImage
             placeholder="blurred"
-            src="../../../../../images/OurFamily/estelle.png"
+            src="../../../../images/OurFamily/estelle.png"
             alt="Chancery Lane"
             style={{
               width: `75%`,

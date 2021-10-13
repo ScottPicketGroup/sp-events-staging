@@ -31,7 +31,7 @@ const PartiesAndEventsGrid = () => {
               <FullImageContainer>
                 <StaticImage
                   placeholder="blurred"
-                  src="../../../../../images/OurFamily/estelle.png"
+                  src="../../../images/OurFamily/estelle.png"
                   alt="Chancery Lane"
                  
                 />
