@@ -4,23 +4,21 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Hero from "../components/Common/Hero/Hero"
-import Intro from "../components/Pages/Landing/Intro"
 import {
   PageContainer,
   PageWrapper,
   MenuContainer,
   MenuItem,
 } from "../components/StyledComponents/containers.css"
-import SliderGallery from "../components/Common/SliderGallery/SliderGallery"
-import OurFamily from "../components/Pages/Landing/OurFamily/OurFamily"
-import PartiesAndEvents from "../components/Menu/Parties&Events/PartiesAndEvents"
-import PartnerVenues from "../components/Pages/Landing/PartnerVenues/PartnerVenues"
-import Enquire from "../components/Pages/Landing/Enquire/Enquire"
-import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
+import Summary from "../components/Pages/FAQ/Summary"
+import FAQSection from "../components/Pages/FAQ/FAQSection"
 
-const IndexPage = () => {
+import array1 from "../contents/array1.json"
+import array2 from "../contents/array2.json"
+
+const FAQPage = () => {
   const image = useStaticQuery(graphql`
-    query HeroImage {
+    query HeroImageForFAQs {
       allFile(filter: { name: { in: "landing" } }) {
         edges {
           node {
@@ -34,21 +32,7 @@ const IndexPage = () => {
     }
   `)
 
-  const menuItems = [
-    "Introduction",
-    "Gallery",
-    "OurFamily",
-    "Parties & Events",
-    "Partner Venues",
-    "Enquiries",
-    "Instagram",
-  ]
-
-  const [items] = useState([])
-  const [heights] = useState([])
   const [scrollY, setScrollY] = useState(0)
-
-  const itemsRef = useRef([])
 
   const logit = () => setScrollY(window.pageYOffset)
 
@@ -62,6 +46,13 @@ const IndexPage = () => {
     }
   })
 
+  const menuItems = ["FAQs", "Heading 1", "Heading 2"]
+
+  const [items] = React.useState([])
+  const [heights] = React.useState([])
+
+  const itemsRef = useRef([])
+
   useEffect(() => {
     itemsRef.current.forEach(i => {
       const meh = i.getBoundingClientRect()
@@ -73,16 +64,14 @@ const IndexPage = () => {
       heights.push(scrollTop)
     })
     itemsRef.current = itemsRef.current.slice(0, items.length)
-  }, [items, heights])
+  }, [heights, items])
 
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
-  console.log(heights[2], items[2], heights[2] + items[2], scrollY)
-
   return (
     <Layout>
-      <Seo title="Welcome to Scott Pickett Events" />
+      <Seo title="FAQs" />
       <Hero image={image} />
 
       <PageWrapper>
@@ -104,25 +93,13 @@ const IndexPage = () => {
 
         <PageContainer>
           <div ref={el => (itemsRef.current[0] = el)}>
-            <Intro />
+            <Summary />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
-            <SliderGallery />
+            <FAQSection title="Heading 1" content={array1} />
           </div>
           <div ref={el => (itemsRef.current[2] = el)}>
-            <OurFamily />
-          </div>
-          <div ref={el => (itemsRef.current[3] = el)}>
-            <PartiesAndEvents />
-          </div>
-          <div ref={el => (itemsRef.current[4] = el)}>
-            <PartnerVenues />
-          </div>
-          <div ref={el => (itemsRef.current[5] = el)}>
-            <Enquire />
-          </div>
-          <div ref={el => (itemsRef.current[6] = el)}>
-            <FollowUsOnSocial />
+            <FAQSection title="Heading 2" content={array2} />
           </div>
         </PageContainer>
       </PageWrapper>
@@ -130,4 +107,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default FAQPage

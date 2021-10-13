@@ -28,7 +28,7 @@ const MenuOpenArrow = ({ active, item, setSubMenuOpen }) => {
             transform="translate(1161.059 366.684) rotate(-180)"
             fill="none"
            
-            stroke-width="2"
+            strokeWidth="2"
           />
         </g>
       </svg>

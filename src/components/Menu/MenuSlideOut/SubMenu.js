@@ -1,12 +1,13 @@
 import React from "react"
 import { SubMenuWrapper, SubMenuItem } from "../menu.css"
 
-const SubMenu = ({active, setActive}) => {
-    const subMenu = ["Gallery", "Careers", "Enquires"]
+const SubMenu = ({ active, setActive }) => {
+  const subMenu = ["Gallery", "Careers", "Enquires"]
   return (
     <SubMenuWrapper>
-      {subMenu.map(item => (
+      {subMenu.map((item, index) => (
         <SubMenuItem
+          key={index}
           marginBottom="sm"
           link
           onMouseOver={() => setActive(item)}
