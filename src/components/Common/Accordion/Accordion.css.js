@@ -4,14 +4,13 @@ import styled from 'styled-components'
 export const AccordionSection = styled.div`
   display: flex;
   flex-direction: column;
-  
   &:last-of-type {
     border-bottom: 1px solid #b1b3b6;
   }
 `
 
 /* Style the buttons that are used to open and close the accordion panel */
-export const AccordionBlock = styled.button`
+export const AccordionBlock = styled.div`
   background-color: #fff;
   cursor: pointer;
   padding: 16px 0px;

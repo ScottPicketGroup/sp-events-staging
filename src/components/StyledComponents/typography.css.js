@@ -35,40 +35,39 @@ export const Heading1 = styled.h1`
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: -1px;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-
+    switch (props.marginBottom) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
 
   @media (max-width: 450px) {
     font-size: 1.5rem;
@@ -78,50 +77,49 @@ export const Heading1 = styled.h1`
 
 export const Heading2 = styled.h2`
   font-family: CentraNo2Light;
-  
+
   font-size: 1.25rem;
   line-height: 1.2;
   font-weight: 900;
 
-
   margin-bottom: ${props => {
- switch (props.marginBottom) {
-        case "xs":
-          return ".25rem"
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+    switch (props.marginBottom) {
+      case "xs":
+        return ".25rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
   @media (max-width: 450px) {
     font-size: 1.25rem;
     line-height: 1.2;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1.5rem;
   }
 `
 
@@ -131,43 +129,45 @@ export const Heading3 = styled.h3`
   font-size: 1rem;
   line-height: 1.25;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "xs": 
+    switch (props.marginBottom) {
+      case "xs":
         return ".45rem"
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "xs":
+        return ".45rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
   @media (max-width: 450px) {
     font-family: CentraNo2Book;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 `
 
@@ -176,37 +176,37 @@ export const BC1 = styled.p`
   line-height: 1.2;
   font-size: 1.25rem;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+    switch (props.marginBottom) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
   @media (max-width: 450px) {
   }
 `
@@ -216,37 +216,37 @@ export const BC2 = styled.p`
   line-height: 1.25;
   font-size: 1.25rem;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":  
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+    switch (props.marginBottom) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
   @media (max-width: 450px) {
   }
 `
@@ -256,37 +256,37 @@ export const BC3 = styled.p`
   line-height: 1.25;
   font-size: 1rem;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+    switch (props.marginBottom) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
 
   @media (max-width: 450px) {
     font-size: 1rem;
@@ -300,37 +300,37 @@ export const SN1 = styled.p`
   line-height: 1.25;
   font-size: 1.25rem;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+    switch (props.marginBottom) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
 
   @media (max-width: 450px) {
     font-size: 1rem;
@@ -342,41 +342,41 @@ export const SN2 = styled.p`
   font-family: CentraNo2Light;
   line-height: 1.25;
   font-size: 1rem;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   margin-bottom: ${props => {
-      switch (props.marginBottom) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
-    margin-top: ${props => {
-      switch (props.marginTop) {
-        case "sm":
-          return "1rem"
-        case "md":
-          return "1.5rem"
-        case "lg":
-          return "3.75rem"
-        case "xl":
-          return "8rem"
-        case "xxl":
-          return "100%"
-        default:
-          return "0"
-      }
-    }};
+    switch (props.marginBottom) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
   :hover {
-    color: ${props => props.hover ? 'rgba(51, 51, 51, 50%)' : ''};
+    color: ${props => (props.hover ? "rgba(51, 51, 51, 50%)" : "")};
   }
   @media (max-width: 450px) {
     font-size: 1rem;
