@@ -4,7 +4,7 @@ import { MainMenuWrapper, MainMenuItem } from "../menu.css"
 import SubMenu from "./SubMenu"
 import MenuOpenArrow from "./MenuOpenArrow"
 import { Heading1 } from "../../StyledComponents/typography.css"
-import useWindowDimensions from "../../Common/Hooks/useWindowDimensions"
+
 
 const menuItems = [
   { title: "Home", slug: "/" },

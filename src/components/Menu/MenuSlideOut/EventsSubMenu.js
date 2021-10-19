@@ -14,8 +14,8 @@ const eventsSubMenu = [
 
 const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const [activeSub, setSubActive] = React.useState("")
-  const width = useWindowDimensions().width
-  console.log(width)
+  const [width] = React.useState(useWindowDimensions().width)
+
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
       {width < 451 ? (
