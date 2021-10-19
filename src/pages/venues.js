@@ -113,75 +113,75 @@ const VenuesPage = ({ data }) => {
 export default VenuesPage
 
 
-// export const query = graphql`
-// query Venues {
-//     allContentfulVenuesPageContent {
-//       edges {
-//         node {
-//           heroMedia {
-//             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-//             title
-//           }
-//           introduction {
-//             raw
-//           }
-//           pageTitle
-//           spgRestaurants {
-//             restaurantName
-//             restaurantDescription {
-//               raw
-//             }
-//             location
-//             restaurantMedia {
-//                 gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-//               }
-//           }
-//           featuredPartnerVenue {
-//             greyBackground
-//             featuredRestaurant {
-//               restaurantDescription {
-//                 raw
-//               }
-//               restaurantMedia {
-//                 gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-//                 title
-//               }
-//               location
-//               subHeading
-//               restaurantName
-//             }
-//           }
-//           partnerVenuesRestaurantList {
-//             location
-//             restaurantDescription {
-//               raw
-//             }
-//             restaurantMedia {
-//               gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-//               title
-//             }
-//           }
-//           enquireSection {
-//             enquireDescription {
-//               raw
-//             }
-//             enquireHeading
-//           }
-//           privateVenueSection {
-//             subHeading
-//             sectionHeading
-//             privateVenue {
-//               heroMedia {
-//                 gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-//                 title
-//               }
-//               introduction {
-//                 raw
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+query Venues {
+    allContentfulVenuesPageContent {
+      edges {
+        node {
+          heroMedia {
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            title
+          }
+          introduction {
+            raw
+          }
+          pageTitle
+          spgRestaurants {
+            restaurantName
+            restaurantDescription {
+              raw
+            }
+            location
+            restaurantMedia {
+                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+              }
+          }
+          featuredPartnerVenue {
+            greyBackground
+            featuredRestaurant {
+              restaurantDescription {
+                raw
+              }
+              restaurantMedia {
+                gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                title
+              }
+              location
+              subHeading
+              restaurantName
+            }
+          }
+          partnerVenuesRestaurantList {
+            location
+            restaurantDescription {
+              raw
+            }
+            restaurantMedia {
+              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+              title
+            }
+          }
+          enquireSection {
+            enquireDescription {
+              raw
+            }
+            enquireHeading
+          }
+          privateVenueSection {
+            subHeading
+            sectionHeading
+            privateVenue {
+              heroMedia {
+                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+                title
+              }
+              introduction {
+                raw
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
