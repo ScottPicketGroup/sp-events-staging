@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import useWindowDimensions from "../../Common/Hooks/useWindowDimensions"
 import { Heading1 } from "../../StyledComponents/typography.css"
 import { EventsSubMenuWrapper, EventsSubMenuItem } from "../menu.css"
@@ -14,11 +14,32 @@ const eventsSubMenu = [
 
 const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const [activeSub, setSubActive] = React.useState("")
-  const [width] = React.useState(useWindowDimensions().width)
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+  
+
+  useEffect(() => {
+
+   
+
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
-      {width < 451 ? (
+      {windowDimensions.width < 451 ? (
         <Heading1 style={{ color: "rgba(255, 255, 255, 50%)" }}
           onClick={() => setSubMenuOpen(false)}
         > <MenuOpenArrow
