@@ -33,6 +33,26 @@ export const MenuWrapperAnimation = keyframes`
  
   }
 `
+export const MobileMenuWrapperAnimation = keyframes`
+  0% {
+    display: none;
+    opacity: 0;
+   width: 0;
+   visibility: hidden;
+   
+  }
+  50% {
+    opacity: 0;
+   
+  }
+  100% {
+    display: flex;
+    opacity: 1;
+    width: 88vw;
+   visibility: visible;
+ 
+  }
+`
 
 export const SlideOutContainer = styled.div`
   height: 100vh;
@@ -55,6 +75,10 @@ const menuWrapperAnimation = css`
   float: right;
   right: 0;
   background: #333333;
+  @media (max-width: 450px) {
+    animation: ${MobileMenuWrapperAnimation} 0.7s linear;
+    width: 88vw;
+  }
 `
 const menuWrapper = css`
   opacity: 0;
@@ -82,6 +106,9 @@ export const MenuItemsContainer = styled.div`
 export const MainMenuWrapper = styled.div`
   width: 50%;
   height: 100vh;
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `
 
 export const EventsSubMenuWrapper = styled.div`
@@ -92,6 +119,12 @@ export const EventsSubMenuWrapper = styled.div`
   display: ${props =>
     props.subMenuOpen && props.active === "Events" ? "initial" : "none "};
   animation: ${fade} 0.2s linear;
+  @media (max-width: 450px) {
+    width: 100vw;
+    position: absolute;
+    padding: 0 ;
+    background: #333333;
+  }
 `
 
 export const MenuOpenArrowWrapper = styled.span`
@@ -103,6 +136,9 @@ export const MenuOpenArrowWrapper = styled.span`
       : props.item !== props.active
       ? "rgba(255, 255, 255, 50%)"
       : "white"};
+      @media (max-width: 450px) {
+        display: ${props => props.subMenu ? 'white' : 'none'};
+      }
 `
 
 export const SubMenuWrapper = styled.div`
@@ -128,6 +164,9 @@ export const MainMenuItem = styled(Heading1)`
       : props.item !== props.active
       ? "rgba(255, 255, 255, 50%)"
       : ""};
+      @media (max-width: 450px) {
+        color: white;
+      }
 `
 const SubMenuItemStyles = css`
   color: ${props =>

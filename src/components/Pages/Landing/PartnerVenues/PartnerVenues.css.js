@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const PartnerVenuesLandingWrapper = styled.div`
 width: 100%;
 display:flex;
+
 @media (max-width: 451px) {
     flex-direction: column;
 }
