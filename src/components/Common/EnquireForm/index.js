@@ -5,9 +5,9 @@ import { SectionContainer } from "../../StyledComponents/containers.css"
 import { ContactFormContainer, FormField } from "./index.css"
 
 import InputContainer from "./InputContainer"
-import DropDown from "./DropDown"
 import TextAreaContainer from "./TextAreaContainer"
 import ButtonContainer from "./ButtonContainer"
+import DropDownSelect from "./DropDownSelect"
 
 const EnquireForm = () => {
   const inputTitles = [
@@ -46,18 +46,16 @@ const EnquireForm = () => {
         <Heading2 marginBottom="md">Your Event Details</Heading2>
         <ContactFormContainer>
           <FormField>
-            <DropDown
-              title="Nature of Event"
-              placeholder="Please select an option"
+            <DropDownSelect
+              title="Nature Of Event"
             />
           </FormField>
           <FormField>
             <InputContainer title="Event Date" />
           </FormField>
           <FormField>
-            <DropDown
-              title="Nature of Event"
-              placeholder="Please select an option"
+            <DropDownSelect
+              title="Number Of People"
             />
           </FormField>
           <FormField
@@ -68,19 +66,23 @@ const EnquireForm = () => {
           </FormField>
           {dropTitles.map((title, index) => (
             <FormField key={index}>
-              <DropDown title={title} placeholder="Please select an option" />
+              <DropDownSelect
+                title={title}
+                isMulti
+              />
             </FormField>
           ))}
           <FormField full>
             <TextAreaContainer
-              title="What Are You Planning"
+              title="What Are You Planning?"
               placeholder="include a massage"
             />
           </FormField>
-          <FormField full>
-            <DropDown
-              title="Nature of Event"
-              placeholder="Please select an option"
+          <FormField style={{marginBottom: "4rem"}} full>
+            <DropDownSelect
+              title="How Did You Hear About Us?"
+              toUp
+              isMulti
             />
           </FormField>
           <ButtonContainer title="Submit" />
