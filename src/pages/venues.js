@@ -60,12 +60,12 @@ const VenuesPage = ({ data }) => {
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
-  const { heroMedia, pageTitle, introduction, featuredPartnerVenue, partnerVenuesRestaurantList, privateVenueSection } = data.allContentfulVenuesPageContent.edges[0].node
+ // const { heroMedia, pageTitle, introduction, featuredPartnerVenue, partnerVenuesRestaurantList, privateVenueSection } = data.allContentfulVenuesPageContent.edges[0].node
 
   return (
     <Layout>
-      <Seo title="FAQs" />
-      <Hero image={heroMedia} />
+      <Seo title="Venues" />
+      {/* <Hero image={heroMedia} />
 
       <PageWrapper>
         <MenuContainer>
@@ -82,10 +82,10 @@ const VenuesPage = ({ data }) => {
                 {menuItem}
               </MenuItem>
             ))}
-        </MenuContainer>
+        </MenuContainer> */}
 
-        <PageContainer >
-          <div ref={el => (itemsRef.current[0] = el)}>
+        {/* <PageContainer > */}
+          {/* <div ref={el => (itemsRef.current[0] = el)}>
             <Intro pageTitle={pageTitle} introduction={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
@@ -103,9 +103,9 @@ const VenuesPage = ({ data }) => {
           </div>
           <div ref={el => (itemsRef.current[5] = el)}>
             <Enquire />
-          </div>
-        </PageContainer>
-      </PageWrapper>
+          </div> */}
+        {/* </PageContainer>
+      </PageWrapper> */}
     </Layout>
   )
 }
@@ -113,75 +113,75 @@ const VenuesPage = ({ data }) => {
 export default VenuesPage
 
 
-export const query = graphql`
-query Venues {
-    allContentfulVenuesPageContent {
-      edges {
-        node {
-          heroMedia {
-            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-            title
-          }
-          introduction {
-            raw
-          }
-          pageTitle
-          spgRestaurants {
-            restaurantName
-            restaurantDescription {
-              raw
-            }
-            location
-            restaurantMedia {
-                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-              }
-          }
-          featuredPartnerVenue {
-            greyBackground
-            featuredRestaurant {
-              restaurantDescription {
-                raw
-              }
-              restaurantMedia {
-                gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-                title
-              }
-              location
-              subHeading
-              restaurantName
-            }
-          }
-          partnerVenuesRestaurantList {
-            location
-            restaurantDescription {
-              raw
-            }
-            restaurantMedia {
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-              title
-            }
-          }
-          enquireSection {
-            enquireDescription {
-              raw
-            }
-            enquireHeading
-          }
-          privateVenueSection {
-            subHeading
-            sectionHeading
-            privateVenue {
-              heroMedia {
-                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-                title
-              }
-              introduction {
-                raw
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+// query Venues {
+//     allContentfulVenuesPageContent {
+//       edges {
+//         node {
+//           heroMedia {
+//             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+//             title
+//           }
+//           introduction {
+//             raw
+//           }
+//           pageTitle
+//           spgRestaurants {
+//             restaurantName
+//             restaurantDescription {
+//               raw
+//             }
+//             location
+//             restaurantMedia {
+//                 gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+//               }
+//           }
+//           featuredPartnerVenue {
+//             greyBackground
+//             featuredRestaurant {
+//               restaurantDescription {
+//                 raw
+//               }
+//               restaurantMedia {
+//                 gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+//                 title
+//               }
+//               location
+//               subHeading
+//               restaurantName
+//             }
+//           }
+//           partnerVenuesRestaurantList {
+//             location
+//             restaurantDescription {
+//               raw
+//             }
+//             restaurantMedia {
+//               gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+//               title
+//             }
+//           }
+//           enquireSection {
+//             enquireDescription {
+//               raw
+//             }
+//             enquireHeading
+//           }
+//           privateVenueSection {
+//             subHeading
+//             sectionHeading
+//             privateVenue {
+//               heroMedia {
+//                 gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+//                 title
+//               }
+//               introduction {
+//                 raw
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
