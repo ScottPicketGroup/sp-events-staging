@@ -3,7 +3,7 @@ import { SectionContainer, SectionWrapper} from "../../StyledComponents/containe
 import { Heading1 } from '../../StyledComponents/typography.css'
 import PartiesAndEventsGrid from './PartiesAndEventsGrid'
 
-const PartiesAndEvents = () => {
+const PartiesAndEvents = ({partiesEvents}) => {
     return (
         <SectionContainer marginTop="lg" marginBottom="lg" >
         <SectionWrapper width="100%">
@@ -11,7 +11,7 @@ const PartiesAndEvents = () => {
                Parties & Events
             </Heading1>
            
-            <PartiesAndEventsGrid/>
+            <PartiesAndEventsGrid partiesEvents={partiesEvents}/>
             </SectionWrapper>
         </SectionContainer>
     )

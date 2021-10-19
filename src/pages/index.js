@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql} from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Hero from "../components/Common/Hero/Hero"
-import Intro from "../components/Pages/Landing/Intro"
+import Hero from "../components/Common/Hero/HeroContentful"
+import Intro from "../components/Pages/Venues/Intro"
+import SPGRestaurants from "../components/Pages/Venues/SPGVenues/SPGRestaurants"
 import {
   PageContainer,
   PageWrapper,
@@ -14,25 +15,11 @@ import {
 import SliderGallery from "../components/Common/SliderGallery/SliderGallery"
 import OurFamily from "../components/Pages/Landing/OurFamily/OurFamily"
 import PartiesAndEvents from "../components/Menu/Parties&Events/PartiesAndEvents"
-import PartnerVenues from "../components/Pages/Landing/PartnerVenues/PartnerVenues"
 import Enquire from "../components/Pages/Landing/Enquire/Enquire"
 import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
+import PartnerVenues from "../components/Pages/Landing/PartnerVenues/PartnerVenues"
+const IndexPage = ({data}) => {
 
-const IndexPage = () => {
-  const image = useStaticQuery(graphql`
-    query HeroImage {
-      allFile(filter: { name: { in: "landing" } }) {
-        edges {
-          node {
-            id
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
-  `)
 
   const menuItems = [
     "Introduction",
@@ -41,7 +28,7 @@ const IndexPage = () => {
     "Parties & Events",
     "Partner Venues",
     "Enquiries",
-    "Instagram",
+    // "Instagram",
   ]
 
   const [items] = useState([])
@@ -78,12 +65,12 @@ const IndexPage = () => {
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
-  console.log(heights[2], items[2], heights[2] + items[2], scrollY)
-
+console.log(data.allContentfulLandingPageContent.edges[0].node)
+const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection} = data.allContentfulLandingPageContent.edges[0].node
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />
-      <Hero image={image} />
+      <Hero image={heroMedia} />
 
       <PageWrapper>
         <MenuContainer>
@@ -103,24 +90,24 @@ const IndexPage = () => {
         </MenuContainer>
 
         <PageContainer>
-          <div ref={el => (itemsRef.current[0] = el)}>
-            <Intro />
-          </div>
+       <div ref={el => (itemsRef.current[0] = el)}>
+       <Intro pageTitle={pageTitle} introduction={introduction} />
+          </div>  
           <div ref={el => (itemsRef.current[1] = el)}>
             <SliderGallery />
-          </div>
+          </div> 
           <div ref={el => (itemsRef.current[2] = el)}>
-            <OurFamily />
+           <SPGRestaurants restaurantList={data.allContentfulLandingPageContent.edges[0].node.ourFamily} title="SPG Restaurants"/>
           </div>
           <div ref={el => (itemsRef.current[3] = el)}>
-            <PartiesAndEvents />
+            <PartiesAndEvents partiesEvents={partiesEvents}/>
           </div>
           <div ref={el => (itemsRef.current[4] = el)}>
-            <PartnerVenues />
+        <PartnerVenues partnerVenuesSection={partnerVenuesSection}/>
           </div>
           <div ref={el => (itemsRef.current[5] = el)}>
             <Enquire />
-          </div>
+          </div> 
           {/* <div ref={el => (itemsRef.current[6] = el)}>
             <FollowUsOnSocial />
           </div> */}
@@ -131,3 +118,66 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+query MyQuery {
+  allContentfulLandingPageContent {
+    edges {
+      node {
+        introduction {
+          raw
+        }
+        heroMedia {
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          title
+        }
+        pageHeading
+        enquireSection {
+          enquireDescription {
+            raw
+          }
+          enquireHeading
+        }
+        gallery {
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          title
+        }
+        ourFamily {
+          location
+          restaurantName
+          restaurantDescription {
+            raw
+          }
+          restaurantMedia {
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          }
+        }
+        partiesEvents {
+          introduction {
+            raw
+          }
+          heroMedia {
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            title
+          }
+          subHeadingForLandingPage
+          pageName
+        }
+        partnerVenuesSection {
+          heading
+          greyBackground
+          introduction {
+            raw
+          }
+          partnerVenuesImage {
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            title
+          }
+          subHeading
+        }
+      }
+    }
+  }
+}
+
+`

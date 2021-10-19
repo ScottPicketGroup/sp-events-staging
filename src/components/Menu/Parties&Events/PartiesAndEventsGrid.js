@@ -1,4 +1,4 @@
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import {
   BC3,
@@ -14,12 +14,14 @@ import {
 
 import {partiesAndEvents} from './PartiesAndEventsArray'
 import ArrowIcon from "../../../images/ArrowIcon"
+import SPGRestaurantListRenderer from "../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 
-const PartiesAndEventsGrid = () => {
+const PartiesAndEventsGrid = ({partiesEvents}) => {
+  console.log(partiesEvents)
   return (
     <Grid cols={2} colsMob={1} full>
-      {partiesAndEvents &&
-        partiesAndEvents.map((item, i) => (
+      {partiesEvents &&
+        partiesEvents.map((item, i) => (
           <Item
           key={i}
           >
@@ -29,18 +31,11 @@ const PartiesAndEventsGrid = () => {
               link={true}
             >
               <FullImageContainer>
-                <StaticImage
-                  placeholder="blurred"
-                  src="../../../images/OurFamily/estelle.png"
-                  alt="Chancery Lane"
-                 
-                />
+                <GatsbyImage image={getImage(item.heroMedia[0])} />
               </FullImageContainer>
-              <Heading2 marginTop="sm">{item.title}</Heading2>
-              <Heading3 marginTop="xs">{item.subTitle}</Heading3>
-              <BC3 marginTop="sm">
-                {item.description}
-              </BC3>
+              <Heading2 marginTop="sm">{item.pageName}</Heading2>
+              <Heading3 marginTop="xs" marginBottom="xs">{item.subHeadingForLandingPage}</Heading3>
+              <SPGRestaurantListRenderer node={item.introduction} />
               <Heading3 marginTop="sm">Discover More    &nbsp;<ArrowIcon/></Heading3>
             </ItemImgLink>
           </Item>

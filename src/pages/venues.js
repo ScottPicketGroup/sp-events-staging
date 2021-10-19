@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql} from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -89,7 +89,7 @@ const VenuesPage = ({ data }) => {
             <Intro pageTitle={pageTitle} introduction={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
-            <SPGRestaurants restaurantList={data.allContentfulVenuesPageContent.edges[0].node.spgRestaurants} />
+            <SPGRestaurants restaurantList={data.allContentfulVenuesPageContent.edges[0].node.spgRestaurants} title="SPG Restaurants"/>
 
           </div>
           <div ref={el => (itemsRef.current[2] = el)}>
