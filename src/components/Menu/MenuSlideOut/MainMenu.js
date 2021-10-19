@@ -19,7 +19,7 @@ const menuItems = [
 
 const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
 
-const width = useWindowDimensions().width
+const [width] = React.useState(useWindowDimensions().width)
 
 
   return (
