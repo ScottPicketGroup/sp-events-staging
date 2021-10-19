@@ -27,8 +27,8 @@ const Accordion = props => {
           <AccordionIcon className={`${setActive}`} />
         </AccordionBlock>
         <AccordionContent ref={content} style={{ maxHeight: `${setHeight}` }}>
-          <Heading3 marginBottom="sm">{props.subTitle}</Heading3>
-          <BC2 marginBottom="sm">{props.content}</BC2>
+          <Heading3 marginBottom="xs">{props.subTitle}</Heading3>
+          <BC2 marginBottom="sm" marginTop="sm">{props.content}</BC2>
         </AccordionContent>
       </AccordionSection>
   )

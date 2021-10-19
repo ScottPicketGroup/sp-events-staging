@@ -13,7 +13,7 @@ export const AccordionSection = styled.div`
 export const AccordionBlock = styled.div`
   background-color: #fff;
   cursor: pointer;
-  padding: 16px 0px;
+  padding: 1rem 0px;
   display: flex;
   align-items: center;
   border: none;

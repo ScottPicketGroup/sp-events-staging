@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const PageContainer = styled.div`
   width: 76%;
   display: flex;
-  align-items: flex-end;
+  align-items:  ${props=>(props.alignItemStart ? "flex-start":"flex-end")};
   flex-direction: column;
 
   @media (max-width: 450px) {
@@ -71,7 +71,6 @@ export const SectionContainer = styled.div`
   @media (max-width: 450px) {
     width: 100%;
     padding: 0 1rem;
-    margin-bottom: 5.9rem;
     background: none;
   }
 `

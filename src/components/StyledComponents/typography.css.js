@@ -72,6 +72,7 @@ export const Heading1 = styled.h1`
   @media (max-width: 450px) {
     font-size: 1.5rem;
     line-height: 1.17;
+    margin-bottom: 1.35rem;
   }
 `
 
@@ -119,7 +120,6 @@ export const Heading2 = styled.h2`
   @media (max-width: 450px) {
     font-size: 1.25rem;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
   }
 `
 

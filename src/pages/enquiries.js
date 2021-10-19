@@ -9,17 +9,17 @@ import {
   PageWrapper,
   MenuContainer,
   MenuItem,
+  SectionContainer,
 } from "../components/StyledComponents/containers.css"
-import Summary from "../components/Pages/FAQ/Summary"
-import FAQSection from "../components/Pages/FAQ/FAQSection"
+import EnquiriesSummary from "../components/Pages/Enquiries/EnquiriesSummary"
+import GeneralEnquiries from "../components/Pages/Enquiries/GeneralEnquiries"
+import EnquireForm from "../components/Common/EnquireForm"
+import { Heading1 } from "../components/StyledComponents/typography.css"
 
-import array1 from "../contents/array1.json"
-import array2 from "../contents/array2.json"
-
-const FAQPage = () => {
+const EnquiriesPage = () => {
   const image = useStaticQuery(graphql`
-    query HeroImageForFAQs {
-      allFile(filter: { name: { in: "landing" } }) {
+    query EnquiriesHeroImage {
+      allFile(filter: { name: { in: "enquiries" } }) {
         edges {
           node {
             id
@@ -46,7 +46,7 @@ const FAQPage = () => {
     }
   })
 
-  const menuItems = ["FAQs", "Heading 1", "Heading 2"]
+  const menuItems = ["Enquiries", "General Enquiries", "Event Enquires"]
 
   const [items] = React.useState([])
   const [heights] = React.useState([])
@@ -91,15 +91,18 @@ const FAQPage = () => {
             ))}
         </MenuContainer>
 
-        <PageContainer>
+        <PageContainer alignItemStart>
           <div ref={el => (itemsRef.current[0] = el)}>
-            <Summary />
+            <EnquiriesSummary />
           </div>
-          <div ref={el => (itemsRef.current[1] = el)} style={{marginBottom:"4rem"}}>
-            <FAQSection title="Heading 1" content={array1} />
+          <div ref={el => (itemsRef.current[1] = el)}>
+            <GeneralEnquiries />
           </div>
-          <div ref={el => (itemsRef.current[2] = el)} style={{marginBottom:"8rem"}}>
-            <FAQSection title="Heading 2" content={array2} />
+          <div ref={el => (itemsRef.current[2] = el)}>
+            <SectionContainer marginBottom="sm">
+              <Heading1 marginBottom="lg">Event Enquiries</Heading1>
+            </SectionContainer>
+            <EnquireForm />
           </div>
         </PageContainer>
       </PageWrapper>
@@ -107,4 +110,4 @@ const FAQPage = () => {
   )
 }
 
-export default FAQPage
+export default EnquiriesPage
