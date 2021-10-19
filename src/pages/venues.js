@@ -9,17 +9,20 @@ import {
   PageWrapper,
   MenuContainer,
   MenuItem,
-  SectionContainer,
 } from "../components/StyledComponents/containers.css"
-import EnquiriesSummary from "../components/Pages/Enquiries/EnquiriesSummary"
-import GeneralEnquiries from "../components/Pages/Enquiries/GeneralEnquiries"
-import EnquireForm from "../components/Common/EnquireForm"
-import { Heading1 } from "../components/StyledComponents/typography.css"
 
-const VenuesPage = ({data}) => {
+import Intro from "../components/Pages/Venues/Intro"
+
+import SPGRestaurants from "../components/Pages/Venues/SPGVenues/SPGRestaurants"
+import FeatureVenue from "../components/Pages/Venues/FeatureVenue/FeatureVenue"
+import PartnerVenues from "../components/Pages/Venues/PartnerVenues/PartnerVenues"
+import PrivateVenue from "../components/Pages/Venues/PrivateVenue/PrivateVenue"
+import Enquire from "../components/Pages/Landing/Enquire/Enquire"
+
+const VenuesPage = ({ data }) => {
 
 
- 
+
   const [scrollY, setScrollY] = useState(0)
 
   const logit = () => setScrollY(window.pageYOffset)
@@ -57,12 +60,12 @@ const VenuesPage = ({data}) => {
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
-const {heroMedia} = data.allContentfulVenuesPageContent.edges[0].node
+  const { heroMedia, pageTitle, introduction, featuredPartnerVenue, partnerVenuesRestaurantList, privateVenueSection } = data.allContentfulVenuesPageContent.edges[0].node
 
   return (
     <Layout>
       <Seo title="FAQs" />
-       <Hero image={heroMedia} />
+      <Hero image={heroMedia} />
 
       <PageWrapper>
         <MenuContainer>
@@ -81,21 +84,28 @@ const {heroMedia} = data.allContentfulVenuesPageContent.edges[0].node
             ))}
         </MenuContainer>
 
-        <PageContainer alignItemStart>
+        <PageContainer >
           <div ref={el => (itemsRef.current[0] = el)}>
-            <EnquiriesSummary />
+            <Intro pageTitle={pageTitle} introduction={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
-            <GeneralEnquiries />
+            <SPGRestaurants restaurantList={data.allContentfulVenuesPageContent.edges[0].node.spgRestaurants} />
+
           </div>
           <div ref={el => (itemsRef.current[2] = el)}>
-            <SectionContainer marginBottom="sm">
-              <Heading1 marginBottom="lg">Event Enquiries</Heading1>
-            </SectionContainer>
-            <EnquireForm />
+            <FeatureVenue featuredPartnerVenue={featuredPartnerVenue} />
+          </div>
+          <div ref={el => (itemsRef.current[3] = el)}>
+            <PartnerVenues restaurantList={partnerVenuesRestaurantList} />
+          </div>
+          <div ref={el => (itemsRef.current[4] = el)}>
+            <PrivateVenue privateVenueSection={privateVenueSection} />
+          </div>
+          <div ref={el => (itemsRef.current[5] = el)}>
+            <Enquire />
           </div>
         </PageContainer>
-      </PageWrapper> 
+      </PageWrapper>
     </Layout>
   )
 }
@@ -122,6 +132,9 @@ query Venues {
               raw
             }
             location
+            restaurantMedia {
+                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+              }
           }
           featuredPartnerVenue {
             greyBackground
