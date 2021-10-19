@@ -60,12 +60,12 @@ const VenuesPage = ({ data }) => {
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
- // const { heroMedia, pageTitle, introduction, featuredPartnerVenue, partnerVenuesRestaurantList, privateVenueSection } = data.allContentfulVenuesPageContent.edges[0].node
+ const { heroMedia, pageTitle, introduction, featuredPartnerVenue, partnerVenuesRestaurantList, privateVenueSection } = data.allContentfulVenuesPageContent.edges[0].node
 
   return (
     <Layout>
       <Seo title="Venues" />
-      {/* <Hero image={heroMedia} />
+      <Hero image={heroMedia} />
 
       <PageWrapper>
         <MenuContainer>
@@ -82,10 +82,10 @@ const VenuesPage = ({ data }) => {
                 {menuItem}
               </MenuItem>
             ))}
-        </MenuContainer> */}
+        </MenuContainer> 
 
-        {/* <PageContainer > */}
-          {/* <div ref={el => (itemsRef.current[0] = el)}>
+        <PageContainer > 
+           <div ref={el => (itemsRef.current[0] = el)}>
             <Intro pageTitle={pageTitle} introduction={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
@@ -103,9 +103,9 @@ const VenuesPage = ({ data }) => {
           </div>
           <div ref={el => (itemsRef.current[5] = el)}>
             <Enquire />
-          </div> */}
-        {/* </PageContainer>
-      </PageWrapper> */}
+          </div>
+       </PageContainer>
+      </PageWrapper>
     </Layout>
   )
 }
