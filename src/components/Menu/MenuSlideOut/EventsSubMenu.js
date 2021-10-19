@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import useWindowDimensions from "../../Common/Hooks/useWindowDimensions"
+import styled from 'styled-components';
 import { Heading1 } from "../../StyledComponents/typography.css"
 import { EventsSubMenuWrapper, EventsSubMenuItem } from "../menu.css"
 import MenuOpenArrow from "./MenuOpenArrow"
@@ -14,21 +14,18 @@ const eventsSubMenu = [
 
 const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const [activeSub, setSubActive] = React.useState("")
-  const [width, setWidth] = useState();
  
-  useEffect(() => {
-    setWidth(window.innerWidth)
-  }, []);
 
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
-      {width < 451 ? (
+    
+        <MobileBackButtonWrapper><MenuOpenArrow
+            subMenu
+          />
         <Heading1 style={{ color: "rgba(255, 255, 255, 50%)" }}
           onClick={() => setSubMenuOpen(false)}
-        > <MenuOpenArrow
-            subMenu
-          /> Back</Heading1>
-      ) : null}
+        >  Back</Heading1>
+      </MobileBackButtonWrapper>
       {eventsSubMenu.map((item, index) => (
         <EventsSubMenuItem
           key={index}
@@ -47,3 +44,9 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
 }
 
 export default EventsSubMenu
+
+export const MobileBackButtonWrapper = styled.div`
+@media (min-width: 450px) {
+  display: none;
+}
+`
