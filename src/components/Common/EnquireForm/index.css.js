@@ -1,4 +1,35 @@
+import { keyframes } from "styled-components"
 import styled from "styled-components"
+
+export const toDownFadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
+export const toUpFadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 export const FormField = styled.div`
   width: ${props => (props.full ? "100%" : "49%")};
@@ -11,7 +42,7 @@ export const FormField = styled.div`
 export const TextAreaWrapper = styled.div`
   margin-top: 6px;
   margin-bottom: 16px;
-  
+
   & > textarea {
     width: 100%;
     padding: 12px;
@@ -68,78 +99,11 @@ export const InputWrapper = styled.div`
 export const DropDownWrapper = styled.div`
   position: relative;
   min-height: 80px;
-`
-export const DropdownContainer = styled.div`
-  width: 100%;
-  min-width: 12em;
-  position: absolute;
-  display: inline-block;
-  min-height: 36px;
-  max-height: 36px;
-  overflow: hidden;
-  cursor: pointer;
-  text-align: left;
-  white-space: nowrap;
-  color: #444;
-  margin-bottom: 16px;
-  outline: none;
-  border: 0.06em solid black;
-  transition: 0.2s all ease-in-out;
-  padding: 0 12px;
-  z-index: 1;
 
-  input:focus + label {
-    background: #def;
-  }
-  input {
-    width: 1px;
-    height: 1px;
-    display: inline-block;
-    position: absolute;
-    opacity: 0.01;
-  }
-  p {
-    border-top: 0.06em solid #d9d9d9;
-    display: block;
-    cursor: pointer;
-    position: relative;
-    transition: 0.2s color ease-in-out;
-    line-height: 36px;
-
-    &:nth-child(2) {
-      margin-top: 36px;
-      border-top: 0.06em solid #d9d9d9;
-    }
-  }
-  input:checked + p {
-    display: block;
-    border-top: none;
-    position: absolute;
-    top: 0;
-
-    &:nth-child(2) {
-      margin-top: 0;
-      position: relative;
-    }
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0.8em;
-    top: 0.9em;
-    border: 0.3em solid black;
-    border-color: black transparent transparent transparent;
-    transition: 0.2s all ease-in-out;
-  }
-  &.expanded {
-    background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
-    max-height: 15em;
-    z-index: 2;
-
-    p {
-      border-top: 0.06em solid #d9d9d9;
-    }
-  }
+  // .menu-down {
+  //   animation: ${toDownFadeIn} 0.5s ease-in-out;
+  // }
+  // .menu-up {
+  //   animation: ${toUpFadeIn} 0.5s ease-in-out;
+  // }
 `
