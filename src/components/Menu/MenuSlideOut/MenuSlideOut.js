@@ -14,7 +14,7 @@ const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
   const [subMenuOpen, setSubMenuOpen] = React.useState(true)
 
   return (
-    <SlideOutContainer menuOpen={menuOpen} onClick={() => setMenuOpen(false)}>
+    <SlideOutContainer menuOpen={menuOpen} >
       <MenuWrapper  menuOpen={menuOpen}>
         <MenuHeaderWrapper
           menuOpen={menuOpen}
@@ -30,7 +30,7 @@ const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
             subMenuOpen={subMenuOpen}
             setSubMenuOpen={setSubMenuOpen}
           />
-          <EventsSubMenu active={active} setActive={setActive} subMenuOpen={subMenuOpen}/>
+          <EventsSubMenu active={active} setActive={setActive} subMenuOpen={subMenuOpen} setSubMenuOpen={setSubMenuOpen}/>
         </MenuItemsContainer>
         
       </MenuWrapper>

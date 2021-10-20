@@ -121,9 +121,9 @@ const IndexPage = () => {
           <div ref={el => (itemsRef.current[5] = el)}>
             <Enquire />
           </div>
-          <div ref={el => (itemsRef.current[6] = el)}>
+          {/* <div ref={el => (itemsRef.current[6] = el)}>
             <FollowUsOnSocial />
-          </div>
+          </div> */}
         </PageContainer>
       </PageWrapper>
     </Layout>

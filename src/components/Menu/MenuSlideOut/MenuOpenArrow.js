@@ -1,15 +1,15 @@
 import React from "react"
 import { MenuOpenArrowWrapper } from "../menu.css"
 
-const MenuOpenArrow = ({ active, item, setSubMenuOpen }) => {
+const MenuOpenArrow = ({ active, item, setSubMenuOpen, subMenu }) => {
   return (
     <MenuOpenArrowWrapper
     active={active}
     item={item}
-    
+    subMenu
     >
       <svg
-        style={{ marginLeft: `12rem` }}
+        style={{ marginLeft: !subMenu ? `12rem` : '', stroke: subMenu ? "rgba(255, 255, 255, 50%)" : '', transform: subMenu ? 'rotate(190deg)' : '' }}
         xmlns="http://www.w3.org/2000/svg"
         width="9.15"
         height="15.472"
