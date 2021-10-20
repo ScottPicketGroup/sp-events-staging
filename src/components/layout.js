@@ -3,6 +3,7 @@ import * as React from "react"
 import './layout.css'
 
 import Header from "../components/Common/Header/Header"
+import Footer from "./Common/Footer/Footer"
 
 
 const Layout = ({ children }) => {
@@ -17,11 +18,9 @@ const Layout = ({ children }) => {
         
       >
         <main>{children}</main>
-        <footer
-         
-        >
+       <Footer />
        
-        </footer>
+        
       </div>
     </div>
   )

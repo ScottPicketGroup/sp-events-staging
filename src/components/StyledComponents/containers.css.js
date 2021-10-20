@@ -191,3 +191,18 @@ export const FullImageContainer = styled.div`
   display: inline;
   width: 100%;
 `
+
+export const DesktopWrapper = styled.div`
+@media (max-width: 451px) {
+    display: none;
+}
+`
+
+export const MobileWrapper = styled.div`
+display:${props => props.imageControls ? ' flex': ''};
+width:${props => props.imageControls ? ' 100%': ''};
+justify-content:${props => props.imageControls ? ' space-between': ''};
+@media (min-width: 451px) {
+    display: none
+}
+`
