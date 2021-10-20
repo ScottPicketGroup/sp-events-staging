@@ -154,6 +154,7 @@ query MyQuery {
           }
         }
         partiesEvents {
+          id
           introduction {
             raw
           }

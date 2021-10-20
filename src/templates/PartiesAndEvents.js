@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import Hero from "../components/Common/Hero/HeroContentful"
 
 import {
   PageContainer,
@@ -12,7 +15,22 @@ import SliderGallery from "../components/Common/SliderGallery/SliderGallery"
 import GalleryDescription from "../components/Pages/PartiesAndEvents/GalleryDescription"
 import EnquireForm from "../components/Common/EnquireForm"
 
-const PartiesAndEvents = () => {
+const PartiesAndEvents = ({ pageContext }) => {
+  const {
+    pageName,
+    heroMedia,
+    introduction,
+    sliderGallery,
+    mainPageContent,
+    mainPageHeading,
+    sampleMenusHeading,
+    sampleMenusIntroduction,
+    landing_page_content,
+  } = pageContext.eventData
+
+  const { enquireHeading, enquireDescription } =
+    landing_page_content[0].enquireSection
+
   const menuItems = ["Introduction", "Gallery", "Sample Menus", "Enquires"]
 
   const [items] = useState([])
@@ -50,52 +68,52 @@ const PartiesAndEvents = () => {
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
   return (
-    <PageWrapper>
-      <MenuContainer>
-        {items &&
-          itemsRef.current &&
-          menuItems.map((menuItem, i) => (
-            <MenuItem
-              key={i}
-              onClick={() => executeScroll(i)}
-              sH={items[i]}
-              sT={heights[i]}
-              scrollY={scrollY}
-            >
-              {menuItem}
-            </MenuItem>
-          ))}
-      </MenuContainer>
-      <PageContainer>
-        <div ref={el => (itemsRef.current[0] = el)}>
-          <PageIntro
-            title="Weddings"
-            intro="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsa luptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, sectetur."
-          />
-        </div>
-        <div ref={el => (itemsRef.current[1] = el)}>
-          <SliderGallery />
-          <GalleryDescription />
-        </div>
-        <div ref={el => (itemsRef.current[2] = el)}>
-          <PageIntro
-            title="Sample Menus"
-            intro="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsa luptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, sectetur."
-            option
-          />
-        </div>
-        <div ref={el => (itemsRef.current[3] = el)}>
-          <PageIntro
-            title="Enquire"
-            intro="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsa luptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, sectetur."
-            none
-          />
-        </div>
-        <div style={{ width: "100%" }}>
-          <EnquireForm />
-        </div>
-      </PageContainer>
-    </PageWrapper>
+    <Layout>
+      <Seo title={pageName} />
+      <Hero image={heroMedia[0].gatsbyImageData} />
+      <PageWrapper>
+        <MenuContainer>
+          {items &&
+            itemsRef.current &&
+            menuItems.map((menuItem, i) => (
+              <MenuItem
+                key={i}
+                onClick={() => executeScroll(i)}
+                sH={items[i]}
+                sT={heights[i]}
+                scrollY={scrollY}
+              >
+                {menuItem}
+              </MenuItem>
+            ))}
+        </MenuContainer>
+        <PageContainer>
+          <div ref={el => (itemsRef.current[0] = el)}>
+            <PageIntro title={pageName} intro={introduction} />
+          </div>
+          <div ref={el => (itemsRef.current[1] = el)}>
+            <SliderGallery sliders={sliderGallery} />
+            <GalleryDescription
+              title={mainPageHeading}
+              content={mainPageContent}
+            />
+          </div>
+          <div ref={el => (itemsRef.current[2] = el)}>
+            <PageIntro
+              title={sampleMenusHeading}
+              intro={sampleMenusIntroduction}
+              option
+            />
+          </div>
+          <div ref={el => (itemsRef.current[3] = el)}>
+            <PageIntro title={enquireHeading} intro={enquireDescription} none />
+          </div>
+          <div style={{ width: "100%" }}>
+            <EnquireForm />
+          </div>
+        </PageContainer>
+      </PageWrapper>
+    </Layout>
   )
 }
 

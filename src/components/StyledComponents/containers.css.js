@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "gatsby";
 
 export const PageContainer = styled.div`
   width: 76%;
@@ -173,6 +174,15 @@ export const ItemImgLink = styled.a`
     opacity: ${props => (props.link ? 0.5 : 1)};
   }
 `
+export const ItemImgGatsbyLink = styled(Link)`
+  text-decoration: none;
+
+  color: #333333;
+  &:hover {
+    opacity: ${props => (props.link ? 0.5 : 1)};
+  }
+`
+
 export const ItemImg = styled.div`
   min-height: 250px;
   min-width: 150px;

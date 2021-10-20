@@ -3,7 +3,7 @@ import { SectionContainer } from '../../StyledComponents/containers.css'
 import { Heading1 } from '../../StyledComponents/typography.css'
 import Slider from './Slider/Slider'
 
-const SliderGallery = () => {
+const SliderGallery = ({ sliders }) => {
     return (
        <SectionContainer marginBottom="xl">
            <Heading1 marginBottom="sm">
