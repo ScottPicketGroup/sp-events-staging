@@ -24,7 +24,7 @@ const IndexPage = ({data}) => {
   const menuItems = [
     "Introduction",
     "Gallery",
-    "OurFamily",
+    "Our Family",
     "Parties & Events",
     "Partner Venues",
     "Enquiries",
