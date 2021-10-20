@@ -124,9 +124,9 @@ text-decoration: none;
         return "0"
     }
   }};
-  :hover {
+  /* :hover {
     font-family: bold;
-  }
+  } */
   @media (max-width: 450px) {
     font-size: 1rem;
     margin-bottom: 2.35rem;

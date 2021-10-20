@@ -18,6 +18,7 @@ import PartiesAndEvents from "../components/Menu/Parties&Events/PartiesAndEvents
 import Enquire from "../components/Pages/Landing/Enquire/Enquire"
 import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
 import PartnerVenues from "../components/Pages/Landing/PartnerVenues/PartnerVenues"
+import GallerySlider from "../components/Common/GallerySlider/GallerySlider"
 const IndexPage = ({data}) => {
 
 
@@ -66,7 +67,7 @@ const IndexPage = ({data}) => {
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
 console.log(data.allContentfulLandingPageContent.edges[0].node)
-const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection} = data.allContentfulLandingPageContent.edges[0].node
+const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection, gallery} = data.allContentfulLandingPageContent.edges[0].node
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />
@@ -94,7 +95,7 @@ const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection} 
        <Intro pageTitle={pageTitle} introduction={introduction} />
           </div>  
           <div ref={el => (itemsRef.current[1] = el)}>
-            <SliderGallery />
+        <GallerySlider images={gallery} />
           </div> 
           <div ref={el => (itemsRef.current[2] = el)}>
            <SPGRestaurants restaurantList={data.allContentfulLandingPageContent.edges[0].node.ourFamily} title="SPG Restaurants"/>
