@@ -14,11 +14,12 @@ import ImageAndDescription from "../components/Pages/SampleMenus/ImageAndDescrip
 import AccordionWithImage from "../components/Common/AccordionWithImage/AccordionWithImage"
 
 import sampleMenuArray from "../contents/sampleMenuArray.json"
+import AccordionWithMenuSections from "../components/Common/AccordionWithImage/AccordianWithMenuSections"
 
 
 const SampleMenus = ({data}) => {
   const [menuItems, setMenuItems] =  React.useState([])
- 
+  
 
   useEffect(() => {
     const venues = []
@@ -95,15 +96,44 @@ const SampleMenus = ({data}) => {
             image={venue.venueImage}
           />
          <SectionContainer marginBottom="lg">
-            {sampleMenuArray[1].accordion.map((item, index) => (
-              <AccordionWithImage
-                key={index}
-                title={item.title}
-                content={item.content}
-                description={item.description}
-                // image={imageDatas.allFile.nodes.filter(item => item.name === "accordion")[0].childImageSharp}
-              />
-            ))}
+        {
+          venue.canaps && <AccordionWithImage
+               
+          title="Canapés"
+          content={venue.canaps}
+          // description={item.description}
+          image={venue.canapsImage}
+        />
+        }
+              
+              
+             {venue.sitDownMenu && <AccordionWithMenuSections
+               
+               title="Sit Down Menu"
+               content={venue.sitDownMenu}
+               // description={item.description}
+               image={venue.canapsImage}
+             />}
+             {venue.sharedTableMenu && 
+             <AccordionWithMenuSections
+               
+             title="Shared Table Menu"
+             content={venue.sharedTableMenu}
+             // description={item.description}
+             image={venue.canapsImage}
+           />
+             }
+
+             {
+               venue.drinksMenu &&  <AccordionWithImage
+               
+               title="Drinks"
+               content={venue.drinksMenu}
+               // description={item.description}
+               image={venue.drinksMenuImage}
+             />
+             }
+    
           </SectionContainer>
         </div>
 

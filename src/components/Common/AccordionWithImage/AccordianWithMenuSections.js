@@ -12,7 +12,7 @@ import {
   AccordionContentTextSection,
 } from "./AccordionWithImage.css"
 
-const AccordionWithImage = ({content, title, image}) => {
+const AccordionWithMenuSections = ({content, title, image}) => {
   const [setActive, setActiveState] = useState("")
   const [setHeight, setHeightState] = useState("0px")
 
@@ -40,13 +40,37 @@ const AccordionWithImage = ({content, title, image}) => {
     
    
         <AccordionContentText >
-     
-          {content.map((item, index) => (
+      {/* Entrees Section Heading */}
+      <Heading3>{content[0].entrees}</Heading3>
+      {/* Map entree menu Items */}
+          {content[0].entreeMenuItems.map((item, index) => (
             <AccordionContentTextSection key={index}>
                 <BC2 marginBottom="sm">{item.menuItem}</BC2>
             </AccordionContentTextSection>
           ))}
+
+          {/* Main Section Heading */}
+      <Heading3>{content[0].main}</Heading3>
+      {/* Map Main menu Items */}
+          {content[0].mainMenuItems.map((item, index) => (
+            <AccordionContentTextSection key={index}>
+                <BC2 marginBottom="sm">{item.menuItem}</BC2>
+            </AccordionContentTextSection>
+          ))}
+
+
+                {/* Main Section Heading */}
+      <Heading3>{content[0].dessertsHeading}</Heading3>
+      {/* Map Main menu Items */}
+          {content[0].mainMenuItems.map((item, index) => (
+            <AccordionContentTextSection key={index}>
+                <BC2 marginBottom="sm">{item.menuItem}</BC2>
+            </AccordionContentTextSection>
+          ))}
+
         </AccordionContentText>
+
+       
       
       {/* image */}
         <AccordionContentImage>
@@ -59,4 +83,4 @@ const AccordionWithImage = ({content, title, image}) => {
   )
 }
 
-export default AccordionWithImage
+export default AccordionWithMenuSections

@@ -9,6 +9,7 @@ export const AccordionSection = styled.div`
   &:last-of-type {
     border-bottom: 1px solid #b1b3b6;
   }
+ 
 `
 
 /* Style the buttons that are used to open and close the accordion panel */
@@ -93,6 +94,7 @@ export const AccordionIcon = styled.button`
 
 export const AccordionContentText = styled.div`
   width: 65%;
+
   @media (max-width: 451px) {
     width: 100%;
     order: 1;
@@ -117,7 +119,9 @@ export const HeroImage = styled(GatsbyImage)`
 
 export const BorderBottom = styled.div`
   border-bottom: 1px solid #b1b3b6;
+  
 `
 export const AccordionContentTextSection = styled.div`
   margin-bottom: 2rem;
+  border-top: 1px solid #b1b3b6;
 `
