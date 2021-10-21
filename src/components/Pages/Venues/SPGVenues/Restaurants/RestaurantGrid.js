@@ -12,13 +12,11 @@ import {
   ItemImgLink,
 } from "../../../../StyledComponents/containers.css"
 
-
 import ArrowIcon from "../../../../../images/ArrowIcon"
 import SPGRestaurantListRenderer from "../../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 
-
 const RestaurantGrid = ({restaurantList}) => {
-  console.log(restaurantList)
+ 
   return (
     <Grid cols={3} full>
       {restaurantList &&

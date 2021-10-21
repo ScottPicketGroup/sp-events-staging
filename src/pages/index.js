@@ -18,8 +18,13 @@ import Enquire from "../components/Pages/Landing/Enquire/Enquire"
 import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
 import PartnerVenues from "../components/Pages/Landing/PartnerVenues/PartnerVenues"
 import GallerySlider from "../components/Common/GallerySlider/GallerySlider"
+import useWatchScroll from "../components/Common/Hooks/useWatchScroll"
+import useRefAttributes from "../components/Common/Hooks/useRefAttributes"
 const IndexPage = ({data}) => {
-
+  const itemsRef = useRef([])
+  
+const {scrollY} = useWatchScroll()
+const {items, heights} = useRefAttributes(itemsRef)
 
   const menuItems = [
     "Introduction",
@@ -30,37 +35,6 @@ const IndexPage = ({data}) => {
     "Enquiries",
     // "Instagram",
   ]
-
-  const [items] = useState([])
-  const [heights] = useState([])
-  const [scrollY, setScrollY] = useState(0)
-
-  const itemsRef = useRef([])
-
-  const logit = () => setScrollY(window.pageYOffset)
-
-  useEffect(() => {
-    const watchScroll = () => {
-      window.addEventListener("scroll", logit)
-    }
-    watchScroll()
-    return () => {
-      window.removeEventListener("scroll", logit)
-    }
-  })
-
-  useEffect(() => {
-    itemsRef.current.forEach(i => {
-      const meh = i.getBoundingClientRect()
-
-      items.push(meh.top)
-    })
-    itemsRef.current.forEach(i => {
-      const scrollTop = i.scrollHeight
-      heights.push(scrollTop)
-    })
-    itemsRef.current = itemsRef.current.slice(0, items.length)
-  }, [items, heights])
 
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
@@ -74,7 +48,6 @@ const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection, 
       <PageWrapper>
         <MenuContainer>
           {items &&
-            itemsRef.current &&
             menuItems.map((menuItem, i) => (
               <MenuItem
                 key={i}
@@ -84,6 +57,7 @@ const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection, 
                 scrollY={scrollY}
               >
                 {menuItem}
+                {console.log(items[i], heights[i])}
               </MenuItem>
             ))}
         </MenuContainer>

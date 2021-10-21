@@ -17,7 +17,6 @@ import {
 
 const ImageAndDescription = ({ data, image }) => {
 
-  console.log(data)
   return (
     <SectionContainer marginBottom="md">
       <Heading1 marginBottom="sm">{data.venueName}</Heading1>
