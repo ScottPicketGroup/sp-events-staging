@@ -9,7 +9,7 @@ import {
 import CloseLogo from "./CloseLogo"
 import MainMenu from "./MainMenu"
 import EventsSubMenu from "./EventsSubMenu"
-import useWindowDimensions from "../../Common/Hooks/useWindowDimensions"
+import useWindowSize from "../../Common/Hooks/useWindowDimensions"
 const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
   const [active, setActive] = React.useState("")
   const [subMenuOpen, setSubMenuOpen] = React.useState(true)
