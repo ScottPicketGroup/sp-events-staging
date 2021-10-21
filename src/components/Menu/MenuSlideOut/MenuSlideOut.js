@@ -9,13 +9,10 @@ import {
 import CloseLogo from "./CloseLogo"
 import MainMenu from "./MainMenu"
 import EventsSubMenu from "./EventsSubMenu"
-import useWindowSize from "../../Common/Hooks/useWindowDimensions"
+
 const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
   const [active, setActive] = React.useState("")
   const [subMenuOpen, setSubMenuOpen] = React.useState(true)
-
-const {width} = useWindowSize()
-console.log(width)
 
   return (
     <SlideOutContainer menuOpen={menuOpen} >
