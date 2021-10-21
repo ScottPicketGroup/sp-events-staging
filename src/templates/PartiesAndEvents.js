@@ -14,6 +14,7 @@ import PageIntro from "../components/Common/PageIntro"
 import SliderGallery from "../components/Common/SliderGallery/SliderGallery"
 import GalleryDescription from "../components/Pages/PartiesAndEvents/GalleryDescription"
 import EnquireForm from "../components/Common/EnquireForm"
+import RestaurantSlider from "../components/Common/GallerySlider/GallerySlider"
 
 const PartiesAndEvents = ({ pageContext }) => {
   const {
@@ -92,7 +93,7 @@ const PartiesAndEvents = ({ pageContext }) => {
             <PageIntro title={pageName} intro={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
-            <SliderGallery sliders={sliderGallery} />
+            <RestaurantSlider images={sliderGallery} />
             <GalleryDescription
               title={mainPageHeading}
               content={mainPageContent}

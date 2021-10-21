@@ -1,53 +1,54 @@
-import React, { useRef} from "react"
+import React from "react"
+import { Heading1 } from "../../StyledComponents/typography.css"
 
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
-import { Slide, SliderContainer } from "./GallerySlider.css"
-import {SectionContainer } from "../../StyledComponents/containers.css"
+import { Card, Constrols, Container, ImageContainer } from "./GallerySlider.css"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { useSwipeable } from "react-swipeable"
+import Controls from "./Controls"
 
-const GallerySlider = ({ images }) => {
-  const mouseDownRef = useRef(null)
-  const [imageArr] = React.useState(images)
-  const [counter, setCounter] = React.useState(0)
+const RestaurantSlider = ({ images }) => {
+  const [active, setActive] = React.useState(0)
+  const [imagesArr, setImagesArr] = React.useState(images)
 
-  const handleOnMouseDown = e => {
-    mouseDownRef.current = e.screenX
-  }
+  React.useEffect(() => {
+    if (images.length < 3) setImagesArr([...images, ...images])
+  }, [])
 
-  const handleDragEnd = e => {
-   
-    if(e.screenX > mouseDownRef.current) setCounter(counter + 1)
-    else if (e.screenX < mouseDownRef.current) setCounter(counter - 1)
-  }
+  React.useEffect(() => {
+    const newArr = [...imagesArr]
+    newArr.push(imagesArr[active])
+    setImagesArr(newArr)
+  }, [active])
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => active >= 0 && active < imagesArr.length - 1 ? setActive(active + 1) : null,
+    onSwipedRight: () => active >= 0 && active < imagesArr.length  ? setActive(active - 1) : null
+  })
 
   return (
-    <SectionContainer >
-    <SliderContainer draggable="true" >
-      
-      {imageArr &&
-        imageArr.map((image, id) => (
-          <Slide
-          ref={mouseDownRef}
-            id={id}
-            counter={counter}
-            onTouchStart={handleOnMouseDown}
-            onTouchEnd={handleDragEnd}
-            onMouseDown={handleOnMouseDown}
-            onDragEnd={handleDragEnd}
-            key={id}
-          >
-            <GatsbyImage
-              image={getImage(image)}
-              
-              alt="instagram image"
-              key={id}
-            />
-          </Slide>
-        ))}
-    </SliderContainer>
-    </SectionContainer>
+    <Container {...handlers}>
+      <Heading1>Gallery</Heading1>
+      <ImageContainer>
+        {imagesArr &&
+          imagesArr.map((image, i) => (
+            <Card key={i} i={i} active={active}>
+              <GatsbyImage
+                image={getImage(image)}
+                style={{
+                  width: `50vw`,
+                  aspectRatio: `3/2`,
+                }}
+              />
+            </Card>
+          ))}
+        <Controls
+          active={active}
+          setActive={setActive}
+          limit={imagesArr.length}
+        />
+      </ImageContainer>
+    </Container>
   )
 }
 
-export default GallerySlider
-
-// activeslide + id * 150px
+export default RestaurantSlider

@@ -1,9 +1,7 @@
 import React from "react"
 import { Heading1, Heading2, Heading3 } from "../../../../StyledComponents/typography.css"
-import { FullImageContainer, Grid, Item, ItemImgLink, SliderContainer } from "../OurFamily.css"
-import styled from 'styled-components';
-import Renderer from "../../../../Common/Rich-Text-Renderers/Intro";
-import { SectionContainer } from "../../../../StyledComponents/containers.css";
+import { FullImageContainer, ItemImgLink} from "../OurFamily.css"
+
 import { Card, Container, ImageContainer } from "./RestaurantSlider.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SPGRestaurantListRenderer from "../../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer";
@@ -24,10 +22,9 @@ const RestaurantSlider = ({ restaurantList }) => {
 
         <Container {...handlers}>
             <Heading1
-                marginBottom="md"
-                onClick={() => setActive(active + 1)}
+               
             >
-                plus - {active}
+                Our Family
             </Heading1>
             <ImageContainer>
                 {restaurantList.map((r, i) => (

@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`
@@ -22,11 +23,11 @@ justify-content: space-between;
 }
 `
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
 
 `
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled(Link)`
 height: 100%;
 display: flex;
 align-items: center;

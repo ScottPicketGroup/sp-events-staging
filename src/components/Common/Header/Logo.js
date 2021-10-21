@@ -3,7 +3,7 @@ import { DesktopWrapper, LogoWrapper, MobileWrapper } from "./header.css"
 
 const Logo = () => {
   return (
-    <LogoWrapper>
+    <LogoWrapper to="/">
       <DesktopWrapper>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.454 73.666">
           <g

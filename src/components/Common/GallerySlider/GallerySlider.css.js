@@ -1,18 +1,56 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const SliderContainer = styled.div`
-width: 100%;
+export const Container = styled.div`
+
+  width: 72vw;
+  height: auto;
+  display: flex;
+ flex-direction: column;
+  position: relative;
+  height: auto;
+  margin-bottom: 5rem;
+  overflow: hidden;
+`;
+
+export const ImageContainer = styled.div`
+margin-top: 2.25rem;
+width:  100vw; 
+height: 33vw;
+position: relative;
 display: flex;
-margin-bottom: 10rem;
-overflow: hidden;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+`
+
+export const Card = styled.div`
+height: auto;
+width: 75vw;
+
+margin-left: ${props =>
+props.active === props.i + 1? '0vw' :
+`${(props.i - props.active) * 60 }vw`};
+transition: margin-left 550ms ease-in-out;
+position: absolute;
+top: 0;
+
 
 `
 
-export const Slide = styled.div`
+export const Constrols = styled.div`
+  height: 100%;
+  width: 10vw;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 40vw;
+`;
 
-top: 50;
-z-index: ${props => props.id};
-transition: margin-left .5s ease-in-out;
-margin-left: 0;
-`
-//margin-left: ${props => props.id + props.counter  <= 1 ? "0": `${(props.id - 1 + props.counter)* 155}px`};
+export const Control = styled.div`
+  &:first-of-type {
+      margin-bottom: 2rem;
+  }
+`;
