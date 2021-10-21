@@ -15,7 +15,7 @@ const RestaurantSlider = ({ restaurantList }) => {
 
     const handlers = useSwipeable({
         onSwipedLeft: () => active >= 0 && active < restaurantList.length - 1 ? setActive(active + 1) : null,
-        onSwipedRight: () => active < restaurantList.length - 1 ? setActive(active - 1) : null
+        onSwipedRight: () => active >= 0 && active < restaurantList.length  ? setActive(active - 1) : null
       
       })
     
