@@ -1,6 +1,6 @@
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
-import { BC3, Heading2, Heading3 } from "../../StyledComponents/typography.css"
+import { Heading2, Heading3 } from "../../StyledComponents/typography.css"
 import {
   FullImageContainer,
   Grid,

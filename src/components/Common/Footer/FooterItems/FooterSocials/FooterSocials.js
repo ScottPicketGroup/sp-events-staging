@@ -1,8 +1,5 @@
 import React from "react"
-import {
-  DesktopWrapper,
-  MobileWrapper,
-} from "../../../../StyledComponents/containers.css"
+
 
 import { FooterLinksColumn, FooterItem, FooterExternalLink } from "../../Footer.css"
 

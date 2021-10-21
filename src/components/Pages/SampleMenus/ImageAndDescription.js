@@ -2,9 +2,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
 import ArrowIcon from "../../../images/ArrowIcon"
+import SPGRestaurantListRenderer from "../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 import { SectionContainer } from "../../StyledComponents/containers.css"
 import {
-  BC3,
+
   Heading1,
   Heading2,
   Heading3,
@@ -15,15 +16,17 @@ import {
 } from "./ImageAndDescription.css"
 
 const ImageAndDescription = ({ data, image }) => {
+
+  console.log(data)
   return (
     <SectionContainer marginBottom="md">
-      <Heading1 marginBottom="sm">{data.title}</Heading1>
+      <Heading1 marginBottom="sm">{data.venueName}</Heading1>
       <PartnerVenuesLandingWrapper>
         <GatsbyImage image={getImage(image)} alt="Chancery Lane" />
         <TextContainer>
-          <Heading2 marginBottom="xs">{data.title}</Heading2>
-          <Heading3 marginBottom="sm">{data.subTitle}</Heading3>
-          <BC3 marginBottom="sm">{data.content}</BC3>
+          <Heading2 marginBottom="xs">{data.venueName}</Heading2>
+          <Heading3 marginBottom="sm">{data.subheadinge}</Heading3>
+         <SPGRestaurantListRenderer node={data.description} />
           <Heading3>
             View venue site
             <ArrowIcon />

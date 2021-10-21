@@ -1,7 +1,7 @@
 import React from "react"
 import Renderer from "../../Common/Rich-Text-Renderers/Intro"
 import { SectionContainer } from "../../StyledComponents/containers.css"
-import { BC1, Heading1, Heading2 } from "../../StyledComponents/typography.css"
+import {  Heading1, Heading2 } from "../../StyledComponents/typography.css"
 
 const Intro = ({introduction}) => {
   return (

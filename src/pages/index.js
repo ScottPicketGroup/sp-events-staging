@@ -12,8 +12,7 @@ import {
   MenuContainer,
   MenuItem,
 } from "../components/StyledComponents/containers.css"
-import SliderGallery from "../components/Common/SliderGallery/SliderGallery"
-import OurFamily from "../components/Pages/Landing/OurFamily/OurFamily"
+
 import PartiesAndEvents from "../components/Menu/Parties&Events/PartiesAndEvents"
 import Enquire from "../components/Pages/Landing/Enquire/Enquire"
 import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
@@ -66,7 +65,6 @@ const IndexPage = ({data}) => {
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
-console.log(data.allContentfulLandingPageContent.edges[0].node)
 const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection, gallery} = data.allContentfulLandingPageContent.edges[0].node
   return (
     <Layout>

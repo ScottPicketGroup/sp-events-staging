@@ -1,7 +1,7 @@
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import {
-  BC3,
+
   Heading2,
   Heading3,
 } from "../../../../StyledComponents/typography.css"
@@ -12,7 +12,7 @@ import {
   ItemImgLink,
 } from "../../../../StyledComponents/containers.css"
 
-import {restaurants} from "./restaurantArray"
+
 import ArrowIcon from "../../../../../images/ArrowIcon"
 import SPGRestaurantListRenderer from "../../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 

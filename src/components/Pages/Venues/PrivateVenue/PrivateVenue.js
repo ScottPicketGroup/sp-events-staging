@@ -3,12 +3,11 @@ import React from "react"
 import ArrowIcon from "../../../../images/ArrowIcon"
 import SPGRestaurantListRenderer from "../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 import { SectionContainer, SectionWrapper } from "../../../StyledComponents/containers.css"
-import { BC3, Heading1, Heading2, Heading3 } from "../../../StyledComponents/typography.css"
+import {Heading1, Heading2, Heading3 } from "../../../StyledComponents/typography.css"
 import { PartnerVenuesLandingWrapper, TextContainer } from "./FeatureVenue.css"
 const PrivateVenue = ({privateVenueSection}) => {
-  //  const {location, subHeading, restaurantName, restaurantDescription} =  
-console.log(privateVenueSection)
-const {sectionHeading, subHeading, privateVenue} = privateVenueSection
+
+const {sectionHeading, subHeading} = privateVenueSection
   return (
     <SectionContainer background="lightgrey" width="100vw" >
       <SectionWrapper width="73.5%">

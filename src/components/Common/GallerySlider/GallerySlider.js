@@ -2,14 +2,12 @@ import React, { useRef} from "react"
 
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Slide, SliderContainer } from "./GallerySlider.css"
-import { Heading1 } from "../../StyledComponents/typography.css"
-import { PageContainer, SectionContainer } from "../../StyledComponents/containers.css"
+import {SectionContainer } from "../../StyledComponents/containers.css"
 
 const GallerySlider = ({ images }) => {
   const mouseDownRef = useRef(null)
   const [imageArr] = React.useState(images)
   const [counter, setCounter] = React.useState(0)
-
 
   const handleOnMouseDown = e => {
     mouseDownRef.current = e.screenX
@@ -21,13 +19,10 @@ const GallerySlider = ({ images }) => {
     else if (e.screenX < mouseDownRef.current) setCounter(counter - 1)
   }
 
-
-
   return (
     <SectionContainer >
     <SliderContainer draggable="true" >
       
-
       {imageArr &&
         imageArr.map((image, id) => (
           <Slide
