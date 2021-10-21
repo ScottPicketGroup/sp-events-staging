@@ -3,33 +3,24 @@ import { useState, useEffect } from 'react';
 
 
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+  const isSSR = typeof window !== "undefined"
 
-  const isBrowser = typeof window !== "undefined"
-  if (!isBrowser) {
-    return 
-  } 
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: isSSR ? 1200 : window.innerWidth,
+    height: isSSR ? 800: window.innerHeight
+  });
 
-  useEffect(() => {
-    
-
-   function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height
-    };
+useEffect(() => {
+  window.addEventListner("resize", () => {
+    setWindowDimensions({ width: window.innerWidth, height: window.innerHeight})
+  })
+  return () => {
+    window.removeEventListner("resize", () => {
+      setWindowDimensions({ width: window.innerWidth, height: window.innerHeight})
+    })
   }
-
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-   
-
-    
-  }, []);
+})
 
   return windowDimensions;
 }
