@@ -4,7 +4,7 @@ export const Grid = styled.div`
 width: 100%;
 align-self: flex-end;
   display: grid;
-  grid-template-columns: ${(props) => `repeat(${props.cols}, 1fr)`};
+  grid-template-columns: ${(props) => `repeat(6, 1fr)`};
   /* grid-gap: ${(props) => (props.theme.name === "Desktop" ? "3.5rem 0rem" : "3.5rem 0")}; */
   grid-gap: 3.5rem .5rem;
   align-items: center;

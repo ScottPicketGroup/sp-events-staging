@@ -20,7 +20,7 @@ import SPGRestaurantListRenderer from "../../../../Common/Rich-Text-Renderers/SP
 const RestaurantGrid = ({restaurantList}) => {
  
   return (
-    <Grid cols={3} full>
+    <Grid cols={6} full>
       {restaurantList &&
         restaurantList.map((restaurant, i) => (
           <Item

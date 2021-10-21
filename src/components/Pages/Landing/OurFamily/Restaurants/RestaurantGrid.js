@@ -17,7 +17,7 @@ import ArrowIcon from "../../../../../images/ArrowIcon"
 
 const RestaurantGrid = () => {
   return (
-    <Grid cols={3} full>
+    <Grid cols={1} full>
       {restaurants &&
         restaurants.map((restaurant, i) => (
           <Item

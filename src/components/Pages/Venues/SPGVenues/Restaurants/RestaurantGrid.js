@@ -16,7 +16,8 @@ import ArrowIcon from "../../../../../images/ArrowIcon"
 import SPGRestaurantListRenderer from "../../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 
 const RestaurantGrid = ({restaurantList}) => {
- 
+
+  
   return (
     <Grid cols={3} full>
       {restaurantList &&

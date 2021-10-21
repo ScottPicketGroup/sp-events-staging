@@ -18,14 +18,19 @@ import Enquire from "../components/Pages/Landing/Enquire/Enquire"
 import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
 import PartnerVenues from "../components/Pages/Landing/PartnerVenues/PartnerVenues"
 import GallerySlider from "../components/Common/GallerySlider/GallerySlider"
+
+import RestaurantSlider from '../components/Pages/Venues/SPGVenues/Restaurants/RestaurantSlider'
+
+
 import useWatchScroll from "../components/Common/Hooks/useWatchScroll"
 import useRefAttributes from "../components/Common/Hooks/useRefAttributes"
+import useWindowSize from "../components/Common/Hooks/useWindowDimensions"
 const IndexPage = ({data}) => {
   const itemsRef = useRef([])
   
 const {scrollY} = useWatchScroll()
 const {items, heights} = useRefAttributes(itemsRef)
-
+const {width} = useWindowSize()
   const menuItems = [
     "Introduction",
     "Gallery",
@@ -57,7 +62,7 @@ const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection, 
                 scrollY={scrollY}
               >
                 {menuItem}
-                {console.log(items[i], heights[i])}
+            
               </MenuItem>
             ))}
         </MenuContainer>
@@ -70,7 +75,8 @@ const {heroMedia, pageTitle, introduction, partiesEvents, partnerVenuesSection, 
         <GallerySlider images={gallery} />
           </div> 
           <div ref={el => (itemsRef.current[2] = el)}>
-           <SPGRestaurants restaurantList={data.allContentfulLandingPageContent.edges[0].node.ourFamily} title="SPG Restaurants"/>
+           {width > 451 ? (<SPGRestaurants restaurantList={data.allContentfulLandingPageContent.edges[0].node.ourFamily} title="SPG Restaurants"/>) : 
+           (<RestaurantSlider restaurantList={data.allContentfulLandingPageContent.edges[0].node.ourFamily}/>)}
           </div>
           <div ref={el => (itemsRef.current[3] = el)}>
             <PartiesAndEvents partiesEvents={partiesEvents}/>

@@ -15,7 +15,7 @@ export const Item = styled.div`
 
   display: block;
   transition: opacity .2s ease-out;
-  
+  width: 75vw;
 `;
 
 export const ItemImgLink = styled.a`
@@ -45,3 +45,20 @@ export const FullImageContainer = styled.div`
   display: inline;
   width: 100%;
 `;
+
+
+
+export const SliderContainer = styled.div`
+width: 100%;
+display: flex;
+
+align-self: flex-end;
+`
+
+export const Slide = styled.div`
+position: absolute;
+top: 50;
+z-index: ${props => props.id};
+transition: margin-left .5s ease-in-out;
+margin-left: ${props => props.id + props.counter  <= 1 ? "0": `${(props.id - 1 + props.counter)* 155}px`};
+`

@@ -18,7 +18,7 @@ import SPGRestaurantListRenderer from "../../../../Common/Rich-Text-Renderers/SP
 
 
 const RestaurantGrid = ({restaurantList}) => {
-  console.log(restaurantList)
+ 
   return (
     <Grid cols={3} full>
       {restaurantList &&
