@@ -14,7 +14,7 @@ const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
   const [active, setActive] = React.useState("")
   const [subMenuOpen, setSubMenuOpen] = React.useState(true)
 
-const {width} = useWindowSize().width
+const {width} = useWindowSize()
 
   return (
     <SlideOutContainer menuOpen={menuOpen} >
