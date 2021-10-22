@@ -15,8 +15,8 @@ const useWatchScroll = () => {
       }
     })
 
-
-    return scrollY
+    const result = {scrollY: scrollY}
+    return result
 }
 
 export default useWatchScroll

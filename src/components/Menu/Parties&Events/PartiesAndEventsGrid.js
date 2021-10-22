@@ -18,7 +18,7 @@ const PartiesAndEventsGrid = ({ partiesEvents }) => {
       {partiesEvents &&
         partiesEvents.map((item, i) => (
           <Item key={i}>
-            <ItemImgGatsbyLink to={`/events/${item.id}`}>
+            <ItemImgGatsbyLink to={`/events/${item.pageName.toLowerCase().replace(" ", "-")}`}>
               <FullImageContainer>
                 <GatsbyImage image={getImage(item.heroMedia[0])} />
               </FullImageContainer>
