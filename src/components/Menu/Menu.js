@@ -1,15 +1,16 @@
 import React from "react"
-import { LogoWrapper } from "../Common/Header/header.css"
+import { LogoWrapper,LogoContainer } from "../Common/Header/header.css"
 import Logo from "./Logo"
 import MenuSlideOut from "./MenuSlideOut/MenuSlideOut"
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = React.useState(false)
+  
   return (
     <>
-      <LogoWrapper onClick={() => setMenuOpen(true)}>
+      <LogoContainer onClick={() => setMenuOpen(true)}>
         <Logo />
-      </LogoWrapper>
+      </LogoContainer>
       <MenuSlideOut menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </>
   )

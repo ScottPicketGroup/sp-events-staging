@@ -23,8 +23,14 @@ justify-content: space-between;
 }
 `
 
-export const LogoContainer = styled(Link)`
+export const LogoContainer = styled.div`
+height: 100%;
+display: flex;
+align-items: center;
 
+svg {
+    height: 3.25rem;
+}
 `
 
 export const LogoWrapper = styled(Link)`
