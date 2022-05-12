@@ -34,22 +34,6 @@ const IndexPage = () => {
     }
   `)
 
-  const [scrollY, setScrollY] = useState(0)
-
-  function logit() {
-    setScrollY(window.pageYOffset)
-  }
-
-  useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", logit)
-    }
-    watchScroll()
-    return () => {
-      window.removeEventListener("scroll", logit)
-    }
-  })
-
   const menuItems = [
     "Introduction",
     "Gallery",
@@ -60,32 +44,41 @@ const IndexPage = () => {
     "Instagram",
   ]
 
- 
-  const [items] = React.useState([])
-  const [heights] = React.useState([])
+  const [items] = useState([])
+  const [heights] = useState([])
+  const [scrollY, setScrollY] = useState(0)
 
   const itemsRef = useRef([])
 
+  const logit = () => setScrollY(window.pageYOffset)
+
   useEffect(() => {
-    var bodyRect = document.body.getBoundingClientRect()
-    itemsRef.current.map(i => {
+    const watchScroll = () => {
+      window.addEventListener("scroll", logit)
+    }
+    watchScroll()
+    return () => {
+      window.removeEventListener("scroll", logit)
+    }
+  })
+
+  useEffect(() => {
+    itemsRef.current.forEach(i => {
       const meh = i.getBoundingClientRect()
 
       items.push(meh.top)
     })
-    itemsRef.current.map(i => {
+    itemsRef.current.forEach(i => {
       const scrollTop = i.scrollHeight
       heights.push(scrollTop)
     })
     itemsRef.current = itemsRef.current.slice(0, items.length)
-
-    return () => {}
-  }, [])
+  }, [items, heights])
 
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
 
-  console.log(heights[2], items[2], heights[2] + items[2],scrollY)
+  console.log(heights[2], items[2], heights[2] + items[2], scrollY)
 
   return (
     <Layout>
