@@ -31,7 +31,7 @@ const RestaurantGrid = ({restaurantList}) => {
               link={true}
             >
               <FullImageContainer>
-               <GatsbyImage image={getImage(restaurant.restaurantMedia[0])}/>
+               <GatsbyImage image={getImage(restaurant.restaurantMedia[0])} style={{aspectRatio: '4/3'}}/>
               </FullImageContainer>
               <Heading2 marginTop="sm">{restaurant.restaurantName}</Heading2>
               <Heading3 marginTop="xs">{restaurant.location} </Heading3>

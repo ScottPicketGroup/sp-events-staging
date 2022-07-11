@@ -89,7 +89,7 @@ const PartiesAndEvents = ({ pageContext }) => {
             ))}
         </MenuContainer>
         <PageContainer>
-          <div ref={el => (itemsRef.current[0] = el)}>
+          {/* <div ref={el => (itemsRef.current[0] = el)}>
             <PageIntro title={pageName} intro={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
@@ -111,7 +111,7 @@ const PartiesAndEvents = ({ pageContext }) => {
           </div>
           <div style={{ width: "100%" }}>
             <EnquireForm />
-          </div>
+          </div> */}
         </PageContainer>
       </PageWrapper>
     </Layout>

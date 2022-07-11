@@ -142,7 +142,7 @@ export const TitleWrapper = styled(BC3)`
   bottom: 2.75rem;
   left: 0;
   opacity: 0;
-  animation: ${props => (props.showCaptions === false ? fadeOut : fadeIn)} 1 forwards;
+  animation: ${props => (props.showCaptions === false ? fadeOut : fadeIn)} 1s forwards;
   padding-left: 1rem;
   color: white;
   margin-bottom: 0.5rem;
