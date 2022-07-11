@@ -139,8 +139,8 @@ const fadeOut = keyframes`
 
 export const TitleWrapper = styled(BC3)`
   position: absolute;
-  bottom: 0;
-  left: 3rem;
+  bottom: 2.75rem;
+  left: 0;
   opacity: 0;
   animation: ${props => (props.showCaptions === false ? fadeOut : fadeIn)} 1 forwards;
   padding-left: 1rem;

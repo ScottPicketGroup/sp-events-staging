@@ -1,7 +1,7 @@
 import React from "react"
-import { Heading1, Heading2, Heading3 } from "../../StyledComponents/typography.css"
+import { Heading1} from "../../StyledComponents/typography.css"
 
-import { Card, Constrols, Container, ImageContainer } from "./GallerySlider.css"
+import { Card, Container, ImageContainer } from "./GallerySlider.css"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useSwipeable } from "react-swipeable"
 import Controls from "./Controls"
@@ -10,7 +10,6 @@ import Captions from "./Captions"
 const RestaurantSlider = ({ images }) => {
   const [active, setActive] = React.useState(0)
   const [imagesArr, setImagesArr] = React.useState(images)
-  const [showCaptions, setShowCaptions] = React.useState(false)
   React.useEffect(() => {
     if (images.length < 3) setImagesArr([...images, ...images])
   }, [])
