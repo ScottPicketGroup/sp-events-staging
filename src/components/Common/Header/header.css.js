@@ -50,6 +50,7 @@ export const DesktopWrapper = styled.div`
 
 export const MobileWrapper = styled.div`
 @media (min-width: 451px) {
+    width: 100%;
     display: none;
 }
 `

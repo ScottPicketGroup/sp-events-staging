@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { BC2, Heading2, Heading3 } from "../../StyledComponents/typography.css"
+import { BC2, Heading2 } from "../../StyledComponents/typography.css"
 import {
   AccordionSection,
   AccordionBlock,
@@ -8,7 +8,6 @@ import {
   AccordionContent,
   AccordionContentImage,
   AccordionContentText,
-  BorderBottom,
   AccordionContentTextSection,
 } from "./AccordionWithImage.css"
 

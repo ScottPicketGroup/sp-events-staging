@@ -13,7 +13,6 @@ import ImageAndDescription from "../components/Pages/SampleMenus/ImageAndDescrip
 
 import AccordionWithImage from "../components/Common/AccordionWithImage/AccordionWithImage"
 
-import sampleMenuArray from "../contents/sampleMenuArray.json"
 import AccordionWithMenuSections from "../components/Common/AccordionWithImage/AccordianWithMenuSections"
 
 

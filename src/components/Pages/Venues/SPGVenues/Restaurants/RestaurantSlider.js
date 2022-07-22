@@ -13,10 +13,10 @@ const RestaurantSlider = ({ restaurantList }) => {
 
     const handlers = useSwipeable({
         onSwipedLeft: () => active >= 0 && active < restaurantList.length - 1 ? setActive(active + 1) : null,
-        onSwipedRight: () => active >= 0 && active < restaurantList.length  ? setActive(active - 1) : null
+        onSwipedRight: () => active > 0 && active < restaurantList.length  ? setActive(active - 1) : null
       
       })
-    
+    console.log('active', active, restaurantList)
 
     return (
 
@@ -39,7 +39,7 @@ const RestaurantSlider = ({ restaurantList }) => {
                             link={true}
                         >
                             <FullImageContainer>
-                                <GatsbyImage image={getImage(r.restaurantMedia[0])} />
+                                <GatsbyImage image={getImage(r.restaurantMedia[0])} style={{aspectRatio: `3/2`}} />
                             </FullImageContainer>
                             <Heading2 marginTop="sm">{r.restaurantName}</Heading2>
                             <Heading3 marginTop="xs">{r.location} </Heading3>

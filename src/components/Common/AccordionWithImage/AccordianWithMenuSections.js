@@ -8,7 +8,6 @@ import {
   AccordionContent,
   AccordionContentImage,
   AccordionContentText,
-  BorderBottom,
   AccordionContentTextSection,
 } from "./AccordionWithImage.css"
 

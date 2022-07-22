@@ -152,6 +152,7 @@ query Venues {
             }
           }
           partnerVenuesRestaurantList {
+            restaurantName
             location
             restaurantDescription {
               raw

@@ -9,12 +9,13 @@ const Intro = ({introduction, pageTitle}) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
   const wrapperRef= React.useRef(null)
   React.useEffect(() => {
-   
-    setOpenWrapperHeight(wrapperRef.current.clientHeight)
+    console.log('introduction', introduction)
+    setOpenWrapperHeight(wrapperRef.current.clientHeight * 2)
 }, [])
-  console.log(openWrapperHeight)
+  
   return (
-    <SectionContainer marginBottom="xl" ref={wrapperRef} >
+    <SectionContainer marginBottom="xl" ref={wrapperRef} style={{height: `auto`}}>
+  
       <Heading1 marginBottom="sm">{pageTitle}</Heading1>
       <Renderer node={introduction} isExpanded={isExpanded} openWrapperHeight={openWrapperHeight}/>
       <Heading2

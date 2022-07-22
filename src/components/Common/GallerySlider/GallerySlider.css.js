@@ -1,15 +1,21 @@
 import styled, { keyframes } from "styled-components"
 import { BC3 } from "../../StyledComponents/typography.css"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const Container = styled.div`
-  width: 72vw;
-  height: auto;
+  width: 71%;
+  float: right;
+  
   display: flex;
   flex-direction: column;
   position: relative;
   height: auto;
   margin-bottom: 5rem;
   overflow: hidden;
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    margin: 0 0 5rem -1rem;
+        }};
 `
 
 export const ImageContainer = styled.div`
@@ -22,19 +28,42 @@ export const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 2;
+  @media screen and (max-width: 450px) {
+    
+    height: 66.666666666667vw;
+    min-width: 100%;
+    
+        }};
 `
 
 export const Card = styled.div`
-  height: auto;
+  height: 100%;
   width: 75vw;
-
   margin-left: ${props =>
     props.active === props.i + 1
       ? "0vw"
       : `${(props.i - props.active) * 60}vw`};
-  transition: margin-left 550ms ease-in-out;
+  transition: margin-left 550ms cubic-bezier(0.435, 0.05, 1, 0.24); /* custom */
+  transition-timing-function: cubic-bezier(0.435, 0.05, 1, 0.24);
   position: absolute;
   top: 0;
+  @media screen and (max-width: 450px) {
+    
+    width: 80vw;
+    margin-left: ${props =>
+      props.active === props.i + 1
+        ? "0vw"
+        : `${(props.i - props.active) * 94}vw`};
+    }};
+`
+
+export const GalleryImage = styled(GatsbyImage)`
+  width: 90vw;
+  aspect-ratio: 3/2;
+  @media screen and (max-width: 450px) {
+    min-width: 90vw;
+  
+  }};
 `
 
 export const Constrols = styled.div`
@@ -46,6 +75,9 @@ export const Constrols = styled.div`
   align-items: center;
   position: absolute;
   right: 40vw;
+  @media screen and (max-width: 450px) {
+    display: none;
+    }};
 `
 
 export const Control = styled.div`
@@ -60,6 +92,9 @@ export const CaptionsWrapper = styled.div`
   bottom: 1rem;
   left: 1rem;
   width: 60%;
+  @media screen and (max-width: 450px) {
+    display: none;
+        }};
 `
 
 export const ExpandIcon = styled.div`
@@ -142,7 +177,8 @@ export const TitleWrapper = styled(BC3)`
   bottom: 2.75rem;
   left: 0;
   opacity: 0;
-  animation: ${props => (props.showCaptions === false ? fadeOut : fadeIn)} 1s forwards;
+  animation: ${props => (props.showCaptions === false ? fadeOut : fadeIn)} 1s
+    forwards;
   padding-left: 1rem;
   color: white;
   margin-bottom: 0.5rem;

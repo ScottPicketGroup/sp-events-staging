@@ -1,5 +1,4 @@
-import React, {useRef} from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React, { useRef } from "react"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 import InstaSlider from "../../../Common/InstaSlider/InstaSlider"
@@ -9,51 +8,40 @@ import {
   Item,
   SectionContainer,
 } from "../../../StyledComponents/containers.css"
-import { DesktopWrapper, MobileWrapper } from "../../../Common/Header/header.css"
+import {
+  DesktopWrapper,
+  MobileWrapper,
+} from "../../../Common/Header/header.css"
 
-const FollowUsOnSocial = () => {
-
+const FollowUsOnSocial = ({ images }) => {
   const myRef = useRef(null)
-  const images = useStaticQuery(graphql`
-    query InstaDemoImages {
-      allFile(filter: { relativeDirectory: { in: "demoInstaSlider" } }) {
-        edges {
-          node {
-            id
-            childImageSharp {
-              gatsbyImageData(aspectRatio: 1, placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
-  `)
 
   return (
-    <SectionContainer marginTop="" marginBottom="xl" overflow="true" ref={myRef}>
+    <SectionContainer
+      marginTop=""
+      marginBottom="xl"
+      overflow="true"
+      ref={myRef}
+    >
       <Heading1 marginBottom="sm">Follow us on social</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
           {images &&
-            images.allFile.edges.map(image => (
-              <Item key={image.node.id}>
-                <Heading1 ></Heading1>
-                <GatsbyImage
-                  image={getImage(image.node.childImageSharp)}
-                  alt={image.node.id}
-                  style={{
-                  
-                   
-                  }}
-                />
-              </Item>
-            ))}
+            images.edges.map((image, i) =>
+              i < 8 ? (
+                <Item key={image.node.id}>
+                  <Heading1></Heading1>
+                  <GatsbyImage
+                    image={getImage(image.node.localFile)}
+                    alt={image.node.id}
+                    style={{minHeight: `12vh`}}
+                  />
+                </Item>
+              ) : null
+            )}
         </Grid>
       </DesktopWrapper>
-      <MobileWrapper>
-      <InstaSlider images={images.allFile.edges} />
-      </MobileWrapper>
-   
+      <MobileWrapper><InstaSlider images={images} /></MobileWrapper>
     </SectionContainer>
   )
 }

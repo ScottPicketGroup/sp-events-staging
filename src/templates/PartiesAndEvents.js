@@ -11,10 +11,8 @@ import {
 } from "../components/StyledComponents/containers.css"
 
 import PageIntro from "../components/Common/PageIntro"
-import SliderGallery from "../components/Common/SliderGallery/SliderGallery"
-import GalleryDescription from "../components/Pages/PartiesAndEvents/GalleryDescription"
 import EnquireForm from "../components/Common/EnquireForm"
-import RestaurantSlider from "../components/Common/GallerySlider/GallerySlider"
+import GallerySection from "../components/Pages/PartiesAndEvents/GallerySection"
 
 const PartiesAndEvents = ({ pageContext }) => {
   const {
@@ -89,14 +87,14 @@ const PartiesAndEvents = ({ pageContext }) => {
             ))}
         </MenuContainer>
         <PageContainer>
-          {/* <div ref={el => (itemsRef.current[0] = el)}>
+          <div ref={el => (itemsRef.current[0] = el)}>
             <PageIntro title={pageName} intro={introduction} />
           </div>
           <div ref={el => (itemsRef.current[1] = el)}>
-            <RestaurantSlider images={sliderGallery} />
-            <GalleryDescription
+            <GallerySection
               title={mainPageHeading}
               content={mainPageContent}
+              images={sliderGallery}
             />
           </div>
           <div ref={el => (itemsRef.current[2] = el)}>
@@ -111,7 +109,7 @@ const PartiesAndEvents = ({ pageContext }) => {
           </div>
           <div style={{ width: "100%" }}>
             <EnquireForm />
-          </div> */}
+          </div>
         </PageContainer>
       </PageWrapper>
     </Layout>

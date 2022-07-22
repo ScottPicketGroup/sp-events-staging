@@ -3,7 +3,7 @@ import { SectionContainer, SectionWrapper } from "../../../StyledComponents/cont
 import { Heading1 } from '../../../StyledComponents/typography.css'
 import RestaurantGrid from './Restaurants/RestaurantGrid'
 const PartnerVenues = ({restaurantList}) => {
-
+console.log('restaurantList', restaurantList)
     return (
         <SectionContainer   marginBottom="xl">
             <SectionWrapper marginBottom="sm" marginTop="lg" width="100%">

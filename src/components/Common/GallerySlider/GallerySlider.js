@@ -1,7 +1,7 @@
 import React from "react"
 import { Heading1} from "../../StyledComponents/typography.css"
 
-import { Card, Container, ImageContainer } from "./GallerySlider.css"
+import { Card, Container, GalleryImage, ImageContainer } from "./GallerySlider.css"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useSwipeable } from "react-swipeable"
 import Controls from "./Controls"
@@ -26,13 +26,14 @@ const RestaurantSlider = ({ images }) => {
   })
 
   return (
+
     <Container {...handlers}>
       <Heading1>Gallery</Heading1>
       <ImageContainer>
         {imagesArr &&
           imagesArr.map((image, i) => (
             <Card key={i} i={i} active={active}>
-              <GatsbyImage
+              <GalleryImage
                 image={getImage(image)}
                 style={{
                   width: `50vw`,
@@ -51,6 +52,7 @@ const RestaurantSlider = ({ images }) => {
         />
       </ImageContainer>
     </Container>
+    
   )
 }
 

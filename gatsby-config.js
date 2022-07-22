@@ -47,5 +47,12 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST
       }
     },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `1309721882`,
+      },
+    },
+    
   ],
 }

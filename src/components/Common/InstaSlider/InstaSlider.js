@@ -6,10 +6,10 @@ import { Heading1 } from "../../StyledComponents/typography.css"
 
 const InstaSlider = ({ images }) => {
   const mouseDownRef = useRef(null)
-  const [imageArr] = React.useState(images)
+  const [imageArr] = React.useState(images.edges)
   const [counter, setCounter] = React.useState(0)
 
-
+console.log('imageArr', imageArr)
   const handleOnMouseDown = e => {
     mouseDownRef.current = e.screenX
   }
@@ -20,9 +20,12 @@ const InstaSlider = ({ images }) => {
     else if (e.screenX < mouseDownRef.current) setCounter(counter - 1)
   }
   return (
-    <SliderContainer draggable="true" >
-      <Heading1 onClick={() => setCounter(counter + 1)}>previous</Heading1>
-      <Heading1 onClick={() => setCounter(counter - 1)}>next</Heading1>
+    <SliderContainer draggable="true" 
+      style={{
+        overflow: `hidden`
+      }}
+    >
+     
 
       {imageArr &&
         imageArr.map((image, id) => (
@@ -37,8 +40,8 @@ const InstaSlider = ({ images }) => {
             key={id}
           >
             <GatsbyImage
-              image={getImage(image.node.childImageSharp)}
-              style={{ position: `absolute`, width: `145px` }}
+              image={getImage(image.node.localFile)}
+              style={{ position: `absolute`, width: `100%`, minHeight: '190px' }}
               alt="instagram image"
               key={id}
             />

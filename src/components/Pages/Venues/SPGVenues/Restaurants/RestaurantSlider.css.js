@@ -26,10 +26,11 @@ display: flex;
 export const Card = styled.div`
 width: 75vw;
 margin-left: ${props =>
-props.active === props.i + 1? '0vw' :
+props.active === props.i ? '0vw' :
 `${(props.i - props.active) * 80 }vw`};
 transition: margin-left 550ms ease-out;
 position: absolute;
 top: 0;
 background: white;
+
 `;

@@ -70,7 +70,7 @@ export const SectionContainer = styled.div`
   }};
   overflow: hidden;
   @media (max-width: 450px) {
-    width: 100%;
+    width: 100vw;
     padding: 0 1rem;
     background: none;
   }
@@ -115,6 +115,21 @@ export const SectionWrapper = styled.div`
     padding: 0;
     margin-top: 0;
   }
+`
+
+export const RightContainer = styled.div`
+width: 25%;
+
+
+`
+export const IntroWrapper = styled.div`
+  max-height: ${props =>
+    props.isExpanded
+      ? `${props.openWrapperHeight + 20}px`
+      : `${props.wrapperHeight}px`};
+  overflow: hidden;
+  margin-bottom: 1rem;
+  transition: max-height 0.5s ease;
 `
 
 export const MenuContainer = styled.div`
@@ -163,15 +178,19 @@ export const Grid = styled.div`
 
 export const Item = styled.div`
   display: block;
-  transition: opacity 0.2s ease-out;
+  min-height: 10vh;
+  opacity: 1;
+   transition: opacity .25s ease-in-out;
+
 `
 
 export const ItemImgLink = styled.a`
   text-decoration: none;
-
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
   color: #333333;
   &:hover {
-    opacity: ${props => (props.link ? 0.5 : 1)};
+    opacity: ${props => (props.link ? 0.65 : 1)};
   }
 `
 export const ItemImgGatsbyLink = styled(Link)`

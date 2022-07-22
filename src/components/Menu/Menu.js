@@ -1,5 +1,5 @@
 import React from "react"
-import { LogoWrapper,LogoContainer } from "../Common/Header/header.css"
+import {LogoContainer } from "../Common/Header/header.css"
 import Logo from "./Logo"
 import MenuSlideOut from "./MenuSlideOut/MenuSlideOut"
 

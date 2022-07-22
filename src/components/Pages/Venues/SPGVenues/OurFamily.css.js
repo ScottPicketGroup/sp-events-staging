@@ -43,6 +43,8 @@ export const ItemImg = styled.div`
 
 export const FullImageContainer = styled.div`
   display: inline;
+  aspect-ratio: 4/3;
+  height: 100%;
   width: 100%;
 `;
 
