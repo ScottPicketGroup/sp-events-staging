@@ -51,10 +51,10 @@ const IndexPage = ({ data }) => {
     partnerVenuesSection,
     gallery,
   } = data.allContentfulLandingPageContent.edges[0].node
-  const {
-    localFile
-  } = data.allInstaNode.edges[0].node.localFile.childImageSharp
-  console.log('localFile', data)
+  // const {
+  //   localFile
+  // } = data.allInstaNode.edges[0].node.localFile.childImageSharp
+  // console.log('localFile', data)
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />
@@ -108,9 +108,9 @@ const IndexPage = ({ data }) => {
           <div ref={el => (itemsRef.current[5] = el)}>
             <Enquire />
           </div>
-          <div ref={el => (itemsRef.current[6] = el)}>
+          {/* <div ref={el => (itemsRef.current[6] = el)}>
             <FollowUsOnSocial images={data.allInstaNode}/>
-          </div>
+          </div> */}
         </PageContainer>
       </PageWrapper>
     </Layout>
@@ -180,17 +180,18 @@ export const query = graphql`
         }
       }
     }
-    allInstaNode {
-      edges {
-        node {
-          mediaType
-          localFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
+  
   }
 `
+  // allInstaNode {
+    //   edges {
+    //     node {
+    //       mediaType
+    //       localFile {
+    //         childImageSharp {
+    //           gatsbyImageData(placeholder: BLURRED)
+    //         }
+    //       }
+    //     }
+    //   }
+    // }

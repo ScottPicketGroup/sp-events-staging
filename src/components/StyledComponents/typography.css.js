@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
 import Book from "../../assetts/fonts/fonts/CentraNo2-Book.woff2"
 import Light from "../../assetts/fonts/fonts/CentraNo2-Light.woff"
@@ -383,4 +384,20 @@ export const SN2 = styled.p`
     margin-bottom: 2.35rem;
     line-height: 1.15;
   }
+`
+export const IntroHeading = styled(BC1)`
+  font-size: 5.6rem;
+  color: white;
+  font-family: "CentraNo2Light";
+`
+
+export const IntroLink = styled(Link)`
+  text-decoration: none;
+`
+
+export const GridSubHeading = styled(Heading3)`
+  font-family: "CentraNo2Light";
+`
+export const GridLink = styled(Link)`
+  text-decoration: none;
 `

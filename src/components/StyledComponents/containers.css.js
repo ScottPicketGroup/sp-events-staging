@@ -1,10 +1,10 @@
 import styled from "styled-components"
-import { Link } from "gatsby";
+import { Link } from "gatsby"
 
 export const PageContainer = styled.div`
   width: 76%;
   display: flex;
-  align-items:  ${props=>(props.alignItemStart ? "flex-start":"flex-end")};
+  align-items: ${props => (props.alignItemStart ? "flex-start" : "flex-end")};
   flex-direction: column;
 
   @media (max-width: 450px) {
@@ -20,12 +20,15 @@ export const PageWrapper = styled.div`
 
 export const SectionContainer = styled.div`
   display: flex;
+
   justify-content: flex-end;
   flex-direction: column;
-
+  background: ${props => (props.isGreybackground  ? "#E5E5E1" : "")};
   width: ${props => (props.width ? props.width : "100%")};
   padding: ${props =>
-    props.overflow === "true"
+    props.eventTypes
+      ? "3.55rem"
+      : props.overflow === "true"
       ? "0 3.55rem"
       : props.full
       ? "0 3.75rem  0 2.35rem "
@@ -118,9 +121,7 @@ export const SectionWrapper = styled.div`
 `
 
 export const RightContainer = styled.div`
-width: 25%;
-
-
+  width: 25%;
 `
 export const IntroWrapper = styled.div`
   max-height: ${props =>
@@ -131,7 +132,14 @@ export const IntroWrapper = styled.div`
   margin-bottom: 1rem;
   transition: max-height 0.5s ease;
 `
-
+export const HeroTextWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`
 export const MenuContainer = styled.div`
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -143,7 +151,7 @@ export const MenuContainer = styled.div`
   height: 100%;
   top: 4rem;
   left: 4rem;
-
+  height: 200px;
   width: 25%;
   @media (max-width: 450px) {
     display: none;
@@ -166,7 +174,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: ${props => `repeat(${props.cols}, 1fr)`};
   grid-gap: ${props =>
-    props.insta ? props.insta : props.gridGap ? props.gridGap : "3.75rem 1rem"};
+    props.insta ? props.insta : props.gridGap ? props.gridGap : "3.75rem 2rem"};
 
   align-items: center;
   align-items: start;
@@ -180,14 +188,13 @@ export const Item = styled.div`
   display: block;
   min-height: 10vh;
   opacity: 1;
-   transition: opacity .25s ease-in-out;
-
+  transition: opacity 0.25s ease-in-out;
 `
 
 export const ItemImgLink = styled.a`
   text-decoration: none;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out;
   color: #333333;
   &:hover {
     opacity: ${props => (props.link ? 0.65 : 1)};
@@ -222,16 +229,20 @@ export const FullImageContainer = styled.div`
 `
 
 export const DesktopWrapper = styled.div`
-@media (max-width: 451px) {
+  @media (max-width: 451px) {
     display: none;
-}
+  }
 `
 
 export const MobileWrapper = styled.div`
-display:${props => props.imageControls ? ' flex': ''};
-width:${props => props.imageControls ? ' 100%': ''};
-justify-content:${props => props.imageControls ? ' space-between': ''};
-@media (min-width: 451px) {
-    display: none
-}
+  display: ${props => (props.imageControls ? " flex" : "")};
+  width: ${props => (props.imageControls ? " 100%" : "")};
+  justify-content: ${props => (props.imageControls ? " space-between" : "")};
+  @media (min-width: 451px) {
+    display: none;
+  }
+`
+
+export const HeroContainer = styled.div`
+  position: relative;
 `

@@ -1,7 +1,7 @@
 import React from "react"
 import { SectionContainer } from "../StyledComponents/containers.css"
 import { Heading1, Heading2 } from "../StyledComponents/typography.css"
-import Renderer from "./Rich-Text-Renderers/Intro"
+import Renderer from "./Rich-Text-Renderers/IntroRenderer"
 import ArrowIcon from "../../images/ArrowIcon"
 
 const PageIntro = ({ title, intro, option, none,  }) => {

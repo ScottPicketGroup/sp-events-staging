@@ -1,3 +1,4 @@
+
 import React from "react"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"

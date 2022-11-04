@@ -1,5 +1,5 @@
 import React from "react"
-import Renderer from "../../Common/Rich-Text-Renderers/Intro"
+import Renderer from "../../Common/Rich-Text-Renderers/IntroRenderer"
 import { SectionContainer } from "../../StyledComponents/containers.css"
 import {  Heading1, Heading2 } from "../../StyledComponents/typography.css"
 
