@@ -27,8 +27,7 @@ const PartiesAndEvents = ({ pageContext }) => {
   
   } = pageContext.eventData
 
-  const { enquireHeading, enquireDescription } =
-    landing_page_content[0].enquireSection
+
 
   const menuItems = ["Introduction", "Gallery", "Sample Menus", "Enquires"]
 
