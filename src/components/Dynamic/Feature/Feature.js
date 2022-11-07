@@ -15,7 +15,7 @@ import {
 } from "../../StyledComponents/typography.css"
 import { FeatureImage, PartnerVenuesLandingWrapper, TextContainer } from "./Feature.css"
 const Feature = ({ data }) => {
-  console.log("data", data)
+
   const {
     heading,
     image,
@@ -28,9 +28,9 @@ const Feature = ({ data }) => {
   } = data
 
   return (
-    <SectionContainer width="100vw" isGreyBackground>
+    <SectionContainer width="100vw" isGreyBackground={isGreyBackground} paddingBottom="lg" paddingTop="lg" >
       <SectionWrapper width="73.5%">
-        <Heading1 marginBottom="sm" marginTop="lg">
+        <Heading1 marginBottom="sm" >
           {heading}
         </Heading1>
         <PartnerVenuesLandingWrapper>

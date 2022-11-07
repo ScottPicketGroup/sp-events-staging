@@ -17,10 +17,12 @@ const SPGRestaurantListRenderer = ({ node }) => {
     }
 
     return (
-        <>
+        <div
+        style={{marginTop: `1rem`}}
+        >
 
             {renderRichText(node, options)}
-        </>
+        </div>
     )
 }
 

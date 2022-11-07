@@ -5,7 +5,6 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  BC1,
   IntroHeading,
 } from "../../StyledComponents/typography.css"
 import { HeroTextWrapper, IntroWrapper } from "../../StyledComponents/containers.css"
@@ -18,7 +17,6 @@ const Renderer = ({ node, isExpanded, openWrapperHeight }) => {
     setWrapperHeight(paragraphRef.current.clientHeight)
   }, [])
 
-  console.log("isExpanded", openWrapperHeight)
   const options = {
     renderMark: {
         [MARKS.BOLD]: text => <strong style={{fontFamily: `CentraNo2Book`}}>{text}</strong>,

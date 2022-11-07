@@ -9,7 +9,7 @@ const Intro = ({introduction, pageTitle}) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
   const wrapperRef= React.useRef(null)
   React.useEffect(() => {
-    console.log('introduction', introduction)
+  
     setOpenWrapperHeight(wrapperRef.current.clientHeight * 2)
 }, [])
   

@@ -16,7 +16,7 @@ const RestaurantSlider = ({ restaurantList }) => {
         onSwipedRight: () => active > 0 && active < restaurantList.length  ? setActive(active - 1) : null
       
       })
-    console.log('active', active, restaurantList)
+
 
     return (
 

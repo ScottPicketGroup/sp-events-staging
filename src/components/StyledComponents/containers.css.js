@@ -23,18 +23,52 @@ export const SectionContainer = styled.div`
 
   justify-content: flex-end;
   flex-direction: column;
-  background: ${props => (props.isGreybackground  ? "#E5E5E1" : "")};
+  background: ${props => props.isGreyBackground === true && "#F6F6F6"};
   width: ${props => (props.width ? props.width : "100%")};
   padding: ${props =>
     props.eventTypes
       ? "3.55rem"
-      : props.overflow === "true"
-      ? "0 3.55rem"
-      : props.full
-      ? "0 3.75rem  0 2.35rem "
-      : "0 4rem 0 3.5rem"};
+      
+      : props.fullScreen
+      ? "0"
+      : " 0 3.5rem "};
   background: ${props => (props.background ? props.background : "")};
-
+  padding-bottom: ${props => {
+    switch (props.paddingBottom) {
+      case "xs":
+        return ".25rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+    padding-top: ${props => {
+    switch (props.paddingTop) {
+      case "xs":
+        return ".25rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
   margin-bottom: ${props => {
     switch (props.marginBottom) {
       case "xs":
@@ -124,11 +158,11 @@ export const RightContainer = styled.div`
   width: 25%;
 `
 export const IntroWrapper = styled.div`
-  max-height: ${props =>
+  /* max-height: ${props =>
     props.isExpanded
       ? `${props.openWrapperHeight + 20}px`
       : `${props.wrapperHeight}px`};
-  overflow: hidden;
+  overflow: hidden; */
   margin-bottom: 1rem;
   transition: max-height 0.5s ease;
 `
@@ -141,6 +175,7 @@ export const HeroTextWrapper = styled.div`
   transform: translate(-50%, -50%);
 `
 export const MenuContainer = styled.div`
+margin-top: 3.5rem;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
@@ -158,14 +193,20 @@ export const MenuContainer = styled.div`
   }
 `
 export const MenuItem = styled.p`
+  cursor: pointer;
   transition: all 1s ease;
   font-family: ${props =>
-    props.scrollY > props.sH && props.scrollY < props.sT + props.sH
+    props.activeEl === props.menuItem
       ? "CentraNo2Medium"
       : "CentraNo2Light"};
+  a {
+    text-decoration: none;
+    margin-left: 1.25rem;
+    font-family: "CentraNo2Light";
+  }
   :first-child {
     font-family: ${props =>
-      props.scrollY < props.sH ? "CentraNo2Medium" : ".1rem"};
+      props.scrolly < props.sh ? "CentraNo2Medium" : ".1rem"};
   }
 `
 export const Grid = styled.div`

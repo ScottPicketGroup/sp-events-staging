@@ -13,12 +13,13 @@ import {
   MobileWrapper,
 } from "../../../Common/Header/header.css"
 
-const FollowUsOnSocial = ({ images }) => {
+const FollowUsOnSocial = ({ data }) => {
   const myRef = useRef(null)
+  const placeHolderArr = data.images
 
   return (
     <SectionContainer
-      marginTop=""
+      marginTop="xl"
       marginBottom="xl"
       overflow="true"
       ref={myRef}
@@ -26,7 +27,10 @@ const FollowUsOnSocial = ({ images }) => {
       <Heading1 marginBottom="sm">Follow us on social</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
-          {images &&
+        {placeHolderArr.map((image, i) =>
+        <div style={{height: `280px`, aspectRatio: `1`, background: `grey`}} key={i}>{i}</div>
+        )}
+          {/* {images &&
             images.edges.map((image, i) =>
               i < 8 ? (
                 <Item key={image.node.id}>
@@ -38,10 +42,10 @@ const FollowUsOnSocial = ({ images }) => {
                   />
                 </Item>
               ) : null
-            )}
+            )} */}
         </Grid>
       </DesktopWrapper>
-      <MobileWrapper><InstaSlider images={images} /></MobileWrapper>
+      {/* <MobileWrapper><InstaSlider images={images} /></MobileWrapper> */}
     </SectionContainer>
   )
 }

@@ -9,7 +9,6 @@ const InstaSlider = ({ images }) => {
   const [imageArr] = React.useState(images.edges)
   const [counter, setCounter] = React.useState(0)
 
-console.log('imageArr', imageArr)
   const handleOnMouseDown = e => {
     mouseDownRef.current = e.screenX
   }

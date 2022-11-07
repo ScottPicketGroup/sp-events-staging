@@ -18,7 +18,7 @@ const Renderer = ({ node, isExpanded, openWrapperHeight }) => {
     setWrapperHeight(paragraphRef.current.clientHeight)
   }, [])
 
-  console.log("isExpanded", openWrapperHeight)
+ 
   const options = {
     // renderMark: {
     //     [MARKS.BOLD]: text => <Bold>{text}</Bold>,

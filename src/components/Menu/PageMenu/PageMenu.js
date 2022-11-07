@@ -14,7 +14,7 @@ const PageMenu = ({menuItemsArr}) => {
 
     //  const executeScroll = () => myRef.current.scrollIntoView()
 
-    console.log(itemsRef.current)
+
     return (
         <MenuContainer>
             {
