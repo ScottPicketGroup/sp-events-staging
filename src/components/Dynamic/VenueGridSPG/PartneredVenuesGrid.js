@@ -24,7 +24,8 @@ const PartneredVenuesGrid = ({data}) => {
       <FullImageContainer>
         <GatsbyImage
           image={getImage(venue.restaurantMedia[0])}
-          style={{ aspectRatio: "4/3" }}
+          style={{ aspectRatio: "4/3", width: `100%` }}
+          
           alt=""
         />
       </FullImageContainer>
