@@ -7,7 +7,7 @@ import ArrowIcon from "../../images/ArrowIcon"
 const PageIntro = ({ title, intro, option, none,  }) => {
 
   return (
-    <SectionContainer marginBottom="xl">
+    <SectionContainer marginBottom="xl" marginTop="lg">
       <Heading1 marginBottom="sm">{title}</Heading1>
       <Renderer node={intro} />
       {!none && (

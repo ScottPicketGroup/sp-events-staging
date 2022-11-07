@@ -35,14 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             sampleMenusIntroduction {
               raw
             }
-            landing_page_content {
-              enquireSection {
-                enquireHeading
-                enquireDescription {
-                  raw
-                }
-              }
-            }
+           
           }
         }
       }

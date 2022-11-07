@@ -24,7 +24,7 @@ const PartiesAndEvents = ({ pageContext }) => {
     mainPageHeading,
     sampleMenusHeading,
     sampleMenusIntroduction,
-    landing_page_content,
+  
   } = pageContext.eventData
 
   const { enquireHeading, enquireDescription } =
@@ -104,9 +104,9 @@ const PartiesAndEvents = ({ pageContext }) => {
               option
             />
           </div>
-          <div ref={el => (itemsRef.current[3] = el)}>
+          {/* <div ref={el => (itemsRef.current[3] = el)}>
             <PageIntro title={enquireHeading} intro={enquireDescription} none />
-          </div>
+          </div> */}
           <div style={{ width: "100%" }}>
             <EnquireForm />
           </div>

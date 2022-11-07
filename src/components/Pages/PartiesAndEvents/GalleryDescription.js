@@ -7,7 +7,7 @@ import { SliderContainer } from "../../Common/InstaSlider/InstaSlider.css"
 
 const GalleryDescription = ({ title, content }) => {
   return (
-    <RightContainer>
+  
     <SectionContainer marginBottom="xl">
       <Heading2 marginBottom="sm">{title}</Heading2>
       <EventPageContentRenderer node={content} />
@@ -16,7 +16,7 @@ const GalleryDescription = ({ title, content }) => {
         <ArrowIcon />
       </Heading3>
     </SectionContainer>
-    </RightContainer>
+  
   )
 }
 
