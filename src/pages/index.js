@@ -104,16 +104,7 @@ export const query = graphql`
                     raw
                   }
                 }
-                introSection {
-                  greyBackground
-                  heading
-                  introHalfWidth
-                  introduction {
-                    raw
-                  }
-                  linkUrl
-                  linkLabel
-                }
+                
               }
             }
             ... on ContentfulFeatureElement {

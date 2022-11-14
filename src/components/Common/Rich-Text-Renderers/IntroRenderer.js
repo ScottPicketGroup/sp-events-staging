@@ -9,7 +9,7 @@ import {
   BC1,
 } from "../../StyledComponents/typography.css"
 import { IntroWrapper } from "../../StyledComponents/containers.css"
-const Renderer = ({ node, isExpanded, openWrapperHeight }) => {
+const Renderer = ({ node, isExpanded, openWrapperHeight, introHalfWidth }) => {
   const [wrapperHeight, setWrapperHeight] = React.useState(0)
 
   const paragraphRef = React.useRef(null)
@@ -37,6 +37,7 @@ const Renderer = ({ node, isExpanded, openWrapperHeight }) => {
 
   return (
     <IntroWrapper
+    introHalfWidth={introHalfWidth}
       wrapperHeight={wrapperHeight}
       isExpanded={isExpanded}
       ref={wrapperRef}

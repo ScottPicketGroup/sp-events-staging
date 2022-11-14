@@ -5,7 +5,7 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  IntroHeading,
+  HeroHeading,
 } from "../../StyledComponents/typography.css"
 import { HeroTextWrapper, IntroWrapper } from "../../StyledComponents/containers.css"
 const Renderer = ({ node, isExpanded, openWrapperHeight }) => {
@@ -26,9 +26,9 @@ const Renderer = ({ node, isExpanded, openWrapperHeight }) => {
       [BLOCKS.HEADING_2]: (node, children) => <Heading2>{children}</Heading2>,
       [BLOCKS.HEADING_3]: (node, children) => <Heading3>{children}</Heading3>,
       [BLOCKS.PARAGRAPH]: (node, children, i) => (
-        <IntroHeading marginBottom="sm" ref={paragraphRef} isExpanded={isExpanded}>
+        <HeroHeading marginBottom="sm" ref={paragraphRef} isExpanded={isExpanded}>
           {children}
-        </IntroHeading>
+        </HeroHeading>
       ),
     },
   }

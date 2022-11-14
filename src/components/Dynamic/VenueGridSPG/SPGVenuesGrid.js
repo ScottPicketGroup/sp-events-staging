@@ -14,7 +14,7 @@ import {
 import ArrowIcon from "../images/ArrowIcon"
 
 const SPGVenuesGrid = ({ data }) => {
-  console.log(data)
+
   const [venues, setVenues] = useState([])
 
   useEffect(() => {

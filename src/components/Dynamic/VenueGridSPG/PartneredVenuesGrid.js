@@ -15,7 +15,7 @@ import {
 import ArrowIcon from "../images/ArrowIcon"
 
 const PartneredVenuesGrid = ({data}) => {
-  console.log('data', data)
+ 
   return (
     <>
    {

@@ -24,25 +24,25 @@ const FollowUsOnSocial = ({ data }) => {
       overflow="true"
       ref={myRef}
     >
-      <Heading1 marginBottom="sm">Follow us on social</Heading1>
+      <Heading1 marginBottom="sm">{data.heading}</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
-        {placeHolderArr.map((image, i) =>
+        {/* {placeHolderArr.map((image, i) =>
         <div style={{height: `280px`, aspectRatio: `1`, background: `grey`}} key={i}>{i}</div>
-        )}
-          {/* {images &&
-            images.edges.map((image, i) =>
+        )} */}
+          {data.images &&
+            data.images.map((image, i) =>
               i < 8 ? (
-                <Item key={image.node.id}>
+                <Item key={i}>
                   <Heading1></Heading1>
                   <GatsbyImage
-                    image={getImage(image.node.localFile)}
-                    alt={image.node.id}
+                    image={getImage(image)}
+                    alt={image.title}
                     style={{minHeight: `12vh`}}
                   />
                 </Item>
               ) : null
-            )} */}
+            )}
         </Grid>
       </DesktopWrapper>
       {/* <MobileWrapper><InstaSlider images={images} /></MobileWrapper> */}

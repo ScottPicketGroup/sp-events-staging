@@ -1,8 +1,5 @@
 import React from "react"
-import {
-  SectionContainer,
-  SectionWrapper,
-} from "../../StyledComponents/containers.css"
+
 import {
   Heading1,
   Heading2,
@@ -10,7 +7,9 @@ import {
 } from "../../StyledComponents/typography.css"
 import Renderer from "../../Common/Rich-Text-Renderers/IntroRenderer"
 import ArrowIcon from "../../../images/ArrowIcon"
-const Enquire = ({ data }) => {
+import EnquireForm from "./EnquireForm"
+import { SectionContainer, SectionWrapper } from "../../StyledComponents/containers.css"
+const Enquire = ({ data, page }) => {
   const {
     enquireHeading,
     greyBackground,
@@ -22,7 +21,7 @@ const Enquire = ({ data }) => {
 
   return (
     <SectionContainer
-      paddingTop="lg"
+      paddingTop={page === 'enquiries' ? 'lg' : "xl"}
       isGreyBackground={greyBackground}
       width="100vw"
       paddingBottom="lg"
@@ -38,6 +37,7 @@ const Enquire = ({ data }) => {
             </Heading2>
           </IntroLink>
         )}
+        <EnquireForm/>
       </SectionWrapper>
     </SectionContainer>
   )

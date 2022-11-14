@@ -16,7 +16,7 @@ export const AccordionSection = styled.div`
 export const AccordionBlock = styled.div`
   background-color: #fff;
   cursor: pointer;
-  padding: 16px 0px;
+  padding-bottom: 16px;
   display: flex;
   align-items: center;
   border: none;
@@ -50,7 +50,7 @@ export const AccordionIcon = styled.button`
   background: transparent;
   border: none;
   outline: none;
-
+  margin-top: 16px;
   &:before,
   &:after {
     content: "";

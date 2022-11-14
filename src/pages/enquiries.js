@@ -1,113 +1,93 @@
-import React, { useRef, useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React, { useRef } from "react"
 
+import { graphql } from "gatsby"
+import { useLocation } from "@reach/router"
+import Hero from "../components/Common/Hero/HeroContentfulDynamic"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Hero from "../components/Common/Hero/Hero"
+
+// page components
+
+import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
+
 import {
   PageContainer,
   PageWrapper,
-  MenuContainer,
-  MenuItem,
-  SectionContainer,
 } from "../components/StyledComponents/containers.css"
-import EnquiriesSummary from "../components/Pages/Enquiries/EnquiriesSummary"
-import GeneralEnquiries from "../components/Pages/Enquiries/GeneralEnquiries"
-import EnquireForm from "../components/Common/EnquireForm"
-import { Heading1 } from "../components/StyledComponents/typography.css"
 
-const EnquiriesPage = () => {
-  const image = useStaticQuery(graphql`
-    query EnquiriesHeroImage {
-      allFile(filter: { name: { in: "enquiries" } }) {
-        edges {
-          node {
-            id
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
-  `)
+import useWatchScroll from "../components/Common/Hooks/useWatchScroll"
+import useRefAttributes from "../components/Common/Hooks/useRefAttributes"
+import useWindowSize from "../components/Common/Hooks/useWindowDimensions"
 
-  const [scrollY, setScrollY] = useState(0)
-
-  const logit = () => setScrollY(window.pageYOffset)
-
-  useEffect(() => {
-    const watchScroll = () => {
-      window.addEventListener("scroll", logit)
-    }
-    watchScroll()
-    return () => {
-      window.removeEventListener("scroll", logit)
-    }
-  })
-
-  const menuItems = ["Enquiries", "General Enquiries", "Event Enquires"]
-
-  const [items] = React.useState([])
-  const [heights] = React.useState([])
-
+import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
+import Enquire from "../components/Dynamic/Enquire/Enquire"
+const Indextest = ({ data }) => {
+  const { heroElement, pageElements } = data.contentful6Enquiries
   const itemsRef = useRef([])
 
-  useEffect(() => {
-    itemsRef.current.forEach(i => {
-      const meh = i.getBoundingClientRect()
-
-      items.push(meh.top)
-    })
-    itemsRef.current.forEach(i => {
-      const scrollTop = i.scrollHeight
-      heights.push(scrollTop)
-    })
-    itemsRef.current = itemsRef.current.slice(0, items.length)
-  }, [heights, items])
-
+  const { scrollY } = useWatchScroll()
+  const { items, heights } = useRefAttributes(itemsRef)
+  const { width } = useWindowSize()
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
-
+  const page = useLocation().pathname.replace("/", "")
   return (
     <Layout>
-      <Seo title="FAQs" />
-      <Hero image={image} />
-
+      <Seo title="Welcome to Scott Pickett Events" />
+      <Hero data={heroElement} />
       <PageWrapper>
-        <MenuContainer>
-          {items &&
-            itemsRef.current &&
-            menuItems.map((menuItem, i) => (
-              <MenuItem
-                key={i}
-                onClick={() => executeScroll(i)}
-                sH={items[i]}
-                sT={heights[i]}
-                scrollY={scrollY}
-              >
-                {menuItem}
-              </MenuItem>
-            ))}
-        </MenuContainer>
-
-        <PageContainer alignItemStart>
-          <div ref={el => (itemsRef.current[0] = el)}>
-            <EnquiriesSummary />
-          </div>
-          <div ref={el => (itemsRef.current[1] = el)}>
-            <GeneralEnquiries />
-          </div>
-          <div ref={el => (itemsRef.current[2] = el)}>
-            <SectionContainer marginBottom="sm">
-              <Heading1 marginBottom="lg">Event Enquiries</Heading1>
-            </SectionContainer>
-            <EnquireForm />
-          </div>
+        <LeftMenu
+          pageElements={pageElements}
+          executeScroll={executeScroll}
+          scrollY={scrollY}
+          items={items}
+          heights={heights}
+        />
+        <PageContainer>
+          {pageElements.map((element, i) => (
+            <div ref={el => (itemsRef.current[i] = el)}>
+              {element.internal.type === "ContentfulEnquireSection" ? (
+                <Enquire data={element} page={page}/>
+              ) : null}
+            </div>
+          ))}
         </PageContainer>
       </PageWrapper>
     </Layout>
   )
 }
 
-export default EnquiriesPage
+export default Indextest
+
+export const query = graphql`
+  query DynamicEnquiriesQuery {
+    contentful6Enquiries(id: { eq: "b984496b-5da1-5328-b794-fa748c8f89fb" }) {
+      id
+      heroElement {
+        heroImage {
+          gatsbyImageData(placeholder: BLURRED)
+          title
+        }
+        heroText {
+          raw
+        }
+      }
+      pageElements {
+        ... on ContentfulEnquireSection {
+          id
+          internal {
+            type
+          }
+          enquireHeading
+          leftMenuHeading
+          greyBackground
+          enquireDescription {
+            raw
+          }
+          marginBottom
+          marginTop
+        }
+      }
+    }
+  }
+`

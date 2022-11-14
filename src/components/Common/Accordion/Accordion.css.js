@@ -4,7 +4,9 @@ import styled from 'styled-components'
 export const AccordionSection = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   &:last-of-type {
+    margin-bottom: -1rem;
     border-bottom: 1px solid #b1b3b6;
   }
 `
@@ -13,7 +15,7 @@ export const AccordionSection = styled.div`
 export const AccordionBlock = styled.div`
   background-color: #fff;
   cursor: pointer;
-  padding: 1rem 0px;
+  padding: 0 0 1rem 0px;
   display: flex;
   align-items: center;
   border: none;
@@ -37,7 +39,7 @@ export const AccordionIcon = styled.button`
   background: transparent;
   border: none;
   outline: none;
-
+  margin-top: 16px;
   &:before,
   &:after{
       content: "";

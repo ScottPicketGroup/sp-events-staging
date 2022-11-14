@@ -10,36 +10,103 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   // Query for markdown nodes to use in creating pages.
   const result = await graphql(`
-    query EventPageQuery {
-      allContentfulPartiesEvents {
-        edges {
-          node {
-            id
-            pageName
-            heroMedia {
-              title
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-            }
-            introduction {
+  query DynamicPages {
+    allContentfulEventsPageDynamic {
+      edges {
+        node {
+          id
+          pageName
+          heroElement {
+            heroText {
               raw
             }
-            sliderGallery {
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            heroImage {
+              gatsbyImageData(placeholder: BLURRED)
               title
             }
-            mainPageHeading
-            mainPageContent {
-              raw
+          }
+          pageElements {
+            ... on ContentfulEventTypeOptionsCollection {
+              id
+              internal {
+                type
+              }
+              heading
+              leftMenuHeading
+              greyBackground
+              optionsCollection {
+                description {
+                  raw
+                }
+                subHeading
+                optionName
+                linkLabel
+                linkUrl
+                image {
+                  gatsbyImageData(placeholder: BLURRED)
+                  title
+                }
+              }
+              displayInLeftMenu
             }
-            sampleMenusHeading
-            sampleMenusIntroduction {
-              raw
+            ... on ContentfulEnquireSection {
+              id
+              internal {
+                type
+              }
+              enquireHeading
+              leftMenuHeading
+              enquireDescription {
+                raw
+              }
+              marginBottom
+              marginTop
             }
-           
+            ... on ContentfulIntroElement {
+              id
+              leftMenuHeading
+              internal {
+                type
+              }
+              greyBackground
+              heading
+              introHalfWidth
+              introduction {
+                raw
+              }
+              linkLabel
+              linkUrl
+              bottomMargin
+              topMargin
+            }
+            ... on ContentfulImageGallery {
+              id
+              heading
+              leftMenuHeading
+              internal {
+                type
+              }
+              images {
+                gatsbyImageData(placeholder: BLURRED)
+                title
+              }
+            }
+            ... on ContentfulImageFullWidthStatic {
+              id
+              internal {
+                type
+              }
+              image {
+                gatsbyImageData(placeholder: BLURRED)
+                title
+              }
+            }
           }
         }
       }
     }
+  }
+  
   `)
 
   // Handle errors
@@ -49,8 +116,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   // Create pages for each markdown file.
-  const EventTemplate = path.resolve(`src/templates/PartiesAndEvents.js`)
-  result.data.allContentfulPartiesEvents.edges.forEach(({ node }) => {
+  const EventTemplate = path.resolve(`src/templates/DynamicTemplate.js`)
+  result.data.allContentfulEventsPageDynamic.edges.forEach(({ node }) => {
     const path = `/events/${node.pageName.toLowerCase().replace(" ", "-")}`
     createPage({
       path,

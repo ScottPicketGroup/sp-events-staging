@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react"
 import { BC2, Heading2, Heading3 } from "../../StyledComponents/typography.css"
+import Renderer from "../Rich-Text-Renderers/IntroRenderer"
 import {
   AccordionSection,
   AccordionBlock,
@@ -21,16 +22,21 @@ const Accordion = props => {
   }
 
   return (
-      <AccordionSection onClick={toggleAccordion}>
-        <AccordionBlock>
-          <Heading2>{props.title}</Heading2>
-          <AccordionIcon className={`${setActive}`} />
-        </AccordionBlock>
-        <AccordionContent ref={content} style={{ maxHeight: `${setHeight}` }}>
-          <Heading3 marginBottom="xs">{props.subTitle}</Heading3>
-          <BC2 marginBottom="sm" marginTop="sm">{props.content}</BC2>
-        </AccordionContent>
-      </AccordionSection>
+    <AccordionSection onClick={toggleAccordion}>
+      <AccordionBlock>
+        <Heading2>{props.title}</Heading2>
+        <AccordionIcon className={`${setActive}`} />
+      </AccordionBlock>
+      <AccordionContent ref={content} style={{ maxHeight: `${setHeight}` }}>
+        <Heading3 marginBottom="xs">{props.subTitle}</Heading3>
+        {props.content && (
+          <BC2 marginBottom="sm" marginTop="sm">
+            {props.content}
+          </BC2>
+        )}
+        {props.answer && <Renderer node={props.answer} />}
+      </AccordionContent>
+    </AccordionSection>
   )
 }
 

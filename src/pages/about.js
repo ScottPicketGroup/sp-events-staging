@@ -116,16 +116,6 @@ query DynamicAboutQuery {
                     raw
                   }
                 }
-                introSection {
-                  greyBackground
-                  heading
-                  introHalfWidth
-                  introduction {
-                    raw
-                  }
-                  linkUrl
-                  linkLabel
-                }
               }
             }
       ... on ContentfulEnquireSection {

@@ -180,6 +180,7 @@ const SubMenuItemStyles = css`
 `
 
 export const EventsSubMenuItem = styled(Heading2)`
+cursor: pointer;
   color: ${props =>
     props.item === props.active
       ? "white"
@@ -190,6 +191,7 @@ export const EventsSubMenuItem = styled(Heading2)`
 
 export const SubMenuItem = styled(Heading2)`
   ${SubMenuItemStyles}
+  cursor: pointer;
 `
 
 export const CloseLogoWrapper = styled.div`

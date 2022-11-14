@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
   display: flex;
   align-items: ${props => (props.alignItemStart ? "flex-start" : "flex-end")};
   flex-direction: column;
-
+  padding-bottom: ${props => props.page === 'faqs' && '13.5rem'};
   @media (max-width: 450px) {
     width: 100%;
   }
@@ -165,6 +165,7 @@ export const IntroWrapper = styled.div`
   overflow: hidden; */
   margin-bottom: 1rem;
   transition: max-height 0.5s ease;
+  width: ${props => props.introHalfWidth === true && '75%'};
 `
 export const HeroTextWrapper = styled.div`
   width: 100%;

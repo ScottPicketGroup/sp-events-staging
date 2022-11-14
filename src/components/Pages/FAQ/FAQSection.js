@@ -1,16 +1,17 @@
 import React from "react"
-import { SectionContainer } from "../../StyledComponents/containers.css"
 import { Heading1 } from "../../StyledComponents/typography.css"
 import Accordion from "../../Common/Accordion/Accordion"
 
-const FAQSection = (props) => {
+const FAQSection = ({data}) => {
+  const {sectionHeading, faqItems} = data.faqSectionCollection
+  console.log('data', data.faqSectionCollection)
   return (
-    <SectionContainer>
-      <Heading1 marginBottom="md">{props.title}</Heading1>
-      {props.content && props.content.length > 0 && props.content.map((item, index) => 
-         <Accordion key={index}  title={item.title} subTitle={item.subTitle} content={item.content} />
+    <>
+      <Heading1 marginBottom="md">{sectionHeading}</Heading1>
+      {faqItems && faqItems.length > 0 && faqItems.map((item, index) => 
+         <Accordion key={index}  title={item.question} subTitle={item.subHeading} answer={item.answer} />
       )}   
-    </SectionContainer>
+    </>
   )
 }
 

@@ -26,11 +26,13 @@ const Intro = ({ data }) => {
       paddingTop="lg"
       isGreyBackground={greyBackground}
       width="100vw"
-      paddingBottom="lg"
+      paddingBottom={introduction ? "lg" : ""}
     >
       <SectionWrapper width="73.5%">
         <Heading1 marginBottom="sm">{heading}</Heading1>
-        <Renderer node={introduction} />
+        {introduction && (
+          <Renderer node={introduction} introHalfWidth={introHalfWidth} />
+        )}
         {linkLabel && linkUrl !== null && linkUrl.includes("http://") ? (
           <Heading2>
             <a

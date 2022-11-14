@@ -1,7 +1,9 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { Heading1 } from "../../StyledComponents/typography.css"
 import { EventsSubMenuWrapper, EventsSubMenuItem } from "../menu.css"
+import useMenudata, { data, useMenuEventItems } from "./menuEventTypesQuery"
 import MenuOpenArrow from "./MenuOpenArrow"
 
 const eventsSubMenu = [
@@ -13,6 +15,9 @@ const eventsSubMenu = [
 
 const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const [activeSub, setSubActive] = React.useState("")
+  const menuItems = useMenudata()
+
+  const stuff = useMenudata()
 
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
@@ -25,7 +30,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
           Back
         </Heading1>
       </MobileBackButtonWrapper>
-      {eventsSubMenu.map((item, index) => (
+      {menuItems.map((item, index) => (
         <EventsSubMenuItem
           key={index}
           marginBottom="sm"
@@ -35,7 +40,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
           subMenuOpen={subMenuOpen}
           active={activeSub}
         >
-          {item}
+          {item.node.showInMenu && item.node.pageName}
         </EventsSubMenuItem>
       ))}
     </EventsSubMenuWrapper>

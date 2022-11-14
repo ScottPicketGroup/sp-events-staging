@@ -401,3 +401,8 @@ export const GridSubHeading = styled(Heading3)`
 export const GridLink = styled(Link)`
   text-decoration: none;
 `
+export const HeroHeading = styled(BC1)`
+   font-size: 8rem;
+  color: white;
+  font-family: "CentraNo2Light";
+`;
