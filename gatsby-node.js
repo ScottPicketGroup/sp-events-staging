@@ -76,8 +76,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               }
               linkLabel
               linkUrl
-              bottomMargin
-              topMargin
             }
             ... on ContentfulImageGallery {
               id
@@ -90,6 +88,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 gatsbyImageData(placeholder: BLURRED)
                 title
               }
+            }
+            ... on ContentfulFeatureElement {
+              id
+              leftMenuHeading
+              internal {
+                type
+              }
+              heading
+              isGreyBackground
+              image {
+                title
+                gatsbyImageData(placeholder: BLURRED)
+              }
+              introduction {
+                raw
+              }
+              linkLabel
+              linkUrl
+              secondSubHeading
+              subHeading
             }
             ... on ContentfulImageFullWidthStatic {
               id
