@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { Heading1 } from "../../StyledComponents/typography.css"
 import { EventsSubMenuWrapper, EventsSubMenuItem } from "../menu.css"
@@ -31,17 +31,19 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
         </Heading1>
       </MobileBackButtonWrapper>
       {menuItems.map((item, index) => (
-        <EventsSubMenuItem
-          key={index}
-          marginBottom="sm"
-          link
-          onMouseOver={() => setSubActive(item)}
-          item={item}
-          subMenuOpen={subMenuOpen}
-          active={activeSub}
-        >
-          {item.node.showInMenu && item.node.pageName}
-        </EventsSubMenuItem>
+        <Link to={`/events/${item.node.pageName.toLowerCase().replace(" ", "-")}`}>
+          <EventsSubMenuItem
+            key={index}
+            marginBottom="sm"
+            link
+            onMouseOver={() => setSubActive(item)}
+            item={item}
+            subMenuOpen={subMenuOpen}
+            active={activeSub}
+          >
+            {item.node.showInMenu && item.node.pageName}
+          </EventsSubMenuItem>
+        </Link>
       ))}
     </EventsSubMenuWrapper>
   )
