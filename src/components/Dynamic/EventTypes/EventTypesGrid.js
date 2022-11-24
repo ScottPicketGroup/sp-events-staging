@@ -14,6 +14,8 @@ import {
 import ArrowIcon from "../../../images/ArrowIcon"
 
 const EventTypesGrid = ({ eventTypes }) => {
+
+  console.log(eventTypes)
   return (
     <Grid cols={2} colsMob={1} full>
       {eventTypes &&

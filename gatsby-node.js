@@ -17,7 +17,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id
           pageName
           heroElement {
-          
+            heroText {
+              raw
+            }
             heroImage {
               gatsbyImageData(placeholder: BLURRED)
               title

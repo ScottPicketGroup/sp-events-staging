@@ -104,8 +104,11 @@ export const AccordionContentText = styled.div`
 export const AccordionContentImage = styled.div`
   width: 35%;
   margin-left: 2rem;
+  aspect-ratio: 3/4;
+  height: 100%;
   .gatsby-image-wrapper {
     width: 100%;
+    min-height: 100%;
   }
   @media (max-width: 451px) {
     margin: 0 0 2rem 0;

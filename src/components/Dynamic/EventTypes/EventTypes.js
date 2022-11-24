@@ -11,8 +11,6 @@ const EventTypes = ({ data }) => {
 
   return (
     <SectionContainer
-     
-      
       isGreyBackground={greyBackground}
       width="100vw"
       paddingTop="lg"

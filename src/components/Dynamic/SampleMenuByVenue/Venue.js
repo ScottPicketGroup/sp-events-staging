@@ -4,45 +4,19 @@ import styled from "styled-components"
 import AccordionWithImage from "../../Common/AccordionWithImage/AccordionWithImage"
 import AccordionWithMenuSections from "../../Common/AccordionWithImage/AccordianWithMenuSections"
 const Venue = ({ venue }) => {
- 
-console.log('venue', venue)
+  const {heading, menuSectionsCollection} = venue
+  console.log("venue", venue.menuSectionsCollection.accordionImage)
 
   return (
     <VenueContainer>
       <ImageAndDescription venue={venue} />
-      {venue.canaps && (
-        <AccordionWithImage
-          title="Canapés"
-          content={venue.canaps}
-          // description={item.description}
-          image={venue.canapsImage}
-        />
-      )}
-      {venue.sitDownMenu && (
-        <AccordionWithMenuSections
-          title="Sit Down Menu"
-          content={venue.sitDownMenu}
-          // description={item.description}
-          image={venue.canapsImage}
-        />
-      )}
-      {venue.sharedTableMenu && (
-        <AccordionWithMenuSections
-          title="Shared Table Menu"
-          content={venue.sharedTableMenu}
-          // description={item.description}
-          image={venue.canapsImage}
-        />
-      )}
-
-      {venue.drinksMenu && (
-        <AccordionWithImage
-          title="Drinks"
-          content={venue.drinksMenu}
-          // description={item.description}
-          image={venue.drinksMenuImage}
-        />
-      )}
+     
+     <AccordionWithImage
+          title={menuSectionsCollection.heading}
+         image={menuSectionsCollection.accordionImage}
+         content={menuSectionsCollection.menuSectionsCollection}
+        /> 
+  
     </VenueContainer>
   )
 }

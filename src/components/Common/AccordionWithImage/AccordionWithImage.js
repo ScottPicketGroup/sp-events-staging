@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { BC2, Heading2 } from "../../StyledComponents/typography.css"
+import { BC2, Heading2, Heading3 } from "../../StyledComponents/typography.css"
 import {
   AccordionSection,
   AccordionBlock,
@@ -11,7 +11,7 @@ import {
   AccordionContentTextSection,
 } from "./AccordionWithImage.css"
 
-const AccordionWithImage = ({content, title, image}) => {
+const AccordionWithImage = ({ content, title, image }) => {
   const [setActive, setActiveState] = useState("")
   const [setHeight, setHeightState] = useState("0px")
 
@@ -20,10 +20,11 @@ const AccordionWithImage = ({content, title, image}) => {
   const toggleAccordion = () => {
     setActiveState(setActive === "" ? "active" : "")
     setHeightState(
-      setActive === "active" ? "0px" : `${contentContainer.current.scrollHeight + 16}px`
+      setActive === "active"
+        ? "0px"
+        : `${contentContainer.current.scrollHeight + 16}px`
     )
   }
-
 
   return (
     <AccordionSection onClick={toggleAccordion} setActive={setActive}>
@@ -33,27 +34,27 @@ const AccordionWithImage = ({content, title, image}) => {
         <AccordionIcon className={`${setActive}`} />
       </AccordionBlock>
 
-    {/* Accordian open state + menus /menu items */}
+      {/* Accordian open state + menus /menu items */}
 
-     <AccordionContent ref={contentContainer} style={{ maxHeight: `${setHeight}` }}>
-    
-   
-        <AccordionContentText >
-     
-          {content.map((item, index) => (
-            <AccordionContentTextSection key={index}>
-                <BC2 marginBottom="sm">{item.menuItem}</BC2>
-            </AccordionContentTextSection>
+      <AccordionContent
+        ref={contentContainer}
+        style={{ maxHeight: `${setHeight}` }}
+      >
+        <AccordionContentText>
+          {content.map((item, i) => (
+            <div key={i}>
+              <Heading3 marginBottom="xs">{item.sectionName}</Heading3>
+              <AccordionContentTextSection>
+                <BC2 marginBottom="sm">{item.menuSectionItems[0].menuItem}</BC2>
+              </AccordionContentTextSection>
+            </div>
           ))}
         </AccordionContentText>
-      
-      {/* image */}
+        {/* image */}
         <AccordionContentImage>
           <GatsbyImage image={getImage(image)} alt="test" />
         </AccordionContentImage>
-      </AccordionContent> 
-
-
+      </AccordionContent>
     </AccordionSection>
   )
 }

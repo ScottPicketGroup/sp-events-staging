@@ -154,45 +154,17 @@ export const query = graphql`
             description {
               raw
             }
-            canaps {
-              menuItem
-            }
-            canapsImage {
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-            }
-            sitDownMenu {
-              entrees
-              entreeMenuItems {
-                menuItem
+            menuSectionsCollection {
+              heading
+              menuSectionsCollection {
+                sectionName
+                menuSectionItems {
+                  menuItem
+                }
               }
-              main
-              mainMenuItems {
-                menuItem
+              accordionImage {
+                gatsbyImageData
               }
-              dessertMenuItems {
-                menuItem
-              }
-              dessertsHeading
-            }
-            sharedTableMenu {
-              entrees
-              entreeMenuItems {
-                menuItem
-              }
-              dessertsHeading
-              dessertMenuItems {
-                menuItem
-              }
-              main
-              mainMenuItems {
-                menuItem
-              }
-            }
-            drinksMenu {
-              menuItem
-            }
-            drinksMenuImage {
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
             }
           }
         }
