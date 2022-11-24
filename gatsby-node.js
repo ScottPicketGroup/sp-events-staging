@@ -17,9 +17,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id
           pageName
           heroElement {
-            heroText {
-              raw
-            }
+          
             heroImage {
               gatsbyImageData(placeholder: BLURRED)
               title
@@ -35,9 +33,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               leftMenuHeading
               greyBackground
               optionsCollection {
-                description {
-                  raw
-                }
+                
                 subHeading
                 optionName
                 linkLabel

@@ -5,6 +5,8 @@ import AccordionWithImage from "../../Common/AccordionWithImage/AccordionWithIma
 import AccordionWithMenuSections from "../../Common/AccordionWithImage/AccordianWithMenuSections"
 const Venue = ({ venue }) => {
  
+console.log('venue', venue)
+
   return (
     <VenueContainer>
       <ImageAndDescription venue={venue} />

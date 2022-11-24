@@ -23,7 +23,7 @@ const AccordionWithMenuSections = ({content, title, image}) => {
       setActive === "active" ? "0px" : `${contentContainer.current.scrollHeight + 16}px`
     )
   }
-
+console.log(content[0].dessertMenuItems)
 
   return (
     <AccordionSection onClick={toggleAccordion} setActive={setActive}>
@@ -61,7 +61,7 @@ const AccordionWithMenuSections = ({content, title, image}) => {
                 {/* Main Section Heading */}
       <Heading3>{content[0].dessertsHeading}</Heading3>
       {/* Map Main menu Items */}
-          {content[0].mainMenuItems.map((item, index) => (
+          {content[0].dessertMenuItems.map((item, index) => (
             <AccordionContentTextSection key={index}>
                 <BC2 marginBottom="sm">{item.menuItem}</BC2>
             </AccordionContentTextSection>

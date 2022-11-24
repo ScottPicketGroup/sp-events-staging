@@ -53,6 +53,9 @@ const Indextest = ({ data }) => {
     setPageSections(sectionsToSet)
   }, [pageElements])
 
+
+
+
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />

@@ -10,7 +10,7 @@ const Hero = ({ data }) => {
   return (
     <HeroContainer>
       <HeroImage image={image} alt="test" />
-      <Renderer node={heroText} />
+     {heroText &&  <Renderer node={heroText} />}
     </HeroContainer>
   )
 }
