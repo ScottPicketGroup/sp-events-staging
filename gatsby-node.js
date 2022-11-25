@@ -35,7 +35,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               leftMenuHeading
               greyBackground
               optionsCollection {
-                
+                description {
+                  raw
+                }
                 subHeading
                 optionName
                 linkLabel
