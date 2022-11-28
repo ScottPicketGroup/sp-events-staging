@@ -291,7 +291,40 @@ export const BC3 = styled.p`
 
   @media (max-width: 450px) {
     font-size: 1rem;
-    margin-bottom: 2.35rem;
+    margin-bottom: ${props => {
+    switch (props.marginBottom) {
+      case "sm":
+        return ".5rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "2.35rem"
+    }
+  }};
+    margin-top: ${props => {
+    switch (props.marginTop) {
+      case "xs":
+        return "0"
+      case "sm":
+        return "0"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "2.35rem"
+    }
+  }};
     line-height: 1.15;
   }
 `
@@ -402,7 +435,10 @@ export const GridLink = styled(Link)`
   text-decoration: none;
 `
 export const HeroHeading = styled(BC1)`
-   font-size: 8rem;
+   font-size: 4rem;
   color: white;
   font-family: "CentraNo2Light";
+  @media (min-width: 1050px) {
+    font-size: 8rem;
+  }
 `;

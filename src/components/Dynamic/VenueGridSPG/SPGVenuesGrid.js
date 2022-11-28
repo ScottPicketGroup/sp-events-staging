@@ -47,17 +47,17 @@ const SPGVenuesGrid = ({ data }) => {
               />
             </FullImageContainer>
 
-            <Heading2 marginTop="sm">{venue.space.spaceName}</Heading2>
-            <BC3 marginTop="xs">{venue.venue} </BC3>
-            <BC3 marginTop="xs">{venue.space.regionCuisineStyle} </BC3>
-            <BC3 marginTop="sm">
+            <Heading2 marginTop="sm" marginBottom="sm">{venue.space.spaceName}</Heading2>
+            <BC3 marginTop="xs" marginBottom="sm">{venue.venue} </BC3>
+            <BC3 marginTop="xs" marginBottom="sm">{venue.space.regionCuisineStyle} </BC3>
+           { venue.space.seatingCapacity && <BC3 marginTop="sm" marginBottom="sm">
               Seated Capacity: {venue.space.seatingCapacity}{" "}
-            </BC3>
-            <BC3 marginTop="xs">
-              Standing Capacity: {venue.space.standingCapacity}{" "}
+            </BC3>}
+            <BC3 marginTop="xs" marginBottom="sm">
+              {venue.space.standingCapacity != null && `Standing Capacity: ${venue.space.standingCapacity}`}
             </BC3>
             {/* <SPGRestaurantListRenderer node={restaurant.restaurantDescription} /> */}
-            <Heading3 marginTop="sm">
+            <Heading3 marginTop="sm" >
               Learn More <ArrowIcon />
             </Heading3>
           </ItemImgLink>

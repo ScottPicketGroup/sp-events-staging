@@ -108,7 +108,7 @@ export const SectionContainer = styled.div`
   overflow: hidden;
   @media (max-width: 450px) {
     width: 100vw;
-    padding: 0 1rem;
+    padding: 4rem 1rem;
     background: none;
   }
 `
@@ -221,7 +221,8 @@ export const Grid = styled.div`
   align-items: center;
   align-items: start;
   @media (max-width: 451px) {
-    grid-template-columns: ${props => `repeat(${props.colsMob}, 1fr)`};
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-columns: ${props => `repeat(${props.colsMob}, 1fr)`}; */
     grid-gap: 2rem 0rem;
   }
 `
