@@ -142,6 +142,26 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulFeatureElement {
+          id
+          leftMenuHeading
+          internal {
+            type
+          }
+          heading
+          isGreyBackground
+          image {
+            title
+            gatsbyImageData(placeholder: BLURRED)
+          }
+          introduction {
+            raw
+          }
+          linkLabel
+          linkUrl
+          secondSubHeading
+          subHeading
+        }
         ... on ContentfulIntroElement {
           id
           leftMenuHeading
