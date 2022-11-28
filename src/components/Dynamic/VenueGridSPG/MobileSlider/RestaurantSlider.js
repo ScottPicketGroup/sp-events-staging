@@ -11,7 +11,7 @@ import PartneredVenues from "./PartneredVenues"
 const RestaurantSlider = ({ data }) => {
   const [active, setActive] = React.useState(0)
 
-  const handlers = []
+  const handlers = 
   useSwipeable({
     onSwipedLeft: () =>
       active >= 0 && active < data.length - 1 ? setActive(active + 1) : null,
