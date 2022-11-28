@@ -12,7 +12,7 @@ const VenueGrid = ({ data }) => {
   const { heading, greyBackground } = data
   const { width } = useWindowSize()
 
-  console.log(width)
+ 
   return (
     <SectionContainer
       paddingTop="lg"

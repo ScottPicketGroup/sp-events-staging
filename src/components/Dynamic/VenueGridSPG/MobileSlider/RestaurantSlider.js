@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 import styled from "styled-components"
 import { useSwipeable } from "react-swipeable"
@@ -9,26 +9,33 @@ import SPGSpaces from "./SPGSpaces"
 import PartneredVenues from "./PartneredVenues"
 
 const RestaurantSlider = ({ data }) => {
-  const [active, setActive] = React.useState(0)
+  const [numSlides, setNumSlides] = useState(data.length)
+  const [active, setActive] = useState(0)
 
-  const handlers = 
-  useSwipeable({
+  useEffect(() => {
+    let numSlidesToSet = 0
+  //set let
+  // map through venues and add number of function areas to let if there are function areas
+   data.map((venue, i) => venue.functionAreas ? numSlidesToSet = numSlidesToSet + venue.functionAreas.length  : numSlidesToSet = data.length)
+   setNumSlides(numSlidesToSet )
+  }, [data])
+
+  const handlers = useSwipeable({
     onSwipedLeft: () =>
-      active >= 0 && active < data.length - 1 ? setActive(active + 1) : null,
+      active >= 0 && active < numSlides - 1 ? setActive(active + 1) : null,
     onSwipedRight: () =>
-      active > 0 && active < data.length ? setActive(active - 1) : null,
+      active > 0 && active < numSlides ? setActive(active - 1) : null,
   })
-  console.log("data", data[0])
+
   return (
     <Container {...handlers}>
       <ImageContainer>
-        {data.map((r, i) => 
-        r.functionAreas ? (
-          <SPGSpaces r={r} active={active} i={i}/>
-         ) :
-         (
-          <PartneredVenues r={r} active={active} i={i}/>
-         )
+        {data.map((r, i) =>
+          r.functionAreas ? (
+            <SPGSpaces r={r} active={active}  data={data} key={i}/>
+          ) : (
+            <PartneredVenues r={r} active={active} i={i} key={i}/>
+          )
         )}
       </ImageContainer>
     </Container>
@@ -76,12 +83,12 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
   height: auto;
- 
+
   overflow: hidden;
 `
 
 export const ImageContainer = styled.div`
-  height: 26em;
+  min-height: 30rem;
   width: 100vw;
 
   position: relative;
