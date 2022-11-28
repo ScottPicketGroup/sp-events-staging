@@ -44,9 +44,14 @@ const AccordionWithImage = ({ content, title, image }) => {
           {content.map((item, i) => (
             <div key={i}>
               <Heading3 marginBottom="xs">{item.sectionName}</Heading3>
-              <AccordionContentTextSection>
-                <BC2 marginBottom="sm">{item.menuSectionItems[0].menuItem}</BC2>
-              </AccordionContentTextSection>
+            
+                {item.menuSectionItems.map(item => (
+                  <AccordionContentTextSection>
+                    {" "}
+                    <BC2 marginBottom="sm">{item.menuItem}</BC2>{" "}
+                  </AccordionContentTextSection>
+                ))}
+             
             </div>
           ))}
         </AccordionContentText>

@@ -23,10 +23,10 @@ const ImageAndDescription = ({ venue }) => {
           <Heading2 marginBottom="xs">{venue.venueName}</Heading2>
           <Heading3 marginBottom="sm">{venue.subheadinge}</Heading3>
          <SPGRestaurantListRenderer node={venue.description} />
-          <Heading3>
+          {/* <Heading3>
             View venue site
             <ArrowIcon />
-          </Heading3>
+          </Heading3> */}
         </TextContainer>
       </PartnerVenuesLandingWrapper>
     </>
