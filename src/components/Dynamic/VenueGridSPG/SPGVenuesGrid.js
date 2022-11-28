@@ -14,7 +14,6 @@ import {
 import ArrowIcon from "../images/ArrowIcon"
 
 const SPGVenuesGrid = ({ data }) => {
-
   const [venues, setVenues] = useState([])
 
   useEffect(() => {
@@ -47,17 +46,24 @@ const SPGVenuesGrid = ({ data }) => {
               />
             </FullImageContainer>
 
-            <Heading2 marginTop="sm" marginBottom="sm">{venue.space.spaceName}</Heading2>
-            <BC3 marginTop="xs" marginBottom="sm">{venue.venue} </BC3>
-            <BC3 marginTop="xs" marginBottom="sm">{venue.space.regionCuisineStyle} </BC3>
-           { venue.space.seatingCapacity && <BC3 marginTop="sm" marginBottom="sm">
-              Seated Capacity: {venue.space.seatingCapacity}{" "}
-            </BC3>}
-            <BC3 marginTop="xs" marginBottom="sm">
-              {venue.space.standingCapacity != null && `Standing Capacity: ${venue.space.standingCapacity}`}
+            <Heading2 marginTop=".5" marginBottom="xs">
+              {venue.space.spaceName}
+            </Heading2>
+            <BC3 >
+              {venue.venue}{" "}
+            </BC3>
+            <BC3 marginBottom="0">{venue.space.regionCuisineStyle} </BC3>
+            {venue.space.seatingCapacity && (
+              <BC3 marginTop="sm" marginBottom="0">
+                Seated Capacity: {venue.space.seatingCapacity}{" "}
+              </BC3>
+            )}
+            <BC3 marginTop="0" marginBottom="md">
+              {venue.space.standingCapacity != null &&
+                `Standing Capacity: ${venue.space.standingCapacity}`}
             </BC3>
             {/* <SPGRestaurantListRenderer node={restaurant.restaurantDescription} /> */}
-            <Heading3 marginTop="sm" >
+            <Heading3 marginTop="md">
               Learn More <ArrowIcon />
             </Heading3>
           </ItemImgLink>

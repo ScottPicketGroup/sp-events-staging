@@ -130,6 +130,12 @@ export const query = graphql`
               }
               restaurantName
               restaurantUrl
+              restaurantMedia {
+                gatsbyImageData
+              }
+              restaurantDescription {
+                raw
+              }
               functionAreas {
                 spaceName
                 seatingCapacity

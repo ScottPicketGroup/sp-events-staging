@@ -86,6 +86,8 @@ export const Heading2 = styled.h2`
 
   margin-bottom: ${props => {
     switch (props.marginBottom) {
+      case props.marginBottom :
+      return `${props.marginBottom}rem`
       case "xs":
         return ".25rem"
       case "sm":
@@ -104,6 +106,8 @@ export const Heading2 = styled.h2`
   }};
   margin-top: ${props => {
     switch (props.marginTop) {
+      case props.marginTop :
+      return `${props.marginTop}rem`
       case "sm":
         return "1rem"
       case "md":
@@ -119,6 +123,44 @@ export const Heading2 = styled.h2`
     }
   }};
   @media (max-width: 450px) {
+    margin-bottom: ${props => {
+    switch (props.marginBottom) {
+      case props.marginBottom :
+      return `${props.marginBottom}rem`
+      case "xs":
+        return ".25rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case props.marginTop :
+      return `${props.marginTop}rem`
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+      }
+  }};
     font-size: 1.25rem;
     line-height: 1.2;
   }
@@ -149,6 +191,8 @@ export const Heading3 = styled.h3`
   }};
   margin-top: ${props => {
     switch (props.marginTop) {
+      case props.marginTop:
+        return `${props.marginTop}rem`
       case "xs":
         return ".45rem"
       case "sm":
@@ -258,6 +302,8 @@ export const BC3 = styled.p`
   font-size: 1rem;
   margin-bottom: ${props => {
     switch (props.marginBottom) {
+      case "0":
+        return "0"
       case "sm":
         return "1rem"
       case "md":
@@ -293,6 +339,8 @@ export const BC3 = styled.p`
     font-size: 1rem;
     margin-bottom: ${props => {
     switch (props.marginBottom) {
+      case "0":
+        return "0"
       case "sm":
         return ".5rem"
       case "md":
@@ -309,10 +357,12 @@ export const BC3 = styled.p`
   }};
     margin-top: ${props => {
     switch (props.marginTop) {
+      case "0":
+        return "0"
       case "xs":
-        return "0"
+        return ".25rem"
       case "sm":
-        return "0"
+        return ".5rem"
       case "md":
         return "1.5rem"
       case "lg":

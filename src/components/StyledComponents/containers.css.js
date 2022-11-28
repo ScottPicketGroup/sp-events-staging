@@ -151,6 +151,7 @@ export const SectionWrapper = styled.div`
     width: 100%;
     padding: 0;
     margin-top: 0;
+    margin-bottom: 0;
   }
 `
 
@@ -216,7 +217,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: ${props => `repeat(${props.cols}, 1fr)`};
   grid-gap: ${props =>
-    props.insta ? props.insta : props.gridGap ? props.gridGap : "3.75rem 2rem"};
+    props.insta ? props.insta : props.gridGap ? props.gridGap : "2.75rem 2rem"};
 
   align-items: center;
   align-items: start;

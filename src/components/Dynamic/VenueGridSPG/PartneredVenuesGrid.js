@@ -30,8 +30,8 @@ const PartneredVenuesGrid = ({data}) => {
         />
       </FullImageContainer>
 
-     <Heading2 marginTop="sm">{venue.restaurantName}</Heading2>
-      <Heading3 >{venue.location} </Heading3>
+     <Heading2 marginTop=".5">{venue.restaurantName}</Heading2>
+      <Heading3 marginTop=".25">{venue.location} </Heading3>
       
       
       <SPGRestaurantListRenderer node={venue.restaurantDescription} s/>
