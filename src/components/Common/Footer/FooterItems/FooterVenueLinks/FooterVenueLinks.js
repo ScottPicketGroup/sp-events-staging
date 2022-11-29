@@ -7,7 +7,6 @@ const FooterVenueLinks = () => {
     { name: "Chancery Lane", to: "http://www.chancerylane.com.au" },
     { name: "Estelle", to: " http://www.theestelle.com.au" },
     { name: "Longrain", to: " http://www.longrainmelbourne.com" },
-    { name: "Pastore", to: " http://www.pastorerestaurant.com.au" },
     { name: "Longsong", to: " http://www.longsong.com.au" },
     { name: "Le Shoppe", to: " http://www.leshoppe.com.au"},
     { name: "Matilda", to: " http://www.matilda159.com" },

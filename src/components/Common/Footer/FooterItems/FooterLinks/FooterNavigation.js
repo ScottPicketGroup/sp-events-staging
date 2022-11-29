@@ -5,11 +5,11 @@ const FooterNavigation = () => {
 
   const links = [
     { name: "Home", to: "/" },
+    { name: "About", to: "/about" },
     { name: "Venues", to: "/venues" },
-    { name: "Events", to: "/events" },
     { name: "Sample Menus", to: "/sample-menus" },
-    { name: "FAQ's", to: "/faqs" },
-    { name: "Contacts", to: "/enquiries" },
+    { name: "FAQs", to: "/faqs" },
+    { name: "Talk to Us", to: "/enquiries" },
     { name: "Privacy", to: "/" },
   ]
 

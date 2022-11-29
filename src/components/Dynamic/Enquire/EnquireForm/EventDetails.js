@@ -7,7 +7,7 @@ import { EventFields } from "./event-fields"
 import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"
 import TextAreaContainer from "./TextAreaContainer"
-export default function EventDetails({ eventData, setEventData }) {
+const  EventDetails = ({ eventData, setEventData }) => {
   return (
     <SectionContainer marginBottom="md" fullScreen fullMob>
       <Heading2 marginBottom="1">Your Event Details</Heading2>
@@ -47,3 +47,4 @@ export default function EventDetails({ eventData, setEventData }) {
     </SectionContainer>
   )
 }
+export default EventDetails
