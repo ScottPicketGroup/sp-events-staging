@@ -78,7 +78,7 @@ text-decoration: none;
     }
   }};
   :hover {
-    font-family: bold;
+   font-weight: bold;
   }
   @media (max-width: 450px) {
     font-size: 1rem;
@@ -183,7 +183,7 @@ font-size: 1rem;
     }
   }};
   :hover {
-    font-family: bold;
+    font-weight: bold;
   }
   @media (max-width: 450px) {
     font-size: 1rem;
