@@ -21,11 +21,7 @@ const EnquireForm = () => {
 
   return (
     <form>
-      <ContactSection
-        contactData={contactData}
-        setContactData={setContactData}
-      />
-      <EventDetails eventData={eventData} setEventData={setEventData} />
+     
       <ButtonContainer title="Submit" />
     </form>
   )
