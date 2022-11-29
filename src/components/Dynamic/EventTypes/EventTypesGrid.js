@@ -30,7 +30,7 @@ const EventTypesGrid = ({ eventTypes }) => {
                   style={{ aspectRatio: `3/2` }}
                 />
               </FullImageContainer>
-              <Heading2 marginTop="sm">{item.pageName}</Heading2>
+              <Heading2 marginTop="1">{item.pageName}</Heading2>
               <GridSubHeading marginBottom="xs">
                 {item.subheadingForGrid}
               </GridSubHeading>

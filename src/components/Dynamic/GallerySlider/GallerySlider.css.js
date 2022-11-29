@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 export const Container = styled.div`
   width: 72.1%;
   float: right;
-  
+  padding-top: 3.75rem;
   display: flex;
   flex-direction: column;
   position: relative;

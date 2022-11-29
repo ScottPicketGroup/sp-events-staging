@@ -24,7 +24,7 @@ const EventTypesGrid = ({ eventTypes }) => {
                   style={{ aspectRatio: `3/2` }}
                 />
               </FullImageContainer>
-              <Heading2 marginTop="sm">{item.optionName}</Heading2>
+              <Heading2 marginTop="1">{item.optionName}</Heading2>
               <GridSubHeading marginBottom="xs">
                 {item.subHeading}
               </GridSubHeading>
