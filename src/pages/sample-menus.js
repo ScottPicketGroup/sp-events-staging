@@ -85,7 +85,7 @@ const Indextest = ({ data }) => {
                 >
                   <SectionWrapper width="73.5%">
                     <div ref={el => (itemsRef.current[i] = el)}>
-                      <Venue venue={element.restaurant} key={i} />
+                      <Venue data={element.restaurant} key={i} />
                     </div>
                   </SectionWrapper>
                 </SectionContainer>
@@ -154,7 +154,7 @@ export const query = graphql`
             description {
               raw
             }
-            menuSectionsCollection {
+            accordionItemsCollection {
               heading
               menuSectionsCollection {
                 sectionName

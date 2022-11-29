@@ -26,10 +26,10 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
     setActiveEl(menuitemsToPush[0])
   }, [])
 
-  console.log(
-    useLocation().pathname,
-    menuItems
-  )
+  // console.log(
+  //   useLocation().pathname,
+  //   menuItems
+  // )
 
   const clickEl = (i, menuItem) => {
     executeScroll(i)
