@@ -14,7 +14,7 @@ const FooterVenueLinks = () => {
 
   return (
     <FooterLinksColumn>
-      <FooterExternalLink marginBottom="md">VENUES</FooterExternalLink>
+      <FooterExternalLink marginBottom="md">EXPERIENCES</FooterExternalLink>
       {links.map((link, i) => (
         <FooterExternalLink marginBottom="sm" href={link.to} referer="none" target="_blank" >
           {link.name}

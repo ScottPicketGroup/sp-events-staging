@@ -2,7 +2,7 @@ import React from "react"
 import { SectionContainer } from "../../../StyledComponents/containers.css"
 import { Heading2, Heading3 } from "../../../StyledComponents/typography.css"
 
-import DropDownSelect from "./Dropdown/DropDownSelect"
+
 import { EventFields } from "./event-fields"
 import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"
@@ -21,15 +21,6 @@ const  EventDetails = ({ eventData, setEventData }) => {
                   field={field}
                   data={eventData}
                   setData={setEventData}
-                />
-              </FormField>
-            ) : field.dropDownOptions ? (
-              <FormField event half={field.half} full={field.full}>
-                <Heading3 marginBottom="xs">{field.label}</Heading3>
-                <DropDownSelect
-                  field={field}
-                  eventData={eventData}
-                  setEventData={setEventData}
                 />
               </FormField>
             ) : (
