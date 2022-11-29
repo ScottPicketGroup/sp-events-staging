@@ -28,6 +28,7 @@ export const AccordionBlock = styled.div`
 export const AccordionContent = styled.div`
   background-color: white;
   transition: max-height 0.5s ease;
+  width: ${props => props.faq === true ? '75%' : ''};
 `
 
 export const AccordionIcon = styled.button`

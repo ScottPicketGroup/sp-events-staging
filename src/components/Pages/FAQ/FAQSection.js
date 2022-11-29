@@ -9,7 +9,7 @@ const FAQSection = ({data}) => {
     <>
       <Heading1 marginBottom="md">{sectionHeading}</Heading1>
       {faqItems && faqItems.length > 0 && faqItems.map((item, index) => 
-         <Accordion key={index}  title={item.question} subTitle={item.subHeading} answer={item.answer} />
+         <Accordion key={index}  title={item.question} subTitle={item.subHeading} answer={item.answer} faq={true} />
       )}   
     </>
   )
