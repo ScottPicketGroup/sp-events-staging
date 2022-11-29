@@ -2,7 +2,7 @@ import React from "react"
 import { SectionContainer } from "../../../StyledComponents/containers.css"
 import { Heading2, Heading3 } from "../../../StyledComponents/typography.css"
 
-
+import DropDownSelect from "./Dropdown/DropDownSelect"
 import { EventFields } from "./event-fields"
 import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"
@@ -23,7 +23,7 @@ const  EventDetails = ({ eventData, setEventData }) => {
                   setData={setEventData}
                 />
               </FormField>
-            ) : (
+            ) :  (
               <FormField event full={field.full}>
                 <InputContainer
                   field={field}

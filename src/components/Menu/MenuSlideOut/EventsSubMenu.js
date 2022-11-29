@@ -17,7 +17,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const [activeSub, setSubActive] = React.useState("")
   const menuItems = useMenudata()
 
-  const stuff = useMenudata()
+  
 console.log(menuItems[1].eventTypes)
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
