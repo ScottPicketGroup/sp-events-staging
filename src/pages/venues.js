@@ -83,20 +83,7 @@ export const query = graphql`
       id: { eq: "1cbca9f2-557a-5c36-ab07-b811da7259cd" }
     ) {
       pageElements {
-        ... on ContentfulEnquireSection {
-          id
-          internal {
-            type
-          }
-          enquireHeading
-          leftMenuHeading
-          greyBackground
-          enquireDescription {
-            raw
-          }
-          marginBottom
-          marginTop
-        }
+  
         ... on ContentfulRestaurantsCollectionElement {
           id
           leftMenuHeading
