@@ -23,7 +23,16 @@ const  EventDetails = ({ eventData, setEventData }) => {
                   setData={setEventData}
                 />
               </FormField>
-            ) :  (
+            ) : field.dropDownOptions ? (
+              <FormField event half={field.half} full={field.full}>
+                <Heading3 marginBottom="xs">{field.label}</Heading3>
+                <DropDownSelect
+                  field={field}
+                  eventData={eventData}
+                  setEventData={setEventData}
+                />
+              </FormField>
+            ) : (
               <FormField event full={field.full}>
                 <InputContainer
                   field={field}
