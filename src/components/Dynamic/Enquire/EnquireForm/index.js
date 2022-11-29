@@ -1,10 +1,8 @@
 import { EventDetails } from "./EventDetails"
-import React, { useRef, useState } from "react"
+import React, {useState } from "react"
 
 import ButtonContainer from "./ButtonContainer"
 import ContactSection from "./ContactSection"
-import { contactFields } from "./contact-fields"
-import { eventFields } from "./event-fields"
 const EnquireForm = () => {
   const [contactData, setContactData] = useState([])
   const [eventData, setEventData] = useState([])
