@@ -53,9 +53,6 @@ const Indextest = ({ data }) => {
     setPageSections(sectionsToSet)
   }, [pageElements])
 
-
-
-
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />
@@ -77,18 +74,14 @@ const Indextest = ({ data }) => {
                 </div>
               ) : element.internal.type ===
                 "ContentfulSampleMenuCollectionByRestaurant" ? (
-                <SectionContainer
-                  paddingTop="lg"
-                  isGreyBackground={element.greyBackground}
-                  width="100vw"
-                  paddingBottom="lg"
-                >
-                  <SectionWrapper width="73.5%">
-                    <div ref={el => (itemsRef.current[i] = el)}>
-                      <Venue data={element.restaurant} key={i} />
-                    </div>
-                  </SectionWrapper>
-                </SectionContainer>
+                <div ref={el => (itemsRef.current[i] = el)}>
+                  <Venue
+                    element={element}
+                    data={element.restaurant}
+                    key={i}
+                    ref={el => (itemsRef.current[i] = el)}
+                  />
+                </div>
               ) : element.internal.type === "ContentfulImageFullWidthStatic" ? (
                 <div ref={el => (itemsRef.current[i] = el)}>
                   {" "}
