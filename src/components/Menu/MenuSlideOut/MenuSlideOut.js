@@ -12,7 +12,7 @@ import EventsSubMenu from "./EventsSubMenu"
 
 const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
   const [active, setActive] = React.useState("")
-  const [subMenuOpen, setSubMenuOpen] = React.useState(true)
+  const [subMenuOpen, setSubMenuOpen] = React.useState(false)
 
   return (
     <SlideOutContainer menuOpen={menuOpen} >

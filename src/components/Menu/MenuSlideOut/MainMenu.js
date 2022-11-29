@@ -7,8 +7,9 @@ import { Heading1 } from "../../StyledComponents/typography.css"
 
 const menuItems = [
   { title: "Home", slug: "/" },
-  { title: "Venues", slug: "/venues" },
+  { title: "About", slug: "/about" },
   { title: "Events" },
+  { title: "Venues", slug: "/venues" },
   { title: "Sample Menus", slug: "/sample-menus" },
   { title: "FAQ's", slug: "/faqs" },
   { title: "Contact", slug: "/enquiries" },
@@ -31,7 +32,7 @@ const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
               onMouseOver={() => setSubMenuOpen(true)}
               style={{ display: `flex` }}
             >
-              Events{" "}
+              Event Types
               {item.title === "Events" ? (
                 <MenuOpenArrow
                   setsubMenuOpen={setSubMenuOpen}

@@ -104,7 +104,7 @@ export const MenuItemsContainer = styled.div`
 `
 
 export const MainMenuWrapper = styled.div`
-  width: 50%;
+  width: 55%;
   height: 100vh;
   @media (max-width: 450px) {
     width: 100%;
@@ -128,6 +128,7 @@ export const EventsSubMenuWrapper = styled.div`
 `
 
 export const MenuOpenArrowWrapper = styled.span`
+width: 5px;
   stroke: ${props =>
     props.active === ""
       ? "white"
@@ -167,6 +168,8 @@ export const MainMenuItem = styled(Heading1)`
       @media (max-width: 450px) {
         color: white;
       }
+     
+    
 `
 const SubMenuItemStyles = css`
   color: ${props =>

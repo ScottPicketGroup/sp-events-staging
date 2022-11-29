@@ -8,9 +8,8 @@ const Enquire = () => {
     return (
         <EnquireeWrapper>
            <SN2 hover> <Link to="/enquiries" style={{textDecoration: 'none'}}>
-            {
-                location !== "/" ? 'Enquiries' : "Talk To Us"
-            }
+            Talk To Us
+            
              </Link></SN2>
         </EnquireeWrapper>
     )

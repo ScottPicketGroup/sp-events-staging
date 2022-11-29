@@ -8,8 +8,8 @@ import MenuOpenArrow from "./MenuOpenArrow"
 
 const eventsSubMenu = [
   "Weddings",
+  "Corporate Events",
   "Private Events",
-  "Corporate Events & Functions",
   "Major Events",
 ]
 
@@ -18,7 +18,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const menuItems = useMenudata()
 
   const stuff = useMenudata()
-
+console.log(menuItems[1].eventTypes)
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
       <MobileBackButtonWrapper>
@@ -30,8 +30,8 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
           Back
         </Heading1>
       </MobileBackButtonWrapper>
-      {menuItems.map((item, index) => (
-        <Link to={`/events/${item.node.pageName.toLowerCase().replace(" ", "-")}`}>
+      { menuItems[1].eventTypes.map((item, index) => (
+       <Link to={`/events/${item.pageName.toLowerCase().replace(" ", "-")}`}>
           <EventsSubMenuItem
             key={index}
             marginBottom="sm"
@@ -41,10 +41,11 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
             subMenuOpen={subMenuOpen}
             active={activeSub}
           >
-            {item.node.showInMenu && item.node.pageName}
+            {item.pageName}
           </EventsSubMenuItem>
-        </Link>
-      ))}
+        </Link>)
+       
+      )}
     </EventsSubMenuWrapper>
   )
 }

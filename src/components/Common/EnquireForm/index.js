@@ -1,4 +1,5 @@
 import React from "react"
+import { useForm } from '@formspree/react';
 import { Heading2 } from "../../StyledComponents/typography.css"
 import { SectionContainer } from "../../StyledComponents/containers.css"
 
@@ -10,6 +11,7 @@ import ButtonContainer from "./ButtonContainer"
 import DropDownSelect from "./DropDownSelect"
 
 const EnquireForm = () => {
+  const [state, handleSubmit] = useForm('{xgeqbjqb}');
   const inputTitles = [
     "First Name",
     "Surname",
@@ -26,8 +28,13 @@ const EnquireForm = () => {
     "Does Your Venue Have A Kitchen?",
   ]
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  // const handleSubmit = e => {
+  //   e.preventDefault()
+  // }
+  console.log(state)
+  if (state.succeeded) {
+    console.log('boob')
+    return <div>Thank you for signing up!</div>;
   }
 
   return (
@@ -46,17 +53,13 @@ const EnquireForm = () => {
         <Heading2 marginBottom="md">Your Event Details</Heading2>
         <ContactFormContainer>
           <FormField>
-            <DropDownSelect
-              title="Nature Of Event"
-            />
+            <DropDownSelect title="Nature Of Event" />
           </FormField>
           <FormField>
             <InputContainer title="Event Date" />
           </FormField>
           <FormField>
-            <DropDownSelect
-              title="Number Of People"
-            />
+            <DropDownSelect title="Number Of People" />
           </FormField>
           <FormField
             style={{ display: "flex", justifyContent: "space-between" }}
@@ -66,10 +69,7 @@ const EnquireForm = () => {
           </FormField>
           {dropTitles.map((title, index) => (
             <FormField key={index}>
-              <DropDownSelect
-                title={title}
-                isMulti
-              />
+              <DropDownSelect title={title} isMulti />
             </FormField>
           ))}
           <FormField full>
@@ -78,12 +78,8 @@ const EnquireForm = () => {
               placeholder="include a massage"
             />
           </FormField>
-          <FormField style={{marginBottom: "4rem"}} full>
-            <DropDownSelect
-              title="How Did You Hear About Us?"
-              toUp
-              isMulti
-            />
+          <FormField style={{ marginBottom: "4rem" }} full>
+            <DropDownSelect title="How Did You Hear About Us?" toUp isMulti />
           </FormField>
           <ButtonContainer title="Submit" />
         </ContactFormContainer>

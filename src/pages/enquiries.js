@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 
-import { graphql } from "gatsby"
+import { graphql, withPrefix } from "gatsby"
 import { useLocation } from "@reach/router"
 import Hero from "../components/Common/Hero/HeroContentfulDynamic"
 import Layout from "../components/layout"
@@ -21,6 +21,7 @@ import useWindowSize from "../components/Common/Hooks/useWindowDimensions"
 
 import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
 import Enquire from "../components/Dynamic/Enquire/Enquire"
+import { Helmet } from "react-helmet"
 const Indextest = ({ data }) => {
   const { heroElement, pageElements } = data.contentful6Enquiries
   const itemsRef = useRef([])
@@ -31,8 +32,12 @@ const Indextest = ({ data }) => {
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
   const page = useLocation().pathname.replace("/", "")
+
   return (
     <Layout>
+      <Helmet>
+        <script src="https://smtpjs.com/v3/smtp.js" />
+      </Helmet>
       <Seo title="Welcome to Scott Pickett Events" />
       <Hero data={heroElement} />
       <PageWrapper>
@@ -45,9 +50,9 @@ const Indextest = ({ data }) => {
         />
         <PageContainer>
           {pageElements.map((element, i) => (
-            <div ref={el => (itemsRef.current[i] = el)}>
+            <div ref={el => (itemsRef.current[i] = el)} key={i}>
               {element.internal.type === "ContentfulEnquireSection" ? (
-                <Enquire data={element} page={page}/>
+                <Enquire data={element} page={page} />
               ) : null}
             </div>
           ))}

@@ -9,7 +9,7 @@ const MenuOpenArrow = ({ active, item, setSubMenuOpen, subMenu }) => {
     subMenu
     >
       <svg
-        style={{ marginLeft: !subMenu ? `12rem` : '', stroke: subMenu ? "rgba(255, 255, 255, 50%)" : '', transform: subMenu ? 'rotate(190deg)' : '' }}
+        style={{ marginLeft: !subMenu ? `8rem` : '', stroke: subMenu ? "rgba(255, 255, 255, 50%)" : '', transform: subMenu ? 'rotate(190deg)' : '' }}
         xmlns="http://www.w3.org/2000/svg"
         width="9.15"
         height="15.472"

@@ -107,7 +107,7 @@ export const SectionContainer = styled.div`
   }};
   overflow: hidden;
   @media (max-width: 450px) {
-    width: 100vw;
+    width: ${props => props.fullMob ? `100%` : `100vw`};
     padding: 4rem 1rem;
     background: none;
   }
