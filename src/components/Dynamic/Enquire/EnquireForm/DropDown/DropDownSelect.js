@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { BC3, Heading3 } from "../../../../StyledComponents/typography.css"
+import { BC3 } from "../../../../StyledComponents/typography.css"
 import { DropDownArrow } from "./DropDownArrow"
 import { DropDownLabel, DropDownWrapper, OptionsWrapper } from "../index.css"
 
@@ -7,9 +7,6 @@ const DropDownSelect = ({ field, error, eventData, setEventData }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const [height, setHeight] = useState(0)
   const [selectedOption, setSelectedOption] = useState()
-  // set open /close state
-  // open is a box opened with all the containers
-  // onclick will setstate with handler
 
   const optionsWrapper = useRef(null)
 

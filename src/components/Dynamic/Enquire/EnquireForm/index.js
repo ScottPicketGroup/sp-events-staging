@@ -21,7 +21,7 @@ const EnquireForm = () => {
 
   return (
     <form>
-     
+      
       <ButtonContainer title="Submit" />
     </form>
   )
