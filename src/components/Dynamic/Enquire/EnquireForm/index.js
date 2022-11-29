@@ -1,6 +1,8 @@
-import { EventDetails } from "./EventDetails"
 import React, {useState } from "react"
 
+import ButtonContainer from "./ButtonContainer"
+import  EventDetails  from "./EventDetails"
+import ContactSection from "./ContactSection"
 const EnquireForm = () => {
   const [contactData, setContactData] = useState([])
   const [eventData, setEventData] = useState([])
@@ -19,7 +21,11 @@ const EnquireForm = () => {
 
   return (
     <form>
-
+      <ContactSection
+        contactData={contactData}
+        setContactData={setContactData}
+      />
+      <EventDetails eventData={eventData} setEventData={setEventData} />
       <ButtonContainer title="Submit" />
     </form>
   )

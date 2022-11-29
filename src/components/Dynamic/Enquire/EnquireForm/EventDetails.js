@@ -7,7 +7,7 @@ import { EventFields } from "./event-fields"
 import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"
 import TextAreaContainer from "./TextAreaContainer"
-export function EventDetails({ eventData, setEventData }) {
+export default function EventDetails({ eventData, setEventData }) {
   return (
     <SectionContainer marginBottom="md" fullScreen fullMob>
       <Heading2 marginBottom="1">Your Event Details</Heading2>
@@ -46,43 +46,4 @@ export function EventDetails({ eventData, setEventData }) {
       </ContactFormContainer>
     </SectionContainer>
   )
-}
-{
-  /* <FormField>
-  <DropDownSelect title="Nature Of Event" />
-</FormField>
-<FormField>
-  <InputContainer title="Event Date" />
-</FormField>
-<FormField>
-  <DropDownSelect title="Number Of People" />
-</FormField>
-<FormField
-  style={{
-    display: "flex",
-    justifyContent: "space-between",
-  }}
->
-  <InputContainer title="Start Time" inline />
-  <InputContainer title="End Time" inline />
-</FormField>
-{dropTitles.map((title, index) => (
-  <FormField key={index}>
-    <DropDownSelect title={title} isMulti />
-  </FormField>
-))}
-<FormField full>
-  <TextAreaContainer
-    title="What Are You Planning?"
-    placeholder="include a massage"
-  />
-</FormField>
-<FormField
-  style={{
-    marginBottom: "4rem",
-  }}
-  full
->
-  <DropDownSelect title="How Did You Hear About Us?" toUp isMulti />
-</FormField> */
 }
