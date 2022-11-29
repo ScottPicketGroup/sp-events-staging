@@ -1,8 +1,9 @@
 import React from "react"
 import { SectionContainer } from "../../../StyledComponents/containers.css"
 import { Heading2, Heading3 } from "../../../StyledComponents/typography.css"
+import DropDownSelect from "./DropDownSelect"
 
-import DropDownSelect from "./Dropdown/DropDownSelect"
+
 import { EventFields } from "./event-fields"
 import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"

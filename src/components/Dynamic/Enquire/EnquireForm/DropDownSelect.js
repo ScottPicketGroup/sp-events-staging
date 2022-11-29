@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
-import { BC3 } from "../../../../StyledComponents/typography.css"
+import { BC3 } from "../../../StyledComponents/typography.css"
 import { DropDownArrow } from "./DropDownArrow"
-import { DropDownLabel, DropDownWrapper, OptionsWrapper } from "../index.css"
+import { DropDownLabel, DropDownWrapper, OptionsWrapper } from "./index.css"
 
 const DropDownSelect = ({ field, error, eventData, setEventData }) => {
   const [isOpen, setIsOpen] = useState(false)
