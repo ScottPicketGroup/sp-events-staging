@@ -21,7 +21,7 @@ const ImageAndDescription = ({ venue }) => {
         <GatsbyImage image={getImage(venue.venueImage)} alt="Chancery Lane" />
         <TextContainer>
           <Heading2 marginBottom="xs">{venue.venueName}</Heading2>
-          <Heading3 marginBottom="sm">{venue.subheadinge}</Heading3>
+          <Heading3 marginBottom="sm">{venue.subheading}</Heading3>
          <SPGRestaurantListRenderer node={venue.description} />
           {/* <Heading3>
             View venue site
