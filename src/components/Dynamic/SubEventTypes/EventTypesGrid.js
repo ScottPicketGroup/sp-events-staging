@@ -17,24 +17,45 @@ const EventTypesGrid = ({ eventTypes }) => {
       {eventTypes &&
         eventTypes.map((item, i) => (
           <Item key={i}>
-            <ItemImgGatsbyLink to={`${item.linkUrl ? item.linkUrl : ''}`}>
-              <FullImageContainer>
-                <GatsbyImage
-                  image={getImage(item.image)}
-                  style={{ aspectRatio: `3/2` }}
-                />
-              </FullImageContainer>
-              <Heading2 marginTop="1">{item.optionName}</Heading2>
-              <GridSubHeading marginBottom="xs">
-                {item.subHeading}
-              </GridSubHeading>
-              {item.description && <Renderer node={item.description} />}
-              {item.linkUrl && item.linkLabel && (
-                <GridSubHeading>
-                  {item.linkLabel} <ArrowIcon />
+            {item.linkUrl ? (
+              <ItemImgGatsbyLink to={`${item.linkUrl ? item.linkUrl : ""}`}>
+                <FullImageContainer>
+                  <GatsbyImage
+                    image={getImage(item.image)}
+                    style={{ aspectRatio: `3/2` }}
+                  />
+                </FullImageContainer>
+                <Heading2 marginTop="1">{item.optionName}</Heading2>
+                <GridSubHeading marginBottom="xs">
+                  {item.subHeading}
                 </GridSubHeading>
-              )}
-            </ItemImgGatsbyLink>
+                {item.description && <Renderer node={item.description} />}
+                {item.linkUrl && item.linkLabel && (
+                  <GridSubHeading>
+                    {item.linkLabel} <ArrowIcon />
+                  </GridSubHeading>
+                )}
+              </ItemImgGatsbyLink>
+            ) : 
+            <>
+             <FullImageContainer>
+                  <GatsbyImage
+                    image={getImage(item.image)}
+                    style={{ aspectRatio: `3/2` }}
+                  />
+                </FullImageContainer>
+                <Heading2 marginTop="1">{item.optionName}</Heading2>
+                <GridSubHeading marginBottom="xs">
+                  {item.subHeading}
+                </GridSubHeading>
+                {item.description && <Renderer node={item.description} />}
+                {item.linkUrl && item.linkLabel && (
+                  <GridSubHeading>
+                    {item.linkLabel} <ArrowIcon />
+                  </GridSubHeading>
+                )}
+            </>
+            }
           </Item>
         ))}
     </Grid>
