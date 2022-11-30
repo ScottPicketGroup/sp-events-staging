@@ -9,26 +9,24 @@ const SubMenu = ({ active, setActive }) => {
   ]
   return (
     <SubMenuWrapper>
-     {subMenu.map((item, index) => (
+      {subMenu.map((item, index) => (
         <>
           {item.url.includes("http") ? (
             <SubMenuItem
               key={index}
-              marginBottom="sm"
+              marginBottom="1"
               link
               onMouseOver={() => setActive(item.title)}
               item={item.title}
               active={active}
             >
-             
-                {item.title}
-          
+              {item.title}
             </SubMenuItem>
           ) : (
             <Link href={item.url} onMouseOver={() => setActive(item.title)}>
               <SubMenuItem
                 key={index}
-                marginBottom="sm"
+                marginBottom="1"
                 link
                 onMouseOver={() => setActive(item.title)}
                 item={item.title}

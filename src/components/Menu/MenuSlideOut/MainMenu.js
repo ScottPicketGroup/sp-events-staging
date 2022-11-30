@@ -11,7 +11,7 @@ const menuItems = [
   { title: "Events" },
   { title: "Venues", slug: "/venues" },
   { title: "Sample Menus", slug: "/sample-menus" },
-  { title: "FAQ's", slug: "/faqs" },
+  { title: "FAQs", slug: "/faqs" },
   { title: "Contact", slug: "/enquiries" },
 ]
 

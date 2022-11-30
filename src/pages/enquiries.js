@@ -22,13 +22,14 @@ import useWindowSize from "../components/Common/Hooks/useWindowDimensions"
 import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
 import Enquire from "../components/Dynamic/Enquire/Enquire"
 import { Helmet } from "react-helmet"
-const Indextest = ({ data }) => {
+const Indextest = ({ data, errors, setErrors  }) => {
+  
   const { heroElement, pageElements } = data.contentful6Enquiries
   const itemsRef = useRef([])
 
   const { scrollY } = useWatchScroll()
   const { items, heights } = useRefAttributes(itemsRef)
-  const { width } = useWindowSize()
+
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
   const page = useLocation().pathname.replace("/", "")
@@ -52,7 +53,7 @@ const Indextest = ({ data }) => {
           {pageElements.map((element, i) => (
             <div ref={el => (itemsRef.current[i] = el)} key={i}>
               {element.internal.type === "ContentfulEnquireSection" ? (
-                <Enquire data={element} page={page} />
+                <Enquire data={element} page={page} errors={errors}/>
               ) : null}
             </div>
           ))}

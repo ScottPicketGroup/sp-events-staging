@@ -2,7 +2,7 @@ import React from "react"
 import { Heading3 } from "../../../StyledComponents/typography.css"
 import { ButtonWrapper } from "./index.css"
 
-const ButtonContainer = ({ title, error }) => {
+const ButtonContainer = ({ title, error, formData }) => {
   return (
     <ButtonWrapper>
       <button

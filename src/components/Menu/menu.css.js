@@ -195,6 +195,92 @@ cursor: pointer;
 export const SubMenuItem = styled(Heading2)`
   ${SubMenuItemStyles}
   cursor: pointer;
+  font-family: CentraNo2Light;
+
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 900;
+
+  margin-bottom: ${props => {
+    switch (props.marginBottom) {
+      case props.marginBottom :
+      return `${props.marginBottom}rem`
+      case "xs":
+        return ".25rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case props.marginTop :
+      return `${props.marginTop}rem`
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  @media (max-width: 450px) {
+    margin-bottom: ${props => {
+    switch (props.marginBottom) {
+      case props.marginBottom :
+      return `${props.marginBottom}rem`
+      case "xs":
+        return ".25rem"
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+    }
+  }};
+  margin-top: ${props => {
+    switch (props.marginTop) {
+      case props.marginTop :
+      return `${props.marginTop}rem`
+      case "sm":
+        return "1rem"
+      case "md":
+        return "1.5rem"
+      case "lg":
+        return "3.75rem"
+      case "xl":
+        return "8rem"
+      case "xxl":
+        return "100%"
+      default:
+        return "0"
+      }
+  }};
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
 `
 
 export const CloseLogoWrapper = styled.div`
