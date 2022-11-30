@@ -40,7 +40,7 @@ const Renderer = ({ node, isExpanded, openWrapperHeight, introHalfWidth }) => {
                 `${data.uri.startsWith(website_url) ? data.uri :  data.uri}`}
             target={`${data.uri.startsWith(website_url) ? '_blank' : ''}`}
             rel={`${data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
-        >{children}</a></span>)
+        > {children}</a></span>)
 
 
     },
