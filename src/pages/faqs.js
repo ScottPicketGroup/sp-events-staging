@@ -140,6 +140,7 @@ export const query = graphql`
           }
           faqSectionCollection {
             sectionHeading
+            leftMenuHeading
             faqItems {
               subHeading
               question

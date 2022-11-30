@@ -9,7 +9,9 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
   useEffect(() => {
     let menuitemsToPush = []
     pageElements.map((e, i) =>
-      e.restaurants
+      e.faqSectionCollection
+        ? e.faqSectionCollection.map(faq => menuitemsToPush.push(faq.leftMenuHeading))
+        : e.restaurants
         ? e.restaurants.map(venue => menuitemsToPush.push(venue.venueName))
         : e.leftMenuHeading == undefined
         ? menuitemsToPush.push("")
@@ -22,14 +24,12 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
           })
         : menuitemsToPush.push(e.leftMenuHeading)
     )
+    console.log(menuitemsToPush)
     setMenuItems(menuitemsToPush)
     setActiveEl(menuitemsToPush[0])
   }, [])
 
-  // console.log(
-  //   useLocation().pathname,
-  //   menuItems
-  // )
+  console.log(pageElements)
 
   const clickEl = (i, menuItem) => {
     executeScroll(i)
