@@ -20,7 +20,7 @@ const Accordion = props => {
       setActive === "active" ? "0px" : `${content.current.scrollHeight + 16}px`
     )
   }
-console.log('props', props)
+
   return (
     <AccordionSection onClick={toggleAccordion}>
       <AccordionBlock>

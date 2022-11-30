@@ -24,17 +24,16 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
           })
         : menuitemsToPush.push(e.leftMenuHeading)
     )
-    console.log(menuitemsToPush)
+    
     setMenuItems(menuitemsToPush)
     setActiveEl(menuitemsToPush[0])
   }, [])
 
-  console.log(pageElements)
 
   const clickEl = (i, menuItem) => {
     executeScroll(i)
     setActiveEl(menuItem)
-    console.log("menuItem, activeEl", menuItem, activeEl)
+    
   }
 
   return (

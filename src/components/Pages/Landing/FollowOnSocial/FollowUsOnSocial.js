@@ -16,7 +16,7 @@ import {
 const FollowUsOnSocial = ({ data }) => {
   const myRef = useRef(null)
   const placeHolderArr = data.images
-
+console.log('data.heading', data)
   return (
     <SectionContainer
       marginTop="xl"
@@ -24,7 +24,7 @@ const FollowUsOnSocial = ({ data }) => {
       overflow="true"
       ref={myRef}
     >
-      <Heading1 marginBottom="sm">{data.heading}</Heading1>
+      <Heading1 marginBottom="sm">{data.pageName}</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
         {/* {placeHolderArr.map((image, i) =>

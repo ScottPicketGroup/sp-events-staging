@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import ArrowIcon from "../../../../images/ArrowIcon"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import SPGRestaurantListRenderer from "../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
+
 import {
   BC3,
   Heading2,
@@ -15,15 +15,16 @@ export default function SPGSpaces({ r, i, active, data }) {
   useEffect(() => {
     let spacesToPush = []
     data.map((venue, i) => {
-      console.log(venue)
-      venue.functionAreas.map((functionArea,i ) => spacesToPush.push({
-        venue: venue,
-        functionArea: venue.functionAreas[i]
-      }))
+      venue.functionAreas.map((functionArea, i) =>
+        spacesToPush.push({
+          venue: venue,
+          functionArea: venue.functionAreas[i],
+        })
+      )
     })
     setSpaces(spacesToPush)
   }, [data])
-console.log('spaces', spaces)
+
   return (
     <>
       {spaces.map((space, spaceI) => (
@@ -36,7 +37,6 @@ console.log('spaces', spaces)
                 alt={space.functionArea.spaceName}
               />
             </FullImageContainer>
-
             <Heading2 marginTop=".5" marginBottom=".25rem">
               {space.functionArea.spaceName}
             </Heading2>
@@ -45,7 +45,8 @@ console.log('spaces', spaces)
             </BC3>
             <BC3 marginTop="0" marginBottom="0">
               {space.functionArea.regionCuisineStyle}{" "}
-            </BC3>.functionArea
+            </BC3>
+            .functionArea
             {space.functionArea.seatingCapacity && (
               <BC3 marginTop="sm" marginBottom="0">
                 Seated Capacity: {space.seatingCapacity}{" "}

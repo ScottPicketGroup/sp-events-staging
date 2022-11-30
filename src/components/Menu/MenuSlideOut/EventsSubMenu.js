@@ -18,7 +18,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   const menuItems = useMenudata()
 
   
-console.log(menuItems[1].eventTypes)
+
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
       <MobileBackButtonWrapper>

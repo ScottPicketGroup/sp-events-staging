@@ -22,7 +22,7 @@ const DropDownSelect = ({ field, error, eventData, setEventData }) => {
     setEventData({ ...eventData, [field.name]: option })
   }
 
-  console.log("eventData", eventData)
+
   return (
     <div onClick={toggleOpen}>
       <DropDownWrapper isOpen={isOpen}>

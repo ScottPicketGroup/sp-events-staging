@@ -8,10 +8,7 @@ import {
   SectionWrapper,
 } from "../../StyledComponents/containers.css"
 const Venue = ({ element, data }) => {
-  console.log(
-    "data",
-    data.accordionItemsCollection && data.accordionItemsCollection[0]
-  )
+
 
   return (
     <SectionContainer

@@ -21,7 +21,7 @@ const DynamicSlider = ({ data }) => {
     setImagesArr(newArr)
   }, [active])
 
-  console.log(data.images)
+  
   const handlers = useSwipeable({
     onSwipedLeft: () => active >= 0 && active < imagesArr.length - 1 ? setActive(active + 1) : null,
     onSwipedRight: () => active >= 0 && active < imagesArr.length  ? setActive(active - 1) : null

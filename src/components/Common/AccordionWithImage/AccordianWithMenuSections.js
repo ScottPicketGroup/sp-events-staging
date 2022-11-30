@@ -23,7 +23,7 @@ const AccordionWithMenuSections = ({content, title, image}) => {
       setActive === "active" ? "0px" : `${contentContainer.current.scrollHeight + 16}px`
     )
   }
-console.log(content[0].dessertMenuItems)
+
 
   return (
     <AccordionSection onClick={toggleAccordion} setActive={setActive}>

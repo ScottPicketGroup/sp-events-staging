@@ -8,7 +8,7 @@ const App = ({ element }) => {
     <>
       <Helmet>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
-        {console.log('boob')}
+       
       </Helmet>
       <GlobalStyles />
       <Typography />

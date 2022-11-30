@@ -83,12 +83,7 @@ const Indextest = ({ data }) => {
                     ref={el => (itemsRef.current[i] = el)}
                   />
                 </div>
-              ) : element.internal.type === "ContentfulImageFullWidthStatic" ? (
-                <div ref={el => (itemsRef.current[i] = el)}>
-                  {" "}
-                  <FullScreenStaticImage data={element} />{" "}
-                </div>
-              ) : element.internal.type === "ContentfulImageGallery" ? (
+              ) :  element.internal.type === "ContentfulImageGallery" ? (
               <div ref={el => (itemsRef.current[i] = el)}>
                 {" "}
                 <DynamicSlider data={element} />
