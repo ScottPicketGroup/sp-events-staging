@@ -1,6 +1,6 @@
 
 import React from "react"
-import { BLOCKS } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import {
   Heading1,
@@ -17,8 +17,8 @@ const Renderer = ({ node, isExpanded, openWrapperHeight, introHalfWidth }) => {
   React.useEffect(() => {
     setWrapperHeight(paragraphRef.current.clientHeight)
   }, [])
-
- 
+  const website_url = 'https://'
+  const email_url = 'mailto'
   const options = {
     // renderMark: {
     //     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
@@ -32,6 +32,17 @@ const Renderer = ({ node, isExpanded, openWrapperHeight, introHalfWidth }) => {
           {children}
         </BC1>
       ),
+      [INLINES.HYPERLINK]: ({ data }, children) => (
+     <span>   
+        <a
+        style={{fontFamily: `inherit`}}
+            href={
+                `${data.uri.startsWith(website_url) ? data.uri :  data.uri}`}
+            target={`${data.uri.startsWith(website_url) ? '_blank' : ''}`}
+            rel={`${data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
+        >{children}</a></span>)
+
+
     },
   }
 
