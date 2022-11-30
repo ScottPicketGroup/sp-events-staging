@@ -20,7 +20,7 @@ const SubMenu = ({ active, setActive }) => {
               item={item.title}
               active={active}
             >
-              {item.title}
+           <a href={item.url} target='_blank' style={{color: `inherit`, textDecoration:"none"}}>   {item.title}</a>
             </SubMenuItem>
           ) : (
             <Link href={item.url} onMouseOver={() => setActive(item.title)}>
