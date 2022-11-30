@@ -158,6 +158,8 @@ export const query = graphql`
           }
           restaurants {
             venueName
+            subheading
+            headingRight
             venueImage {
               gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
               title
