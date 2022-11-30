@@ -45,7 +45,7 @@ console.log('data.heading', data)
             )}
         </Grid>
       </DesktopWrapper>
-      {/* <MobileWrapper><InstaSlider images={images} /></MobileWrapper> */}
+      <MobileWrapper><InstaSlider images={data.images} /></MobileWrapper>
     </SectionContainer>
   )
 }

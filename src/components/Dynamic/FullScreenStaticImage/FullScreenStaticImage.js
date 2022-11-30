@@ -5,7 +5,7 @@ import { SectionContainer } from "../../StyledComponents/containers.css"
 const FullScreenStaticImage = ({ data }) => {
 
   return (
-    <SectionContainer width="100vw"  fullScreen>
+    <SectionContainer width="100vw" fullScreen fullScreenImage>
       <GatsbyImage
         image={getImage(data.image)}
         style={{ aspectRatio: `16/9` }}

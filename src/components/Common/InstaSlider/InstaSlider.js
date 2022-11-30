@@ -1,4 +1,4 @@
-import React, { useRef} from "react"
+import React, { useRef } from "react"
 
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Slide, SliderContainer } from "./InstaSlider.css"
@@ -6,7 +6,7 @@ import { Heading1 } from "../../StyledComponents/typography.css"
 
 const InstaSlider = ({ images }) => {
   const mouseDownRef = useRef(null)
-  const [imageArr] = React.useState(images.edges)
+  const [imageArr] = React.useState(images)
   const [counter, setCounter] = React.useState(0)
 
   const handleOnMouseDown = e => {
@@ -14,22 +14,22 @@ const InstaSlider = ({ images }) => {
   }
 
   const handleDragEnd = e => {
-   
-    if(e.screenX > mouseDownRef.current) setCounter(counter + 1)
+    if (e.screenX > mouseDownRef.current) setCounter(counter + 1)
     else if (e.screenX < mouseDownRef.current) setCounter(counter - 1)
   }
+
+  console.log(images)
   return (
-    <SliderContainer draggable="true" 
+    <SliderContainer
+      draggable="true"
       style={{
-        overflow: `hidden`
+        overflow: `hidden`,
       }}
     >
-     
-
       {imageArr &&
         imageArr.map((image, id) => (
           <Slide
-          ref={mouseDownRef}
+            ref={mouseDownRef}
             id={id}
             counter={counter}
             onTouchStart={handleOnMouseDown}
@@ -39,8 +39,12 @@ const InstaSlider = ({ images }) => {
             key={id}
           >
             <GatsbyImage
-              image={getImage(image.node.localFile)}
-              style={{ position: `absolute`, width: `100%`, minHeight: '190px' }}
+              image={getImage(image)}
+              style={{
+                position: `absolute`,
+                width: `100%`,
+                minHeight: "190px",
+              }}
               alt="instagram image"
               key={id}
             />

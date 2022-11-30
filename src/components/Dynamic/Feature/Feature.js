@@ -1,7 +1,8 @@
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import {  getImage } from "gatsby-plugin-image"
 import React from "react"
 import ArrowIcon from "../../../images/ArrowIcon"
-import SPGRestaurantListRenderer from "../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
+import FeatureRenderer from "../../Common/Rich-Text-Renderers/FeatureRenderer"
+
 import {
   FullImageContainer,
   SectionContainer,
@@ -34,14 +35,14 @@ const Feature = ({ data }) => {
           {heading}
         </Heading1>
         <PartnerVenuesLandingWrapper>
-          <FullImageContainer style={{ marginBottom: `4rem` }}>
+          <FullImageContainer >
             <FeatureImage image={getImage(image)} style={{ width: `100%` }} />
           </FullImageContainer>
 
           <TextContainer>
             <Heading2 marginBottom="xs">{subHeading}</Heading2>
             <Heading3 marginBottom="sm">{secondSubHeading}</Heading3>
-            <SPGRestaurantListRenderer node={introduction} />
+            <FeatureRenderer node={introduction} />
             {
         linkLabel && <IntroLink to={`/${linkUrl}`}> <Heading2>{linkLabel} <ArrowIcon/></Heading2></IntroLink>
       }

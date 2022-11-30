@@ -54,10 +54,7 @@ export const MobileWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    svg {
-    height: 50px;
-    width: 70px;
-}
+ 
 @media (min-width: 451px) {
 
     width: 100%;

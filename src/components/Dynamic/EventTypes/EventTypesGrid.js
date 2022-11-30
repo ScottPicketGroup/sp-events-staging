@@ -17,7 +17,7 @@ const EventTypesGrid = ({ eventTypes }) => {
 
   console.log(eventTypes)
   return (
-    <Grid cols={2} colsMob={1} full>
+    <Grid cols={2} colsMob={1} full eventTypes>
       {eventTypes &&
         eventTypes.map((item, i) => (
           <Item key={i}>

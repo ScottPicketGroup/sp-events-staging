@@ -108,8 +108,9 @@ export const SectionContainer = styled.div`
   }};
   overflow: hidden;
   @media (max-width: 450px) {
+    margin: 0;
     width: ${props => props.fullMob ? `100%` : `100vw`};
-    padding: 3rem 1rem 3rem 1rem;
+    padding: ${props => props.fullScreenImage ? `0` : `3rem 1rem`};
     background: ${props => props.isGreyBackground === true && "#F6F6F6"};
   }
 `
@@ -225,7 +226,7 @@ export const Grid = styled.div`
   @media (max-width: 451px) {
     grid-template-columns: repeat(1, 1fr);
     /* grid-template-columns: ${props => `repeat(${props.colsMob}, 1fr)`}; */
-    grid-gap: 2rem 0rem;
+    grid-gap: 3rem 0rem;
   }
 `
 
@@ -281,6 +282,10 @@ export const ItemImg = styled.div`
 export const FullImageContainer = styled.div`
   display: inline;
   width: 100%;
+  margin-bottom: 4rem;
+  @media (max-width: 451px) {
+    margin-bottom: 1rem;
+  }
 `
 
 export const DesktopWrapper = styled.div`
