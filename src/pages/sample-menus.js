@@ -117,6 +117,16 @@ export const query = graphql`
         }
       }
       pageElements {
+        ... on ContentfulImageFullWidthStatic {
+          id
+          internal {
+            type
+          }
+          image {
+            gatsbyImageData(placeholder: BLURRED)
+            title
+          }
+        }
         ... on ContentfulIntroElement {
           id
           leftMenuHeading
