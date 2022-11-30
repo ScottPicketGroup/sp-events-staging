@@ -170,7 +170,18 @@ export const query = graphql`
           linkLabel
           linkUrl
         }
+        ... on ContentfulImageFullWidthStatic {
+          id
+          internal {
+            type
+          }
+          image {
+            gatsbyImageData(placeholder: BLURRED)
+            title
+          }
+        }
       }
+      
       heroElement {
         heroImage {
           gatsbyImageData(placeholder: BLURRED)
