@@ -21,7 +21,7 @@ export default function PartneredVenues({r, i, active}) {
           />
         )}
       </FullImageContainer>
-      <Heading2 marginTop="sm">{r.restaurantName}</Heading2>
+      <Heading2 marginTop=".5">{r.restaurantName}</Heading2>
       <Heading3 marginTop="xs">{r.location} </Heading3>
       {r.restaurantDescription && (
         <SPGRestaurantListRenderer node={r.restaurantDescription} />

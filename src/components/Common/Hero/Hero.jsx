@@ -1,16 +1,11 @@
-import React from 'react'
-import { getImage} from "gatsby-plugin-image"
-import { HeroImage } from './Hero.css'
+import React from "react"
+import { getImage } from "gatsby-plugin-image"
+import { HeroImage } from "./Hero.css"
 
+const Hero = ({ image }) => {
+  const heroImage = getImage(image.allFile.edges[0].node.childImageSharp)
 
-const Hero = ({image}) => {
-    const heroImage = getImage(image.allFile.edges[0].node.childImageSharp)
-  
-    return (
-   
-            <HeroImage image={heroImage} alt="test"/>
-    
-    )
+  return <HeroImage image={heroImage} alt="test" />
 }
 
 export default Hero

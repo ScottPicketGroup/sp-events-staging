@@ -1,12 +1,13 @@
 import React from 'react'
 import { FooterWrapper } from './Footer.css'
 import FooterItems from './FooterItems/FooterItems'
-import LogoSlider from './LogoSlider'
+import LogoSliderNew from './LogoSlider/LogoSlider'
+// import LogoSlider from './LogoSlider-old'
 
 const Footer = ({menuOpen, setMenuOpen, activePage, setActivePage}) => {
     return (
         <FooterWrapper >
-            <LogoSlider />
+            <LogoSliderNew />
             <FooterItems />
         </FooterWrapper>
     )

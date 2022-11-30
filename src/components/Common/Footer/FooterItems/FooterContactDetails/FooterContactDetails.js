@@ -21,7 +21,7 @@ const FooterContactDetails = () => {
         .
       </FooterItem>
 
-      <FooterItem>Phone: 0414 349 502</FooterItem>
+      {/* <FooterItem>Phone: 0414 349 502</FooterItem> */}
     </FooterLinksColumn>
   )
 }

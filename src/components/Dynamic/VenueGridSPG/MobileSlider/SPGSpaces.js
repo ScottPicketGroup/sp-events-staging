@@ -33,7 +33,7 @@ export default function SPGSpaces({ r, i, active, data }) {
             <FullImageContainer>
               <GatsbyImage
                 image={getImage(space.functionArea.image)}
-                style={{ aspectRatio: "4/3" }}
+                style={{ aspectRatio: "3/2" }}
                 alt={space.functionArea.spaceName}
               />
             </FullImageContainer>
@@ -46,10 +46,10 @@ export default function SPGSpaces({ r, i, active, data }) {
             <BC3 marginTop="0" marginBottom="0">
               {space.functionArea.regionCuisineStyle}{" "}
             </BC3>
-            .functionArea
+          
             {space.functionArea.seatingCapacity && (
               <BC3 marginTop="sm" marginBottom="0">
-                Seated Capacity: {space.seatingCapacity}{" "}
+                Seated Capacity: {space.functionArea.seatingCapacity}{" "}
               </BC3>
             )}
             <BC3 marginTop="0" marginBottom="md">
