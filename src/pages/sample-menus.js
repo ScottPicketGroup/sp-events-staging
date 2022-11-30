@@ -83,7 +83,12 @@ const Indextest = ({ data }) => {
                     ref={el => (itemsRef.current[i] = el)}
                   />
                 </div>
-              ) :  element.internal.type === "ContentfulImageGallery" ? (
+              ) : element.internal.type === "ContentfulImageFullWidthStatic" ? (
+                <div ref={el => (itemsRef.current[i] = el)}>
+                  {" "}
+                  <FullScreenStaticImage data={element} />{" "}
+                </div>
+              ) : element.internal.type === "ContentfulImageGallery" ? (
               <div ref={el => (itemsRef.current[i] = el)}>
                 {" "}
                 <DynamicSlider data={element} />
@@ -130,16 +135,7 @@ export const query = graphql`
             title
           }
         }
-        ... on ContentfulImageFullWidthStatic {
-          id
-          internal {
-            type
-          }
-          image {
-            gatsbyImageData(placeholder: BLURRED)
-            title
-          }
-        }
+      
         ... on ContentfulIntroElement {
           id
           leftMenuHeading
