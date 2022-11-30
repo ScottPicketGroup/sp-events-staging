@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import SPGRestaurantListRenderer from "../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
 import {
   FullImageContainer,
+  GatsbyItemImgLink,
   Item,
   ItemImgLink,
 } from "../../StyledComponents/containers.css"
@@ -20,7 +21,7 @@ const PartneredVenuesGrid = ({data}) => {
     <>
    {
     data.map((venue, i) => <Item key={i}>
-    <ItemImgLink href={`${venue.venueUrl}`} target="_blank" link={true}>
+    <GatsbyItemImgLink to="/enquiries"  link={true}>
       <FullImageContainer>
         <GatsbyImage
           image={getImage(venue.restaurantMedia[0])}
@@ -36,9 +37,9 @@ const PartneredVenuesGrid = ({data}) => {
       
       <SPGRestaurantListRenderer node={venue.restaurantDescription} s/>
       <Heading3 marginTop="sm">
-        Learn More <ArrowIcon />
+        Enquire Now <ArrowIcon />
       </Heading3>
-    </ItemImgLink>
+    </GatsbyItemImgLink>
   </Item>)
    }
    </>

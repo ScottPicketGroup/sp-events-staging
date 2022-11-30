@@ -1,16 +1,16 @@
 export const EventFields = [
     {
-      name: "natureOfEvent",
-      label: "Nature Of Event",
+      name: "typeOfEvent",
+      label: "Type Of Event",
       type: "text",
       required: false,
-      placeHolder: "Nature Of Event",
+      placeHolder: "Type Of Event",
       value:"",
       dropDownOptions: [
         { value: "wedding", label: "Wedding" },
-        { value: "wedding", label: "Wedding" },
-        { value: "wedding", label: "Wedding" },
-        { value: "wedding", label: "Wedding" },
+        { value: "party", label: "Party" },
+        { value: "corporateEvent", label: "Corporate Event" },
+        { value: "publicEvent", label: "Public Event" },
       ]
     },
     {

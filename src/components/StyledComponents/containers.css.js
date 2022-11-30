@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const PageContainer = styled.div`
   width: 76%;
@@ -244,6 +245,16 @@ export const ItemImgLink = styled.a`
     opacity: ${props => (props.link ? 0.65 : 1)};
   }
 `
+export const GatsbyItemImgLink = styled(Link)`
+ text-decoration: none;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  color: #333333;
+  &:hover {
+    opacity: ${props => (props.link ? 0.65 : 1)};
+  }
+`
+
 export const ItemImgGatsbyLink = styled(Link)`
   text-decoration: none;
 
