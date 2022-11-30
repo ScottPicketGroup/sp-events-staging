@@ -51,7 +51,15 @@ svg {
 `
 
 export const MobileWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+    height: 50px;
+    width: 70px;
+}
 @media (min-width: 451px) {
+
     width: 100%;
     display: none;
 }
@@ -63,7 +71,8 @@ display: flex;
 align-items: center;
 
 svg {
-    max-height: 2.5rem;
+    height: 7rem;
+    width: 7rem;
 }
 @media (max-width: 451px) {
     display: none;
