@@ -27,6 +27,7 @@ import FullScreenStaticImage from "../components/Dynamic/FullScreenStaticImage/F
 import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
 import SampleMenuByVenue from "../components/Dynamic/SampleMenuByVenue/SampleMenuByVenue"
 import Venue from "../components/Dynamic/SampleMenuByVenue/Venue"
+import DynamicSlider from "../components/Dynamic/GallerySlider/GallerySlider"
 const Indextest = ({ data }) => {
   const { heroElement, pageElements } = data.contentful4SampleMenus
   const itemsRef = useRef([])
@@ -87,7 +88,12 @@ const Indextest = ({ data }) => {
                   {" "}
                   <FullScreenStaticImage data={element} />{" "}
                 </div>
-              ) : element.internal.type === "ContentfulFeatureElement" ? (
+              ) : element.internal.type === "ContentfulImageGallery" ? (
+              <div ref={el => (itemsRef.current[i] = el)}>
+                {" "}
+                <DynamicSlider data={element} />
+              </div>
+              )  : element.internal.type === "ContentfulFeatureElement" ? (
                 <div ref={el => (itemsRef.current[i] = el)}>
                   {" "}
                   <Feature data={element} />{" "}
@@ -117,6 +123,18 @@ export const query = graphql`
         }
       }
       pageElements {
+        ... on ContentfulImageGallery {
+          id
+          heading
+          leftMenuHeading
+          internal {
+            type
+          }
+          images {
+            gatsbyImageData(placeholder: BLURRED)
+            title
+          }
+        }
         ... on ContentfulImageFullWidthStatic {
           id
           internal {
