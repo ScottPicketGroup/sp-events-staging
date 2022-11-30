@@ -38,11 +38,13 @@ height: 100%;
 display: flex;
 align-items: center;
 
-svg {
-    height: 3.25rem;
-}
+
 `
 export const DesktopWrapper = styled.div`
+svg {
+    height: 7rem;
+    width: 7rem;
+}
 @media (max-width: 451px) {
     display: none;
 }
