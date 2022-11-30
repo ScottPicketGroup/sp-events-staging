@@ -33,7 +33,7 @@ export const SectionContainer = styled.div`
       : props.fullScreen
       ? "0"
       : " 0 3.5rem "};
-  background: ${props => (props.background ? props.background : "")};
+
   padding-bottom: ${props => {
     switch (props.paddingBottom) {
       case "xs":
@@ -109,8 +109,8 @@ export const SectionContainer = styled.div`
   overflow: hidden;
   @media (max-width: 450px) {
     width: ${props => props.fullMob ? `100%` : `100vw`};
-    padding: 4rem 1rem;
-    background: none;
+    padding: 3rem 1rem 3rem 1rem;
+    background: ${props => props.isGreyBackground === true && "#F6F6F6"};
   }
 `
 export const SectionWrapper = styled.div`

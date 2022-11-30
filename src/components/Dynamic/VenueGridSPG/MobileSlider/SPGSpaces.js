@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import ArrowIcon from "../../../../images/ArrowIcon"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -7,7 +7,7 @@ import {
   Heading2,
   Heading3,
 } from "../../../StyledComponents/typography.css"
-import { Card, FullImageContainer, ItemImgLink } from "./RestaurantSlider"
+import { Card, FullImageContainer, ImageContainer, ItemImgLink } from "./RestaurantSlider"
 
 export default function SPGSpaces({ r, i, active, data }) {
   const [spaces, setSpaces] = useState([])
@@ -25,10 +25,14 @@ export default function SPGSpaces({ r, i, active, data }) {
     setSpaces(spacesToPush)
   }, [data])
 
+const card = useRef()
+
+
+
   return (
-    <>
+    <ImageContainer  spg>
       {spaces.map((space, spaceI) => (
-        <Card key={i} i={spaceI} active={active}>
+        <Card key={i} i={spaceI} active={active} spg>
           <ItemImgLink href={`${space.venueUrl}`} target="_blank" link={true}>
             <FullImageContainer>
               <GatsbyImage
@@ -63,6 +67,6 @@ export default function SPGSpaces({ r, i, active, data }) {
           </ItemImgLink>
         </Card>
       ))}
-    </>
+    </ImageContainer>
   )
 }

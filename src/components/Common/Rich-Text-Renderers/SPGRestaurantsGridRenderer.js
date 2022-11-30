@@ -13,12 +13,12 @@ const SPGRestaurantListRenderer = ({ node }) => {
             [BLOCKS.HEADING_1]: (node, children) => <Heading1>{children}</Heading1>,
             [BLOCKS.HEADING_2]: (node, children) => <Heading2>{children}</Heading2>,
             [BLOCKS.HEADING_3]: (node, children) => <Heading3>{children}</Heading3>,
-            [BLOCKS.PARAGRAPH]: (node, children) => <BC3 marginBottom="sm" > {children}</BC3>},
+            [BLOCKS.PARAGRAPH]: (node, children) => <BC3 marginBottom="sm" marginTop="sm"> {children}</BC3>},
     }
 
     return (
         <div
-        style={{marginTop: `1rem`}}
+        
         >
 
             {renderRichText(node, options)}

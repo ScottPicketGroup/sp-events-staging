@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 import styled from "styled-components"
 import { useSwipeable } from "react-swipeable"
@@ -27,17 +27,26 @@ const RestaurantSlider = ({ data }) => {
       active > 0 && active < numSlides ? setActive(active - 1) : null,
   })
 
+  const card = useRef()
+  // const [minCardHeight, setMinCardHeight] = useState()
+  // useEffect(() => {
+  //   card.current &&  setMinCardHeight(card.current.getBoundingClientRect().height)
+  // }, [])
+  // console.log('cardheight', card.current &&  card.current.getBoundingClientRect())
+  if (data.some(e => e.functionAreas)) {
+    /* vendors contains the element we're looking for */
+    console.log('yep')
+  } else {console.log('nope')}
   return (
     <Container {...handlers}>
-      <ImageContainer>
-        {data.map((r, i) =>
-          r.functionAreas ? (
-            <SPGSpaces r={r} active={active}  data={data} key={i}/>
+    
+        {data.some(e => e.functionAreas) ? (
+            <SPGSpaces  active={active}  data={data}  />
           ) : (
-            <PartneredVenues r={r} active={active} i={i} key={i}/>
+            <PartneredVenues  active={active} data={data} />
           )
-        )}
-      </ImageContainer>
+        }
+    
     </Container>
   )
 }
@@ -88,22 +97,27 @@ export const Container = styled.div`
 `
 
 export const ImageContainer = styled.div`
-  min-height: 30rem;
+  min-height: ${props => props.spg ? `15rem`: `32rem`};
   width: 100vw;
-
+  
   position: relative;
   display: flex;
   flex-direction: row;
   position: relative;
   overflow: hidden;
+  @media (max-width: 450px) {
+    min-height: ${props => props.spg ? `22rem`: `32rem`};
+    
+  }
 `
 
 export const Card = styled.div`
+  /* min-height: */
   width: 75vw;
   margin-left: ${props =>
     props.active === props.i ? "0vw" : `${(props.i - props.active) * 80}vw`};
   transition: margin-left 550ms ease-out;
   position: absolute;
   top: 0;
-  background: white;
+  background: inherit;
 `
