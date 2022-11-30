@@ -49,19 +49,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               }
               displayInLeftMenu
             }
-            ... on ContentfulEnquireSection {
-              id
-              internal {
-                type
-              }
-              enquireHeading
-              leftMenuHeading
-              enquireDescription {
-                raw
-              }
-              marginBottom
-              marginTop
-            }
+           
             ... on ContentfulIntroElement {
               id
               leftMenuHeading
