@@ -29,7 +29,7 @@ const AccordionWithMenuSections = ({content, title, image}) => {
     <AccordionSection onClick={toggleAccordion} setActive={setActive}>
       {/* Accordian Title / closed state */}
       <AccordionBlock>
-        <Heading2>{title}</Heading2>
+      <Heading2 faq>{title}</Heading2>
         <AccordionIcon className={`${setActive}`} />
       </AccordionBlock>
 
@@ -44,7 +44,7 @@ const AccordionWithMenuSections = ({content, title, image}) => {
       {/* Map entree menu Items */}
           {content[0].entreeMenuItems.map((item, index) => (
             <AccordionContentTextSection key={index}>
-                <BC2 marginBottom="sm">{item.menuItem}</BC2>
+                <BC2 marginBottom="sm" faq>{item.menuItem}</BC2>
             </AccordionContentTextSection>
           ))}
 

@@ -23,6 +23,13 @@ export const AccordionBlock = styled.div`
   outline: none;
   transition: background-color 0.6s ease;
   border-top: 1px solid #b1b3b6;
+  @media (max-width: 451px) {
+   padding: .5rem 0;
+   font-size: 1rem !important;
+   > h2 {
+    font-size: 1rem !important;
+   }
+  }
 `
 
 /* Style the accordion content panel. Note: hidden by default */
@@ -89,6 +96,8 @@ export const AccordionIcon = styled.button`
   @media (max-width: 450px) {
     width: 15px;
     height: 15px;
+    margin-top: 0;
+
   }
 `
 
@@ -127,4 +136,13 @@ export const BorderBottom = styled.div`
 export const AccordionContentTextSection = styled.div`
   margin-bottom: 2rem;
   border-top: 1px solid #b1b3b6;
+  @media (max-width: 451px) {
+   padding: .5rem 0;
+   margin-bottom: 0;
+   font-size: 1rem !important;
+   > h2, p {
+    font-size: 1rem !important;
+    margin-bottom: 0;
+   }
+  }
 `
