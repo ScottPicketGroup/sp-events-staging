@@ -11,7 +11,7 @@ const EventDetails = ({ eventData, setEventData, errors }) => {
 
 
   return (
-    <SectionContainer marginBottom="md" fullScreen fullMob>
+    <SectionContainer marginBottom="md" fullScreen fullMob formBottom>
       <Heading2 marginBottom="1">Your Event Details</Heading2>
       <ContactFormContainer>
         {EventFields.map((field, i) => (
