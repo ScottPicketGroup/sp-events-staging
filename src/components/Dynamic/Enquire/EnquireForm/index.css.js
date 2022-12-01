@@ -101,6 +101,9 @@ export const InputWrapper = styled.div`
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
+input::placeholder {
+      color: ${props => props.errorFlag && `red`};
+    }
   & > input {
     width: 100%;
     color: ${props => props.errorFlag && `red`};
@@ -110,6 +113,7 @@ export const InputWrapper = styled.div`
       background: none;
       outline: none;
     }
+   
    
     
   }
