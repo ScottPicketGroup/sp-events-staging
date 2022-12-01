@@ -12,11 +12,12 @@ import {
   DesktopWrapper,
   MobileWrapper,
 } from "../../../Common/Header/header.css"
+import DynamicSlider from "../../../Dynamic/GallerySlider/GallerySlider"
 
 const FollowUsOnSocial = ({ data }) => {
   const myRef = useRef(null)
   const placeHolderArr = data.images
-console.log('data.heading', data)
+console.log('data.heading', data.images)
   return (
     <SectionContainer
       marginTop="xl"
@@ -45,7 +46,7 @@ console.log('data.heading', data)
             )}
         </Grid>
       </DesktopWrapper>
-      <MobileWrapper><InstaSlider images={data.images} /></MobileWrapper>
+      <MobileWrapper><DynamicSlider data={data} insta={true}/></MobileWrapper>
     </SectionContainer>
   )
 }

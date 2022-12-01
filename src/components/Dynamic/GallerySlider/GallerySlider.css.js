@@ -13,13 +13,14 @@ export const Container = styled.div`
   margin-bottom: 5rem;
   overflow: hidden;
   @media screen and (max-width: 450px) {
-    width: 100%;
-    margin: 0 0 5rem -1rem;
+    width: 100vw;
+    padding: 0 0 0 1rem;
+    margin: ${props => props.insta === true ? `0 0 -3rem -1rem` : `0 0 5rem -1rem`};
         }};
 `
 
 export const ImageContainer = styled.div`
-  margin-top: 2.25rem;
+  margin-top: ${props => props.insta === true ? '0' : `2.25rem;`};
   width: 100vw;
   height: 33vw;
   position: relative;
@@ -29,8 +30,8 @@ export const ImageContainer = styled.div`
   overflow: hidden;
   z-index: 2;
   @media screen and (max-width: 450px) {
-    
-    height: 66.666666666667vw;
+    max-width: 60vw;
+    height: ${props => props.insta === true ? `80vw` : `66.666666666667vw`};
     min-width: 100%;
     
         }};
@@ -49,11 +50,15 @@ export const Card = styled.div`
   top: 0;
   @media screen and (max-width: 450px) {
     
-    width: 80vw;
+    width: ${props => props.insta === true ? '60vw' : '80vw'};
     margin-left: ${props =>
+    
       props.active === props.i + 1
         ? "0vw"
-        : `${(props.i - props.active) * 94}vw`};
+        : 
+        props.insta === true ?
+        `${(props.i - props.active) * 64}vw}` :
+        `${(props.i - props.active) * 94}vw}`
     }};
 `
 
@@ -61,8 +66,8 @@ export const GalleryImage = styled(GatsbyImage)`
   width: 90vw;
   aspect-ratio: 3/2;
   @media screen and (max-width: 450px) {
-    min-width: 90vw;
-  
+    width: ${props => props.insta === true ? '100%' : '90vw'};
+    aspect-ratio: ${props => props.insta === true ? '1' : '3/2'};
   }};
 `
 
