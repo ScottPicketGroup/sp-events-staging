@@ -110,7 +110,7 @@ export const SectionContainer = styled.div`
   @media (max-width: 450px) {
     margin: 0;
     width: ${props => props.fullMob ? `100%` : `100vw`};
-    padding: ${props => props.fullScreenImage ? `0` : `3rem 1rem`};
+    padding: ${props => props.fullScreenImage ? `0` : props.formTop ? `3rem 0 0 0 ` : props.formBottom ? ` 0 ` :`3rem 1rem`};
     background: ${props => props.isGreyBackground === true && "#F6F6F6"};
   }
 `

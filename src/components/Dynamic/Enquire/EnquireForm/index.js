@@ -5,7 +5,7 @@ import EventDetails from "./EventDetails"
 import ContactSection from "./ContactSection"
 import useFormValidation from "../../../Common/Hooks/useFormValidation"
 import { contactFields } from "./contact-fields"
-import { BC1, BC2, Heading1, Heading2, Heading3 } from "../../../StyledComponents/typography.css"
+import { BC1, BC2, BC3, Heading1, Heading2, Heading3 } from "../../../StyledComponents/typography.css"
 const EnquireForm = () => {
   const form = useRef()
   const [contactData, setContactData] = useState({})
@@ -50,25 +50,25 @@ const EnquireForm = () => {
         Host: "smtp.elasticemail.com",
         Port: 2525,
         To: "marekreid@gmail.com",
-        From: "enquire@marekreid.com",
+        From: `${contactData.email}`,
         Subject: "New SP Events Webform Submission",
-        Body: `<strong>Your package</strong> ${contactData.firstName}, has send a new enquiry. 
+        Body: `<strong>${contactData.firstName}, has send a new enquiry.</strong> ` + `<br>` + `
         Personal Details:
-        First Name: ${contactData.firstName} 
-        Last Name: ${contactData.lastName} <br/>
-        Email: ${contactData.email} \
-        Phone Number: ${contactData.phone} \n
-        Company: ${contactData.company}
-        Event Details: 
-        Nature of Event: ${eventData.natureOfEvent}
-        Event Date: ${eventData.date}
-        Number of People: ${eventData.numberOfPeople}
-        Start Time: ${eventData.startTime}
-        End Time: ${eventData.endTime}
-        Location: ${eventData.location}
-        Menu Style: ${eventData.menuStyple}
-        Message: ${eventData.whatAreYouPlanning}
-        How Did You Hear About Us: ${eventData.howDidYouHearAboutUs}
+        First Name: ${contactData.firstName} ` + `<br>` + `
+        Last Name: ${contactData.lastName} ` + `<br>` + `
+        Email: ${contactData.email} ` + `<br>` + `
+        Phone Number: ${contactData.phone} ` + `<br>` + `
+        Company: ${contactData.company} ` + `<br>` + `
+        Event Details: ` + `<br>` + `
+        Nature of Event: ${eventData.natureOfEvent} ` + `<br>` + `
+        Event Date: ${eventData.date} ` + `<br>` + `
+        Number of People: ${eventData.numberOfPeople} ` + `<br>` + ` 
+        Start Time: ${eventData.startTime} ` + `<br>` + `
+        End Time: ${eventData.endTime} ` + `<br>` + `
+        Location: ${eventData.location} ` + `<br>` + `
+        Menu Style: ${eventData.menuStyple} ` + `<br>` + `
+        Message: ${eventData.whatAreYouPlanning} ` + `<br>` + `
+        How Did You Hear About Us: ${eventData.howDidYouHearAboutUs} ` + `<br>` + `
         `,
       }
 
@@ -95,6 +95,9 @@ const EnquireForm = () => {
             setEventData={setEventData}
             errors={errors}
           />
+            { Object.values(errors).includes(true) && <BC3
+            style={{color: `red`, textAlign: `center`, marginBottom: `1rem`}}
+            >Please complete required fields</BC3>}
           <ButtonContainer
             title="Submit"
             errors={errors}

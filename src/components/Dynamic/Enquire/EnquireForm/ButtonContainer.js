@@ -2,19 +2,21 @@ import React from "react"
 import { Heading3 } from "../../../StyledComponents/typography.css"
 import { ButtonWrapper } from "./index.css"
 
-const ButtonContainer = ({ title, error, eventData, contactData }) => {
+const ButtonContainer = ({ title, errors, eventData, contactData }) => {
   
-const submit = (e) => {
-  
-  console.log('formData', eventData, contactData)
-}
+  const [errored, setErrored] = React.useState(false)
 
+  React.useEffect(() => {
+    // if(errors && errors.hasOwnProperty(field.name) === true) setErrored(true)
+    if(Object.values(errors).includes(true))  setErrored(true)
+  }, [errors])
+console.log('errors', errors)
   return (
     <ButtonWrapper>
       <button
         type="submit"
-        className={error ? "invalid-button" : "valid-button"}
-        onClick={() => submit}
+        className={errored === true ? "invalid-button" : "valid-button"}
+       
       >
         <Heading3>{title}</Heading3>
       </button>

@@ -11,7 +11,7 @@ export default function ContactSection({
   errors
 }) {
   return (
-    <SectionContainer marginBottom="md" fullScreen paddingTop="lg" fullMob>
+    <SectionContainer marginBottom="md" fullScreen paddingTop="lg" fullMob formTop>
       <Heading2 marginBottom="1">Your Contact Information</Heading2>
       <ContactFormContainer>
         {

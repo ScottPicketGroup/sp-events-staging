@@ -46,7 +46,7 @@ export const TextAreaWrapper = styled.div`
   margin-bottom: 16px;
   width: 100%;
   & > textarea {
-    border:${props => props.errorFlag ? `red 1px solid` : `#7e7e7e 1px solid;`} ;
+    border:${props => props.errorFlag ? `red 1px solid` : `#7e7e7e 1px solid`} ;
     width: 100%;
     padding: 12px;
     font-family: CentraNo2Light;
@@ -105,7 +105,7 @@ export const InputWrapper = styled.div`
     width: 100%;
     color: ${props => props.errorFlag && `red`};
     padding: .75rem .5rem;
-    border: ${props => props.errorFlag === true && `red 1px solid`};
+    border:${props => props.errorFlag ? `red 1px solid` : `#7e7e7e 1px solid`} ;
     :focus {
       background: none;
       outline: none;
