@@ -97,10 +97,11 @@ export const EventFields = [
             placeHolder: "Please select option",
             value:"",
             dropDownOptions: [
-              { value: "wedding", label: "Wedding" },
-              { value: "wedding", label: "Wedding" },
-              { value: "wedding", label: "Wedding" },
-              { value: "wedding", label: "Wedding" },
+              { value: "Google", label: "Google" },
+              { value: "Through a Friend", label: "Through a Friend" },
+              { value: "Scott Pickett Communications", label: "Scott Pickett Communications" },
+              { value: "Social Media", label: "Social Media" },
+              { value: "Other", label: "Other" },
             ]
           },
     ]
