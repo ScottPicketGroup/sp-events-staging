@@ -45,8 +45,12 @@ export const TextAreaWrapper = styled.div`
   margin-top: 6px;
   margin-bottom: 16px;
   width: 100%;
+  & > textarea::placeholder {
+    color:${props => props.errorFlag ? `red` : `#7e7e7e`} ;
+  }
   & > textarea {
     border:${props => props.errorFlag ? `red 1px solid` : `#7e7e7e 1px solid`} ;
+    color:${props => props.errorFlag ? `red` : `#7e7e7e`} ;
     width: 100%;
     padding: 12px;
     font-family: CentraNo2Light;
