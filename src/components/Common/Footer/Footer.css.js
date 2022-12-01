@@ -37,6 +37,7 @@ display: flex;
 flex-direction: column;
 @media (max-width: 450px){
   margin-bottom: 1.5rem;
+  display: ${props => props.spacer && `none`};
 }
 `
 
@@ -82,7 +83,7 @@ text-decoration: none;
   }
   @media (max-width: 450px) {
     font-size: 1rem;
-    margin-bottom: 2.35rem;
+    margin-bottom: 1rem;
     line-height: 1.15;
   }
 `
@@ -129,7 +130,7 @@ text-decoration: none;
   } */
   @media (max-width: 450px) {
     font-size: 1rem;
-    margin-bottom: 2.35rem;
+    margin-bottom: 1rem;
     line-height: 1.15;
   }
 `
@@ -187,7 +188,7 @@ font-size: 1rem;
   }
   @media (max-width: 450px) {
     font-size: 1rem;
-    margin-bottom: 2.35rem;
+    margin-bottom: 1rem;
     line-height: 1.15;
   }
 `

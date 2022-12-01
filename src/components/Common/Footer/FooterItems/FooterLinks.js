@@ -11,8 +11,8 @@ const FooterLinks = () => {
       <FooterVenueLinks />
       <FooterSocials />
       <FooterContactDetails />
-      <FooterLinksColumn />
-      <FooterLinksColumn />
+      <FooterLinksColumn spacer/>
+      <FooterLinksColumn spacer/>
     </FooterLinksGrid>
   )
 }
