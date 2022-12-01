@@ -18,7 +18,12 @@ console.log('errors', errors)
         className={errored === true ? "invalid-button" : "valid-button"}
        
       >
-        <Heading3>{title}</Heading3>
+        <Heading3 marginTop="0"
+        style={{
+          margin: 0,
+          textAlign: `center`
+        }}
+        >{title}</Heading3>
       </button>
     </ButtonWrapper>
   )

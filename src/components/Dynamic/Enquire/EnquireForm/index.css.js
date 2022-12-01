@@ -63,15 +63,25 @@ export const TextAreaWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
   padding-bottom: 8rem;
+  border: none;
   & > .invalid-button {
+    all: unset;
+  cursor: pointer;
     width: 100%;
     height: 36px;
+  cursor: pointer;
     background-color: #cb0000;
     color: #ffffff;
   }
 
   & > .valid-button {
+    all: unset;
+  cursor: pointer;
     width: 100%;
     height: 36px;
     background-color: #333333;
