@@ -124,6 +124,9 @@ export const Heading2 = styled.h2`
     }
   }};
   @media (max-width: 450px) {
+   
+    font-size: ${props => props.faq && `1rem`};
+
     margin-bottom: ${props => {
     switch (props.marginBottom) {
       case props.marginBottom :
@@ -162,7 +165,7 @@ export const Heading2 = styled.h2`
         return "0"
       }
   }};
-    font-size: 1.25rem;
+    
     line-height: 1.2;
   }
 `
@@ -253,8 +256,7 @@ export const BC1 = styled.p`
         return "0"
     }
   }};
-  @media (max-width: 450px) {
-  }
+  
 `
 
 export const BC2 = styled.p`

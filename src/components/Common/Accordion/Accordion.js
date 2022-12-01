@@ -6,6 +6,7 @@ import {
   AccordionBlock,
   AccordionIcon,
   AccordionContent,
+  AccordianBlockTitle,
 } from "./Accordion.css"
 
 const Accordion = props => {
@@ -24,7 +25,7 @@ const Accordion = props => {
   return (
     <AccordionSection onClick={toggleAccordion}>
       <AccordionBlock>
-        <Heading2>{props.title}</Heading2>
+        <Heading2 faq>{props.title}</Heading2>
         <AccordionIcon className={`${setActive}`} />
       </AccordionBlock>
       <AccordionContent ref={content} style={{ maxHeight: `${setHeight}` }} faq={props.faq}>

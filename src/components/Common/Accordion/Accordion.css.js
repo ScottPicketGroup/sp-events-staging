@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Heading2 } from '../../StyledComponents/typography.css';
 
 /* Style the accordion section */
 export const AccordionSection = styled.div`
@@ -22,7 +23,16 @@ export const AccordionBlock = styled.div`
   outline: none;
   transition: background-color 0.6s ease;
   border-top: 1px solid #b1b3b6;
+  @media (max-width: 450px) {
+   display: flex;
+   align-items: center;
+   padding: .5rem 0;
+  }
 `
+export const AccordianBlockTitle = styled(Heading2)`
+font-weight: 0;
+  font-size: 1rem;
+`;
 
 /* Style the accordion content panel. Note: hidden by default */
 export const AccordionContent = styled.div`
@@ -75,5 +85,6 @@ export const AccordionIcon = styled.button`
   @media (max-width: 450px) {
     width: 15px;
     height: 15px;
+    margin-top: 0;
   }
 `
