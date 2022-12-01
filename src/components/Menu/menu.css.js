@@ -192,6 +192,7 @@ cursor: pointer;
       : "white"};
   @media (max-width: 450px) {
     margin-top: 1rem;
+    color: white;
   }
 `
 
