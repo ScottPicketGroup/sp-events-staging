@@ -10,7 +10,7 @@ const FooterNavigation = () => {
     { name: "Sample Menus", to: "/sample-menus" },
     { name: "FAQs", to: "/faqs" },
     { name: "Talk to Us", to: "/enquiries" },
-    { name: "Privacy", to: "/" },
+    { name: "Privacy", to: "/privacy-policy" },
   ]
 
   return (
