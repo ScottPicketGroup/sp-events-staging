@@ -51,7 +51,7 @@ const EnquireForm = () => {
         Host: "smtp.elasticemail.com",
         Port: 2525,
         To: "enquiries@spevents.com.au",
-        From: `${contactData.email}`,
+        From: "enquiries@spevents.com.au",
         Subject: "New SP Events Webform Submission",
         Body: `<strong>${contactData.firstName}, has send a new enquiry.</strong> ` + `<br>` + `
         Personal Details:  ` + `<br>` + `
