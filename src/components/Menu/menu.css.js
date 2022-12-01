@@ -190,6 +190,9 @@ cursor: pointer;
       : props.item !== props.active
       ? "rgba(255, 255, 255, 50%)"
       : "white"};
+  @media (max-width: 450px) {
+    margin-top: 1rem;
+  }
 `
 
 export const SubMenuItem = styled(Heading2)`

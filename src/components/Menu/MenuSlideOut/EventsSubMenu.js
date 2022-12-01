@@ -25,7 +25,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
       <MobileBackButtonWrapper>
         <MobileMenuBackButton subMenu />
         <Heading1
-          style={{ color: "rgba(255, 255, 255, 50%)" }}
+          style={{ color: "rgba(255, 255, 255, 50%)", paddingLeft: `2rem`, marginBottom: `0` }}
           onClick={() => setSubMenuOpen(false)}
         >
           Back

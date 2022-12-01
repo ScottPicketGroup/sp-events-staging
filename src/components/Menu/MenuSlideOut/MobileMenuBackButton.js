@@ -5,6 +5,7 @@ const MobileMenuBackButton = ({ active, item, setSubMenuOpen, subMenu }) => {
   return (
     <MenuOpenArrowWrapper active={active} item={item} subMenu>
       <svg
+        style={{marginTop: `.5rem`}}
         xmlns="http://www.w3.org/2000/svg"
         width="24.103"
         height="14.771"

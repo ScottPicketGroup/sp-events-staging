@@ -33,6 +33,7 @@ const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
               onClick={() => setSubMenuOpen(true)}
               onMouseOver={() => width > 500 ? setSubMenuOpen(true) : null}
               style={{ display: `flex` }}
+              link
             >
               Event Types
               {item.title === "Events" ? (

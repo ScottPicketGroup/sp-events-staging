@@ -31,6 +31,7 @@ export const Typography = createGlobalStyle`
   }
 `
 export const Heading1 = styled.h1`
+cursor: ${props => props.link && `pointer`};
   font-family: CentraNo2Book;
   font-size: 2rem;
   font-weight: 500;
