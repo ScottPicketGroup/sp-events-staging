@@ -92,10 +92,7 @@ export const ButtonWrapper = styled.div`
     color: #ffffff;
   }
 
-  & > .valid-button:hover {
-    background-color: #ffffff;
-    color: #333333;
-  }
+
 `
 
 export const ContactFormContainer = styled.div`
