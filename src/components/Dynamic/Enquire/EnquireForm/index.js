@@ -30,7 +30,7 @@ const EnquireForm = () => {
     !contactData.phone
       ? setErrors(error => ({ ...error, phone: true }))
       : setErrors(error => ({ ...error, phone: false }))
-    !eventData.natureOfEvent
+    !eventData.typeOfEvent
       ? setErrors(error => ({ ...error, typeOfEvent: true }))
       : setErrors(error => ({ ...error, typeOfEvent: false }))
     !eventData.startTime
