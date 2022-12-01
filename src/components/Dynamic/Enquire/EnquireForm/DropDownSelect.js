@@ -33,7 +33,7 @@ const DropDownSelect = ({ field, errors, eventData, setEventData }) => {
 
   return (
     <FormField event half={field.half} full={field.full}>
-    <Heading3 marginBottom="xs" style={errored ? { color: "#CB0000" } : { color: "" }}>{field.label} {field.required && <span>*</span>}</Heading3>
+    <Heading3 marginBottom="xs" style={errored ? { color: "red" } : { color: "" }}>{field.label} {field.required && <span>*</span>}</Heading3>
     <div onClick={toggleOpen}>
       <DropDownWrapper isOpen={isOpen} errorFlag={errored}>
         <DropDownLabel>

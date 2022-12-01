@@ -17,19 +17,22 @@ const TextAreaContainer = ({ field, error, data, setData, errors }) => {
       }
   }, [errors])
 
-  console.log('errored', errored)
   return (
     <TextAreaWrapper errorFlag={errored}>
-     <Heading3
+      <Heading3
         style={errored ? { color: "red" } : { color: "" }}
         marginBottom="xs"
       >
         {field.label} {field.required && <span>*</span>}
       </Heading3>
-      <textarea  type="text"
+      <textarea
+        type="text"
+        errorFlag={errored}
         placeholder={field.placeHolder}
         name={field.name}
-        onChange={changeHandler} rows={15} />
+        onChange={changeHandler}
+        rows={15}
+      />
     </TextAreaWrapper>
   )
 }

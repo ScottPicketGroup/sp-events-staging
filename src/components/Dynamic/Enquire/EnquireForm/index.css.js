@@ -46,16 +46,17 @@ export const TextAreaWrapper = styled.div`
   margin-bottom: 16px;
   width: 100%;
   & > textarea {
+    border:${props => props.errorFlag ? `red 1px solid` : `#7e7e7e 1px solid;`} ;
     width: 100%;
     padding: 12px;
     font-family: CentraNo2Light;
     line-height: 1.25;
     font-size: 1.25rem;
-    border: #7e7e7e 1px solid;
+    
     color: ${props => props.errorFlag && `red`};
     :focus {
       background: none;
-      outline: none;
+      outline: ${props => props.errorFlag && `red 1px solid`};
     }
   }
 `
