@@ -110,7 +110,7 @@ export const ContactFormContainer = styled.div`
 `
 
 export const InputWrapper = styled.div`
-  width: ${props => (props.half === true ? '24%' : props.inline ? "49%" : "100%")};
+  width: ${props => (props.half === true ? '23.5%' : props.inline ? "49%" : "100%")};
   margin-bottom: 1rem;
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
