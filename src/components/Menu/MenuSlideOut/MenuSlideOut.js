@@ -19,7 +19,9 @@ const MenuSlideOut = ({ menuOpen, setMenuOpen }) => {
       <MenuWrapper  menuOpen={menuOpen}>
         <MenuHeaderWrapper
           menuOpen={menuOpen}
-          onClick={() => setMenuOpen(false)}
+          onClick={() => {setMenuOpen(false)
+            setSubMenuOpen(false)}
+          }
         >
           <Logo />
           <CloseLogo />

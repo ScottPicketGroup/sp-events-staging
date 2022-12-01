@@ -244,6 +244,7 @@ export const SubMenuItem = styled(Heading2)`
     }
   }};
   @media (max-width: 450px) {
+    color: white;
     margin-bottom: ${props => {
     switch (props.marginBottom) {
       case props.marginBottom :
