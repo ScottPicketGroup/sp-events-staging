@@ -53,7 +53,7 @@ const EnquireForm = () => {
         From: `${contactData.email}`,
         Subject: "New SP Events Webform Submission",
         Body: `<strong>${contactData.firstName}, has send a new enquiry.</strong> ` + `<br>` + `
-        Personal Details:
+        Personal Details:  ` + `<br>` + `
         First Name: ${contactData.firstName} ` + `<br>` + `
         Last Name: ${contactData.lastName} ` + `<br>` + `
         Email: ${contactData.email} ` + `<br>` + `
