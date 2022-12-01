@@ -31,8 +31,8 @@ const EnquireForm = () => {
       ? setErrors(error => ({ ...error, phone: true }))
       : setErrors(error => ({ ...error, phone: false }))
     !eventData.natureOfEvent
-      ? setErrors(error => ({ ...error, natureOfEvent: true }))
-      : setErrors(error => ({ ...error, natureOfEvent: false }))
+      ? setErrors(error => ({ ...error, typeOfEvent: true }))
+      : setErrors(error => ({ ...error, typeOfEvent: false }))
     !eventData.startTime
       ? setErrors(error => ({ ...error, startTime: true }))
       : setErrors(error => ({ ...error, startTime: false }))
