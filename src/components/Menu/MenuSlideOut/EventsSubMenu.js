@@ -56,7 +56,7 @@ export const MobileBackButtonWrapper = styled.div`
   @media (min-width: 450px) {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 50%;
     display: none;
   }
 `
