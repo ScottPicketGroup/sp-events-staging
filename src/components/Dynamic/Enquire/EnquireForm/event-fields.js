@@ -9,8 +9,8 @@ export const EventFields = [
       dropDownOptions: [
         { value: "wedding", label: "Wedding" },
         { value: "party", label: "Party" },
-        { value: "corporateEvent", label: "Corporate Event" },
-        { value: "publicEvent", label: "Public Event" },
+        { value: "Corporate Event", label: "Corporate Event" },
+        { value: "Public Event", label: "Public Event" },
       ]
     },
     {
