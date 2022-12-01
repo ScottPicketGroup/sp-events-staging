@@ -3,8 +3,6 @@ import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import { useSwipeable } from "react-swipeable"
 
-import SPGRestaurantListRenderer from "../../../Common/Rich-Text-Renderers/SPGRestaurantsGridRenderer"
-import { Heading2, Heading3 } from "../../../StyledComponents/typography.css"
 import SPGSpaces from "./SPGSpaces"
 import PartneredVenues from "./PartneredVenues"
 
@@ -28,15 +26,7 @@ const RestaurantSlider = ({ data }) => {
   })
 
   const card = useRef()
-  // const [minCardHeight, setMinCardHeight] = useState()
-  // useEffect(() => {
-  //   card.current &&  setMinCardHeight(card.current.getBoundingClientRect().height)
-  // }, [])
-  // console.log('cardheight', card.current &&  card.current.getBoundingClientRect())
-  if (data.some(e => e.functionAreas)) {
-    /* vendors contains the element we're looking for */
-    console.log('yep')
-  } else {console.log('nope')}
+  
   return (
     <Container {...handlers}>
     

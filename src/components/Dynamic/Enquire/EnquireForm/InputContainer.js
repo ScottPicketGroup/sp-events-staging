@@ -3,24 +3,30 @@ import { Heading3 } from "../../../StyledComponents/typography.css"
 
 import { InputWrapper } from "./index.css"
 
-const InputContainer = ({
-  field,
-  error,
-  inline,
-  data,
-  setData,
-}) => {
+const InputContainer = ({ field, errors, inline, data, setData }) => {
   const changeHandler = event => {
     setData({ ...data, [event.target.name]: event.target.value })
   }
+
+  const [errored, setErrored] = React.useState(false)
+
+  React.useEffect(() => {
+    // if(errors && errors.hasOwnProperty(field.name) === true) setErrored(true)
+    if (errors)
+      for (let [name, isErrored] of Object.entries(errors)) {
+        if (name === field.name && isErrored) setErrored(true)
+      }
+  }, [errors])
+
   
+ 
   return (
-    <InputWrapper inline={inline}>
+    <InputWrapper inline={inline} errorFlag={errored}>
       <Heading3
-        style={error ? { color: "#CB0000" } : { color: "" }}
+        style={errored ? { color: "red" } : { color: "" }}
         marginBottom="xs"
       >
-        {field.label}
+        {field.label} {field.required && <span>*</span>}
       </Heading3>
       <input
         type="text"

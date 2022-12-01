@@ -1,13 +1,21 @@
 import React, { useState, useRef } from "react"
-import { BC3 } from "../../../StyledComponents/typography.css"
+import { BC3, Heading3 } from "../../../StyledComponents/typography.css"
 import { DropDownArrow } from "./DropDownArrow"
-import { DropDownLabel, DropDownWrapper, OptionsWrapper } from "./index.css"
+import { DropDownLabel, DropDownWrapper, FormField, OptionsWrapper } from "./index.css"
 
-const DropDownSelect = ({ field, error, eventData, setEventData }) => {
+const DropDownSelect = ({ field, errors, eventData, setEventData }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [height, setHeight] = useState(0)
   const [selectedOption, setSelectedOption] = useState()
+  const [errored, setErrored] = React.useState(false)
 
+  React.useEffect(() => {
+    // if(errors && errors.hasOwnProperty(field.name) === true) setErrored(true)
+    if (errors)
+      for (let [name, isErrored] of Object.entries(errors)) {
+        if (name === field.name && isErrored) setErrored(true)
+      }
+  }, [errors])
   const optionsWrapper = useRef(null)
 
   const toggleOpen = () => {
@@ -24,13 +32,15 @@ const DropDownSelect = ({ field, error, eventData, setEventData }) => {
 
 
   return (
+    <FormField event half={field.half} full={field.full}>
+    <Heading3 marginBottom="xs" style={errored ? { color: "#CB0000" } : { color: "" }}>{field.label} {field.required && <span>*</span>}</Heading3>
     <div onClick={toggleOpen}>
-      <DropDownWrapper isOpen={isOpen}>
+      <DropDownWrapper isOpen={isOpen} errorFlag={errored}>
         <DropDownLabel>
           <BC3
             style={
-              error
-                ? { color: "#CB0000" }
+              errored
+                ? { color: "red" }
                 : selectedOption
                 ? { color: `inherit` }
                 : { color: "#7E7E7E", margin: 0 }
@@ -61,6 +71,8 @@ const DropDownSelect = ({ field, error, eventData, setEventData }) => {
         </OptionsWrapper>
       </DropDownWrapper>
     </div>
+    </FormField>
+    
   )
 }
 

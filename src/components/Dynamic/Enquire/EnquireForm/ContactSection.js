@@ -8,6 +8,7 @@ import InputContainer from "./InputContainer"
 export default function ContactSection({
   contactData,
   setContactData,
+  errors
 }) {
   return (
     <SectionContainer marginBottom="md" fullScreen paddingTop="lg" fullMob>
@@ -17,7 +18,7 @@ export default function ContactSection({
           contactFields.map((field, i) => (
             <>
               <FormField key={i}>
-                <InputContainer field={field} setData={setContactData} data={contactData}/>
+                <InputContainer field={field} setData={setContactData} data={contactData} errors={errors}/>
               </FormField>
             </>
           ))}

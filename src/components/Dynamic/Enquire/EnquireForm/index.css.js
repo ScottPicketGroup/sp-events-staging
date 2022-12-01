@@ -34,7 +34,7 @@ export const toUpFadeIn = keyframes`
 `
 
 export const FormField = styled.div`
-  width: ${props => (props.full ? "100%" : props.half === true ? '24%' :"49%")};
+  width: ${props => (props.full === true ? "100%" : props.half === true ? '24%' :"49%")};
   margin: .5rem 0;
   @media (max-width: 451px) {
     width: 100%;
@@ -52,6 +52,7 @@ export const TextAreaWrapper = styled.div`
     line-height: 1.25;
     font-size: 1.25rem;
     border: #7e7e7e 1px solid;
+    color: ${props => props.errorFlag && `red`};
     :focus {
       background: none;
       outline: none;
@@ -94,20 +95,21 @@ export const ContactFormContainer = styled.div`
 `
 
 export const InputWrapper = styled.div`
-  width: ${props => (props.inline ? "49%" : "100%")};
+  width: ${props => (props.half === true ? '24%' : props.inline ? "49%" : "100%")};
   margin-bottom: 1rem;
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
   & > input {
     width: 100%;
-    
+    color: ${props => props.errorFlag && `red`};
     padding: .75rem .5rem;
-    border: #7e7e7e 1px solid;
+    border: ${props => props.errorFlag === true && `red 1px solid`};
     :focus {
       background: none;
       outline: none;
     }
+   
     
   }
 `
@@ -120,7 +122,8 @@ const close = css`
 export const DropDownWrapper = styled.div`
 cursor: pointer;
   position: relative;
-  border: #7e7e7e 1px solid;
+  
+  border: ${props => props.errorFlag === true ? `red 1px solid` : `#7e7e7e 1px solid`};
   width: 100%;
   margin-bottom: 1rem;
   padding: .5rem;

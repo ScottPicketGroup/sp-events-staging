@@ -22,6 +22,7 @@ const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
     <MainMenuWrapper>
       {menuItems.map((item, index) => (
         <MainMenuItem
+        key={index}
           marginBottom="sm"
           link
           onMouseOver={() => setActive(item.title)}
@@ -47,7 +48,7 @@ const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
             </Heading1>
           ) : (
             /*ignore jslint start*/
-            <Link to={item.slug}>
+            <Link to={item.slug} key={index}>
               {" "}
               <MainMenuItem
                 marginBottom="sm"

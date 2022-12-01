@@ -172,7 +172,7 @@ export const Heading2 = styled.h2`
 
 export const Heading3 = styled.h3`
   font-family: CentraNo2Book;
-
+  color: ${props => props.errorFlag && `red`};
   font-size: 1rem;
   line-height: 1.25;
   margin-bottom: ${props => {

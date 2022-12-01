@@ -34,7 +34,7 @@ const DynamicSlider = ({ data, insta }) => {
     onSwipedRight: () =>
       active >= 0 && active < imagesArr.length ? setActive(active - 1) : null,
   })
-  console.log("imageArr", data)
+
   return (
     <Container {...handlers} insta={insta}>
       {heading && <Heading1>{heading}</Heading1>}

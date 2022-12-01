@@ -8,11 +8,11 @@ export const contactFields = [
     value:""
   },
   {
-    name: "surname",
-    label: "Surname",
+    name: "lastName",
+    label: "Last Name",
     type: "text",
     required: true,
-    placeHolder: "Surname",
+    placeHolder: "Last Name",
     value:""
   },
   {

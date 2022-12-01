@@ -1,10 +1,10 @@
 export const EventFields = [
     {
-      name: "typeOfEvent",
-      label: "Type Of Event",
+      name: "natureOfEvent",
+      label: "Nature of Event",
       type: "text",
-      required: false,
-      placeHolder: "Type Of Event",
+      required: true,
+      placeHolder: "Nature of Event",
       value:"",
       dropDownOptions: [
         { value: "wedding", label: "Wedding" },
@@ -25,45 +25,28 @@ export const EventFields = [
       name: "numberOfPeople",
       label: "Number of People",
       type: "text",
-      required: false,
+      required: true,
       placeHolder: "Number of People",
-      value:"",
-      dropDownOptions: [
-        
-        { value: "1", label: "1" },
-        { value: "2", label: "2" },
-        { value: "3", label: "3" },
-      ]
+      value:""
     },
     {
         name: "startTime",
         label: "Start Time",
         half: true,
         type: "text",
-        required: false,
+        required: true,
         placeHolder: "Start Time",
         value: "",
-        dropDownOptions: [
-            
-            { value: "18:00", label: "18:00" },
-            { value: "19:00", label: "19:00" },
-            { value: "20:00", label: "20:00" }, 
-          ]
       },
       {
         name: "endTime",
+        full: false,
         label: "End Time",
         half: true,
         type: "text",
         required: false,
         placeHolder: "End Time",
-        value: "",
-        dropDownOptions: [
-            
-            { value: "22:00", label: "22:00" },
-            { value: "23:00", label: "23:00" },
-            { value: "00:00", label: "00:00" },
-          ]
+        value: ""
       },
     {
       name: "location",
@@ -74,9 +57,11 @@ export const EventFields = [
       value:"",
       dropDownOptions: [
           
-          { value: "Smith Street Bistro", label: "Smith Street Bistro" },
-          { value: "Longsong", label: "Longsong" },
-          { value: "Chancery Lane", label: "Chancery Lane" },
+          { value: "Private Residence", label: "Private Residence" },
+          { value: "Scott Pickett Group restaurant", label: "Scott Pickett Group restaurant" },
+          { value: "SP Events Partner venue", label: "SP Events Partner venue" },
+          { value: "Other", label: "Other" },
+          
         ]
     },
     {
@@ -87,17 +72,18 @@ export const EventFields = [
         placeHolder: "Please select option(s)",
         value:"",
         dropDownOptions: [
-          { value: "wedding", label: "Wedding" },
-          { value: "wedding", label: "Wedding" },
-          { value: "wedding", label: "Wedding" },
-          { value: "wedding", label: "Wedding" },
+          { value: "Canapés", label: "Canapés" },
+          { value: "Sit-down meal", label: "Sit-down meal" },
+          { value: "Shared-style", label: "Shared-style" },
+          { value: "Other", label: "Other" },
         ]
       },
       {
-          name: "plans",
+          name: "whatAreYouPlanning",
           label: "What are you planning?",
           type: "textarea",
-          required: false,
+          full: true,
+          required: true,
           placeHolder: "Please tell us what you are envisioning for your event",
           value:"",
           
