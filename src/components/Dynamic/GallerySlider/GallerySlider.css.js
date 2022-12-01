@@ -63,7 +63,7 @@ export const Card = styled.div`
 `
 
 export const GalleryImage = styled(GatsbyImage)`
-  width: 90vw;
+  width: 50vw;
   aspect-ratio: 3/2;
   @media screen and (max-width: 450px) {
     width: ${props => props.insta === true ? '100%' : '90vw'};

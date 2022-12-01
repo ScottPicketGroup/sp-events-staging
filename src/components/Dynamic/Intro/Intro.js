@@ -44,7 +44,7 @@ const Intro = ({ data }) => {
             </a>
           </Heading2>
         ) : linkUrl !== null ? (
-          <IntroLink to={`/${linkUrl}`}>
+          <IntroLink to={`${linkUrl}`}>
             {" "}
             <Heading2>
               {linkLabel} <ArrowIcon />
