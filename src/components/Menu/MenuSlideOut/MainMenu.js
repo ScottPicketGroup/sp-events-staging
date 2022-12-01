@@ -4,6 +4,7 @@ import { MainMenuWrapper, MainMenuItem } from "../menu.css"
 import SubMenu from "./SubMenu"
 import MenuOpenArrow from "./MenuOpenArrow"
 import { Heading1 } from "../../StyledComponents/typography.css"
+import useWindowSize from "../../Common/Hooks/useWindowDimensions"
 
 const menuItems = [
   { title: "Home", slug: "/" },
@@ -16,6 +17,7 @@ const menuItems = [
 ]
 
 const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
+  const {width} = useWindowSize()
   return (
     <MainMenuWrapper>
       {menuItems.map((item, index) => (
@@ -29,7 +31,7 @@ const MainMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
           {item.title === "Events" ? (
             <Heading1
               onClick={() => setSubMenuOpen(true)}
-              onMouseOver={() => setSubMenuOpen(true)}
+              onMouseOver={() => width > 500 ? setSubMenuOpen(true) : null}
               style={{ display: `flex` }}
             >
               Event Types

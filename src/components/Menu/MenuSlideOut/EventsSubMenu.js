@@ -5,6 +5,7 @@ import { Heading1 } from "../../StyledComponents/typography.css"
 import { EventsSubMenuWrapper, EventsSubMenuItem } from "../menu.css"
 import useMenudata, { data, useMenuEventItems } from "./menuEventTypesQuery"
 import MenuOpenArrow from "./MenuOpenArrow"
+import MobileMenuBackButton from "./MobileMenuBackButton"
 
 const eventsSubMenu = [
   "Weddings",
@@ -22,7 +23,7 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
   return (
     <EventsSubMenuWrapper subMenuOpen={subMenuOpen} active={active}>
       <MobileBackButtonWrapper>
-        <MenuOpenArrow subMenu />
+        <MobileMenuBackButton subMenu />
         <Heading1
           style={{ color: "rgba(255, 255, 255, 50%)" }}
           onClick={() => setSubMenuOpen(false)}
@@ -53,6 +54,9 @@ const EventsSubMenu = ({ active, setActive, subMenuOpen, setSubMenuOpen }) => {
 export default EventsSubMenu
 
 export const MobileBackButtonWrapper = styled.div`
+ display: flex;
+    flex-direction: row;
+    width: 50%;
   @media (min-width: 450px) {
     display: flex;
     flex-direction: row;
