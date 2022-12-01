@@ -6,6 +6,7 @@ import ContactSection from "./ContactSection"
 import useFormValidation from "../../../Common/Hooks/useFormValidation"
 import { contactFields } from "./contact-fields"
 import { BC1, BC2, BC3, Heading1, Heading2, Heading3 } from "../../../StyledComponents/typography.css"
+import DatePicker from "./DatePicker"
 const EnquireForm = () => {
   const form = useRef()
   const [contactData, setContactData] = useState({})
@@ -49,7 +50,7 @@ const EnquireForm = () => {
         Password: "B428DD847DD7367BCEBA368EF0ACE0C93302",
         Host: "smtp.elasticemail.com",
         Port: 2525,
-        To: "marekreid@gmail.com",
+        To: "enquiries@spevents.com.au",
         From: `${contactData.email}`,
         Subject: "New SP Events Webform Submission",
         Body: `<strong>${contactData.firstName}, has send a new enquiry.</strong> ` + `<br>` + `
@@ -76,7 +77,7 @@ const EnquireForm = () => {
         console.log(field, answer)
       }
      !Object.values(contactData).every(value => !value) && window.Email.send(config).then(
-        response => response === "OK" && setEmailSent(true)
+        response => response === "OK" ? setEmailSent(true) : console.log(response)
       )
     }
   }
@@ -95,6 +96,7 @@ const EnquireForm = () => {
             setEventData={setEventData}
             errors={errors}
           />
+         
             { Object.values(errors).includes(true) && <BC3
             style={{color: `red`, textAlign: `center`, marginBottom: `1rem`}}
             >Please complete required fields</BC3>}
