@@ -10,7 +10,7 @@ const ButtonContainer = ({ title, errors, eventData, contactData }) => {
     // if(errors && errors.hasOwnProperty(field.name) === true) setErrored(true)
     if(Object.values(errors).includes(true))  setErrored(true)
   }, [errors])
-console.log('errors', errors)
+
   return (
     <ButtonWrapper>
       <button

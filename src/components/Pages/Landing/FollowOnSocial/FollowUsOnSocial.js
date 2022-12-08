@@ -17,7 +17,7 @@ import DynamicSlider from "../../../Dynamic/GallerySlider/GallerySlider"
 const FollowUsOnSocial = ({ data }) => {
   const myRef = useRef(null)
   const placeHolderArr = data.images
-console.log('data.heading', data.images)
+
   return (
     <SectionContainer
       marginTop="xl"

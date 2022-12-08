@@ -8,16 +8,17 @@ import {
 import Renderer from "../../Common/Rich-Text-Renderers/IntroRenderer"
 import ArrowIcon from "../../../images/ArrowIcon"
 import EnquireForm from "./EnquireForm"
-import { SectionContainer, SectionWrapper } from "../../StyledComponents/containers.css"
+import { SectionContainer, SectionWrapper, executeScroll, ref } from "../../StyledComponents/containers.css"
 const Enquire = ({ data, page }) => {
   const {
     enquireHeading,
     greyBackground,
-    introHalfWidth,
     enquireDescription,
     linkLabel,
     linkUrl,
   } = data
+
+
 
   return (
     <SectionContainer
@@ -37,7 +38,7 @@ const Enquire = ({ data, page }) => {
             </Heading2>
           </IntroLink>
         )}
-        <EnquireForm/>
+        <EnquireForm scrollRef={ref}/>
       </SectionWrapper>
     </SectionContainer>
   )

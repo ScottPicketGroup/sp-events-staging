@@ -53,7 +53,7 @@ const Indextest = ({ data, errors, setErrors  }) => {
           {pageElements.map((element, i) => (
             <div ref={el => (itemsRef.current[i] = el)} key={i}>
               {element.internal.type === "ContentfulEnquireSection" ? (
-                <Enquire data={element} page={page} errors={errors}/>
+                <Enquire data={element} page={page} errors={errors} executeScroll={executeScroll} ref={el => (itemsRef.current[i] = el)} />
               ) : null}
             </div>
           ))}

@@ -71,6 +71,7 @@ export const EventFields = [
         required: false,
         placeHolder: "Please select option(s)",
         value:"",
+        multi: true,
         dropDownOptions: [
           { value: "Canapés", label: "Canapés" },
           { value: "Sit-down meal", label: "Sit-down meal" },

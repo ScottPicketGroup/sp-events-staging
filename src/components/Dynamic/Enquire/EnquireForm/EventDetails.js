@@ -1,8 +1,9 @@
 import React from "react"
 import { SectionContainer } from "../../../StyledComponents/containers.css"
 import { Heading2, Heading3 } from "../../../StyledComponents/typography.css"
-import DropDownSelect from "./DropDownSelect"
 
+import DropDownMulti from "./DropDownMulti"
+import DropDownSelect from "./DropDownSelect"
 import { EventFields } from "./event-fields"
 import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"
@@ -26,16 +27,25 @@ const EventDetails = ({ eventData, setEventData, errors }) => {
                   setData={setEventData}
                 />
               </FormField>
-            ) : field.dropDownOptions ? (
+            ) : field.dropDownOptions && field.multi === true? (
            
-                <DropDownSelect
+                <DropDownMulti
                   errors={errors}
                   field={field}
                   eventData={eventData}
                   setEventData={setEventData}
                 />
            
-            ) : (
+            )
+            : field.dropDownOptions ? (
+              <DropDownSelect
+                  errors={errors}
+                  field={field}
+                  eventData={eventData}
+                  setEventData={setEventData}
+                />
+            )
+            : (
               <FormField event full={field.full} half={field.half}>
                 <InputContainer
                   errors={errors}

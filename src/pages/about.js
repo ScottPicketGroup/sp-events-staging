@@ -40,7 +40,7 @@ const About = ({ data }) => {
       <Seo title="About Scott Pickett Events" />
       <Hero data={heroElement} />
       <PageWrapper>
-        <LeftMenu pageElements={pageElements}  executeScroll={executeScroll} scrollY={scrollY} items={items} heights={heights}/>
+      <LeftMenu pageElements={pageElements}  executeScroll={executeScroll} scrollY={scrollY} items={items} heights={heights} refs={itemsRef}/>
         <PageContainer>
           {pageElements.map((element, i) => (
             <div ref={el => (itemsRef.current[i] = el)}>

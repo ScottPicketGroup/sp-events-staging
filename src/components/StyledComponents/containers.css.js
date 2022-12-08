@@ -7,7 +7,7 @@ export const PageContainer = styled.div`
   display: flex;
   align-items: ${props => (props.alignItemStart ? "flex-start" : "flex-end")};
   flex-direction: column;
-  padding-bottom: ${props => props.page === 'faqs' && '13.5rem'};
+  padding-bottom: ${props => props.page === "faqs" && "13.5rem"};
   @media (max-width: 450px) {
     width: 100%;
   }
@@ -27,12 +27,7 @@ export const SectionContainer = styled.div`
   background: ${props => props.isGreyBackground === true && "#F6F6F6"};
   width: ${props => (props.width ? props.width : "100%")};
   padding: ${props =>
-    props.eventTypes
-      ? "3.55rem"
-      
-      : props.fullScreen
-      ? "0"
-      : " 0 3.5rem "};
+    props.eventTypes ? "3.55rem" : props.fullScreen ? "0" : " 0 3.5rem "};
 
   padding-bottom: ${props => {
     switch (props.paddingBottom) {
@@ -52,7 +47,7 @@ export const SectionContainer = styled.div`
         return "0"
     }
   }};
-    padding-top: ${props => {
+  padding-top: ${props => {
     switch (props.paddingTop) {
       case "xs":
         return ".25rem"
@@ -109,8 +104,15 @@ export const SectionContainer = styled.div`
   overflow: hidden;
   @media (max-width: 450px) {
     margin: 0;
-    width: ${props => props.fullMob ? `100%` : `100vw`};
-    padding: ${props => props.fullScreenImage ? `0` : props.formTop ? `3rem 0 0 0 ` : props.formBottom ? ` 0 ` :`3rem 1rem`};
+    width: ${props => (props.fullMob ? `100%` : `100vw`)};
+    padding: ${props =>
+      props.fullScreenImage
+        ? `0`
+        : props.formTop
+        ? `3rem 0 0 0 `
+        : props.formBottom
+        ? ` 0 `
+        : `3rem 1rem`};
     background: ${props => props.isGreyBackground === true && "#F6F6F6"};
   }
 `
@@ -168,7 +170,7 @@ export const IntroWrapper = styled.div`
   overflow: hidden; */
   margin-bottom: 1rem;
   transition: max-height 0.5s ease;
-  width: ${props => props.introHalfWidth === true && '75%'};
+  width: ${props => props.introHalfWidth === true && "75%"};
 `
 export const HeroTextWrapper = styled.div`
   width: 100%;
@@ -179,7 +181,7 @@ export const HeroTextWrapper = styled.div`
   transform: translate(-50%, -50%);
 `
 export const MenuContainer = styled.div`
-margin-top: 3.5rem;
+  margin-top: 3.5rem;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
@@ -200,7 +202,7 @@ export const MenuItem = styled.p`
   cursor: pointer;
   transition: all 1s ease;
   font-family: ${props =>
-    props.activeEl === props.menuItem
+    props.scrollPos > props.top && props.scrollPos < props.top + props.height
       ? "CentraNo2Medium"
       : "CentraNo2Light"};
   a {
@@ -247,7 +249,7 @@ export const ItemImgLink = styled.a`
   }
 `
 export const GatsbyItemImgLink = styled(Link)`
- text-decoration: none;
+  text-decoration: none;
   -moz-transition: opacity 0.25s ease-in-out;
   -webkit-transition: opacity 0.25s ease-in-out;
   color: #333333;

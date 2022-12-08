@@ -154,6 +154,10 @@ export const DropDownLabel = styled.div`
 
   
 `
+export const DropDownLabelOptionsWrapper = styled.div`
+  display: flex;
+  
+`;
 export const OptionsWrapper = styled.div`
   overflow: hidden;
   background-color: white;

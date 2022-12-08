@@ -1,9 +1,11 @@
 import React from "react"
 import styled from 'styled-components';
-export const DropDownArrow = ({isOpen}) => {
+export const DropDownArrow = ({isOpen, setIsOpen}) => {
+ const click = () => setIsOpen(!isOpen)
   return (
-    <ArrowWrapper isOpen={isOpen}>
+    <ArrowWrapper isOpen={isOpen} >
     <svg
+    onClick={() => setIsOpen(false)}
       xmlns="http://www.w3.org/2000/svg"
       width="12.707"
       height="7.06"
