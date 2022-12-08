@@ -30,7 +30,7 @@ const SubscribeForm = () => {
       let raw = JSON.stringify({
         data: {
           email: email,
-          tags: ['Scott Pickett Events']
+          tags: ['Scott Pickett Events Footer Form']
         },
       })
 
