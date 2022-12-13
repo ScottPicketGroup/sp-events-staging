@@ -118,10 +118,10 @@ const EnquireForm = ({ executeScroll, scrollRef }) => {
       //   console.log(field, answer)
       // }
 
-      //actual submit form code
-      //  !Object.values(contactData).every(value => !value) && window.Email.send(config).then(
-      //     response => response === "OK" ? setEmailSent(true) : console.log(response)
-      //   )
+      // actual submit form code
+       !Object.values(contactData).every(value => !value) && window.Email.send(config).then(
+          response => response === "OK" ? setEmailSent(true) : console.log(response)
+        )
       // scroll to top of form code
       newsLetterSend(eventData, contactData)
     
