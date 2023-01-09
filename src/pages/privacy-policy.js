@@ -49,7 +49,7 @@ const PrivacyPolicy = ({ data }) => {
     setPageSections(sectionsToSet)
   }, [pageElements])
 const page = useLocation().pathname.replace("/", '')
-console.log('page', data)
+
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />

@@ -4,7 +4,7 @@ import Accordion from "../../Common/Accordion/Accordion"
 
 const FAQSection = ({data}) => {
   const {sectionHeading, faqItems} = data.faqSectionCollection
-  console.log('data', data.faqSectionCollection)
+
   return (
     <>
       <Heading1 marginBottom="md">{sectionHeading}</Heading1>

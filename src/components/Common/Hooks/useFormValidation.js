@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 const useFormValidation = ({formData}) => {
-  console.log('formData', formData)
+
 const [stuff, setErrors] = useState([])
   //   !inputs.fName
   //   ? setError(error => ({ ...error, fName: true }))

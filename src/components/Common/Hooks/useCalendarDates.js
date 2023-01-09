@@ -9,7 +9,7 @@ const useGetDaysOfMonth = (currentMonth, nextMonth, year) => {
   const month = date.getMonth()
 
   let monthtoIt = currentMonth < 12 ? currentMonth - 1 : (currentMonth % 12) - 1
-console.log('daysToDisplay', daysToDisplay)
+
   useEffect(() => {
     let date = new Date(Date.UTC(year, currentMonth, 1))
 
@@ -82,7 +82,7 @@ console.log('daysToDisplay', daysToDisplay)
     }
     const data = renderDates()
     setDaysToDisplay(data)
-    console.log('days', days)
+   
     // eslint-disable-next-line
   }, [currentMonth, nextMonth])
 

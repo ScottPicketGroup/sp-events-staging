@@ -49,7 +49,7 @@ const Indextest = ({ data }) => {
     setPageSections(sectionsToSet)
   }, [pageElements])
 const page = useLocation().pathname.replace("/", '')
-console.log('page', page)
+
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />

@@ -37,7 +37,7 @@ const DynamicTemplate = ({ pageContext }) => {
   const { width } = useWindowSize()
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
-console.log(pageContext)
+
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />

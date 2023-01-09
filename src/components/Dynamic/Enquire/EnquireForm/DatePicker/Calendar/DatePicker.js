@@ -21,7 +21,7 @@ const DatePicker = ({
   const [currentMonth, setCurrentMonth] = useState(date.getMonth())
   const [selectedDate, setSelectedDate] = useState()
 
-  const nextMonth = month + 1
+  const nextMonth = month && month + 1
   const { daysToDisplay, todaysDate, month } = useGetDaysOfMonth(
     currentMonth,
     nextMonth,
@@ -34,7 +34,7 @@ const DatePicker = ({
     const date1 = new Date(Date.UTC(currentYear, currentMonth, 1))
     const currentMonthName = date1.toLocaleString("default", { month: "long" })
     const dateToSet = "" + day.date + day.month + day.year
-    console.log(dateToSet)
+
     setSelectedDate("" + day.date + day.month + day.year)
     setSelectedOption(day.date + " " + currentMonthName + " " + day.year)
 

@@ -18,7 +18,6 @@ const InstaSlider = ({ images }) => {
     else if (e.screenX < mouseDownRef.current) setCounter(counter - 1)
   }
 
-  console.log(images)
   return (
     <SliderContainer
       draggable="true"

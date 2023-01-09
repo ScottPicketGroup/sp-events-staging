@@ -360,7 +360,7 @@ export const BC3 = styled.p`
       }
     }};
     margin-top: ${props => {
-      console.log(props.dropDownLabel)
+      
       switch (props.marginTop) {
         case "0":
           return "0"
