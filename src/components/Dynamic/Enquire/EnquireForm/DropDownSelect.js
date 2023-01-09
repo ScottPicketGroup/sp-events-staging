@@ -42,7 +42,7 @@ const DropDownSelect = ({ field, errors, eventData, setEventData }) => {
               errored
                 ? { color: "red" }
                 : selectedOption
-                ? { color: `inherit` }
+                ? { color: `inherit`, margin: 0 }
                 : { color: "#7E7E7E", margin: 0 }
             }
            
@@ -62,7 +62,9 @@ const DropDownSelect = ({ field, errors, eventData, setEventData }) => {
           {field &&
             field.dropDownOptions.map((option, i) => (
               <BC3
-                marginBottom="xs"
+              marginBottom="xs"
+              marginTop
+              dropDownLabel="true"
                 onClick={() => select(option.value, field)}
               >
                 {option.label}

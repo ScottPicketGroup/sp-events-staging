@@ -1,10 +1,7 @@
-
-
 const newsLetterSend = (eventData, contactData) => {
-    const timestamp = Date.now()
-    contactData.email && contactData.newsLetter && contactData.newsletter ?
-    console.log('win') : console.log('lose')
-  if(contactData.email) {
+  const timestamp = Date.now()
+
+  if (contactData.email) {
     if (
       (eventData.newsletter === true &&
         contactData.email &&

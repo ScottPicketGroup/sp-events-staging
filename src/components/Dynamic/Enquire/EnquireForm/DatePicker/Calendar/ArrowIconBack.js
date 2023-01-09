@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-export const DropDownArrow = ({isOpen, setIsOpen}) => {
+export const ArrowIconBack = ({
+  
+}) => {
+  
   return (
-    <ArrowWrapper
-    isOpen={isOpen}
-    >
+    <ArrowWrapper >
       <svg
-      isOpen={isOpen}
-      onClick={() => setIsOpen(!isOpen)}
+     
         xmlns="http://www.w3.org/2000/svg"
         width="12.707"
         height="7.06"
@@ -28,7 +28,5 @@ export const DropDownArrow = ({isOpen, setIsOpen}) => {
 }
 
 export const ArrowWrapper = styled.div`
-  
-  transform: ${props => (props.isOpen ? `rotate(180deg)` : `rotate(0)`)};
-  transition: transform 0.25s ease-out;
+  transform: rotate(-270deg);
 `

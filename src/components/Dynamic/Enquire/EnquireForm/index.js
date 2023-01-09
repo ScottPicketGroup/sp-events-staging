@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react"
 import ButtonContainer from "./ButtonContainer"
 import EventDetails from "./EventDetails"
 import ContactSection from "./ContactSection"
-import styled from 'styled-components';
+import styled from "styled-components"
 import CheckBox from "./CheckBox"
 import {
   BC2,
@@ -12,14 +12,15 @@ import {
   Heading3,
 } from "../../../StyledComponents/typography.css"
 import newsLetterSend from "./FormFunctions/NewsLetterSend.js"
+import formSend from "./FormFunctions/FormSend"
 const EnquireForm = ({ executeScroll, scrollRef }) => {
   const form = useRef()
   const top = useRef()
   const [contactData, setContactData] = useState({})
   const [eventData, setEventData] = useState([])
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState({})
   const [emailSent, setEmailSent] = useState(false)
-  const [formHeight, setFormHeight] = useState()
+
   const handleSubmit = event => {
     // 👇️ prevent page refresh
     event.preventDefault()
@@ -30,7 +31,7 @@ const EnquireForm = ({ executeScroll, scrollRef }) => {
     !contactData.lastName
       ? setErrors(error => ({ ...error, lastName: true }))
       : setErrors(error => ({ ...error, lastName: false }))
-    !contactData.email
+    !contactData.email || !contactData.email.includes(".")
       ? setErrors(error => ({ ...error, email: true }))
       : setErrors(error => ({ ...error, email: false }))
     !contactData.phone
@@ -49,83 +50,27 @@ const EnquireForm = ({ executeScroll, scrollRef }) => {
       ? setErrors(error => ({ ...error, whatAreYouPlanning: true }))
       : setErrors(error => ({ ...error, whatAreYouPlanning: false }))
 
-    if (window.Email) {
-      const config = {
-        //a60601d8-6d64-4e57-a813-425562fb1e1d
-        Username: "marekreid@gmail.com",
-        Password: "B428DD847DD7367BCEBA368EF0ACE0C93302",
-        Host: "smtp.elasticemail.com",
-        Port: 2525,
-        To: "enquiries@spevents.com.au",
-        From: "enquiries@spevents.com.au",
-        Subject: "New SP Events Webform Submission",
-        Body:
-          `<strong>${contactData.firstName}, has send a new enquiry.</strong> ` +
-          `<br>` +
-          `
-        Personal Details:  ` +
-          `<br>` +
-          `
-        First Name: ${contactData.firstName} ` +
-          `<br>` +
-          `
-        Last Name: ${contactData.lastName} ` +
-          `<br>` +
-          `
-        Email: ${contactData.email} ` +
-          `<br>` +
-          `
-        Phone Number: ${contactData.phone} ` +
-          `<br>` +
-          `
-        Company: ${contactData.company} ` +
-          `<br>` +
-          `
-        Event Details: ` +
-          `<br>` +
-          `
-        Nature of Event: ${eventData.natureOfEvent} ` +
-          `<br>` +
-          `
-        Event Date: ${eventData.date} ` +
-          `<br>` +
-          `
-        Number of People: ${eventData.numberOfPeople} ` +
-          `<br>` +
-          ` 
-        Start Time: ${eventData.startTime} ` +
-          `<br>` +
-          `
-        End Time: ${eventData.endTime} ` +
-          `<br>` +
-          `
-        Location: ${eventData.location} ` +
-          `<br>` +
-          `
-        Menu Style: ${eventData.menuStyple} ` +
-          `<br>` +
-          `
-        Message: ${eventData.whatAreYouPlanning} ` +
-          `<br>` +
-          `
-        How Did You Hear About Us: ${eventData.howDidYouHearAboutUs} ` +
-          `<br>` +
-          `
-        `,
-      }
-
-      // for (let [field, answer] of Object.entries(eventData)) {
-      //   console.log(field, answer)
-      // }
-
-      // actual submit form code
-       !Object.values(contactData).every(value => !value) && window.Email.send(config).then(
-          response => response === "OK" ? setEmailSent(true) : console.log(response)
-        )
-      // scroll to top of form code
+    if (
+      contactData.firstName &&
+      contactData.lastName &&
+      contactData.email &&
+      contactData.email.includes("@") &&
+      contactData.email.includes(".") &&
+      eventData.typeOfEvent &&
+      eventData.startTime &&
+      eventData.numberOfPeople &&
+      eventData.whatAreYouPlanning
+    ) {
+      formSend(
+        contactData,
+        eventData,
+        window.Email,
+        emailSent,
+        setEmailSent,
+        top,
+        errors
+      )
       newsLetterSend(eventData, contactData)
-    
-      top.current.scrollIntoView(-699, { behavior: "smooth" })
     }
   }
 

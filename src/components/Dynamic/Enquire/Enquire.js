@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useRef} from "react"
 
 import {
   Heading1,
@@ -8,7 +8,7 @@ import {
 import Renderer from "../../Common/Rich-Text-Renderers/IntroRenderer"
 import ArrowIcon from "../../../images/ArrowIcon"
 import EnquireForm from "./EnquireForm"
-import { SectionContainer, SectionWrapper, executeScroll, ref } from "../../StyledComponents/containers.css"
+import { SectionContainer, SectionWrapper, executeScroll} from "../../StyledComponents/containers.css"
 const Enquire = ({ data, page }) => {
   const {
     enquireHeading,
@@ -19,7 +19,7 @@ const Enquire = ({ data, page }) => {
   } = data
 
 
-
+const heading = useRef()
   return (
     <SectionContainer
       paddingTop={page === 'enquiries' ? 'lg' : "xl"}
@@ -28,7 +28,7 @@ const Enquire = ({ data, page }) => {
       paddingBottom="lg"
     >
       <SectionWrapper width="73.5%">
-        <Heading1 marginBottom="sm">{enquireHeading}</Heading1>
+        <Heading1 marginBottom="sm" ref={heading}>{enquireHeading}</Heading1>
         <Renderer node={enquireDescription} />
         {linkLabel && (
           <IntroLink to={`/${linkUrl}`}>
@@ -38,7 +38,7 @@ const Enquire = ({ data, page }) => {
             </Heading2>
           </IntroLink>
         )}
-        <EnquireForm scrollRef={ref}/>
+        <EnquireForm scrollRef={heading}/>
       </SectionWrapper>
     </SectionContainer>
   )

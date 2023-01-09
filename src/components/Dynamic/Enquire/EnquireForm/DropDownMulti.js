@@ -12,7 +12,7 @@ import {
 const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [height, setHeight] = useState(0)
-  const [selectedOption, setSelectedOption] = useState([])
+  const [selectedOption, setSelectedOption] = useState("")
   const [errored, setErrored] = React.useState(false)
 
   React.useEffect(() => {
@@ -34,7 +34,7 @@ const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
     const options = [...selectedOption]
     !options.includes(option) && options.push(option)
     setSelectedOption(options)
-    console.log("option", options)
+    // console.log("option", options)
     // setSelectedOption(option)
 
     setEventData({ ...eventData, [field.name]: selectedOption })
@@ -80,15 +80,18 @@ const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
                 ))
               ) : (
                 <BC3
+                marginTop="0"
+                marginBottom="0"
+                
                   style={
                     errored
-                      ? { color: "red" }
+                      ? { color: "red", margin: 0 }
                       : selectedOption
-                      ? { color: `inherit` }
+                      ? { color: `inherit`, margin: `0px !important` }
                       : { color: "#7E7E7E", margin: 0 }
                   }
                 >
-                  {field && field.placeHolder}
+                  {field && field.placeHolder} 
                 </BC3>
               )}
             </DropDownLabelOptionsWrapper>
@@ -104,6 +107,8 @@ const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
               field.dropDownOptions.map((option, i) => (
                 <BC3
                   marginBottom="xs"
+                  marginTop
+                  dropDownLabel="true"
                   onClick={() => select(option.value, field)}
                 >
                   {option.label}

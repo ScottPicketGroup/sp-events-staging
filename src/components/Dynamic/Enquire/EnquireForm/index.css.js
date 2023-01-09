@@ -34,8 +34,8 @@ export const toUpFadeIn = keyframes`
 `
 
 export const FormField = styled.div`
-  width: ${props => (props.full === true ? "100%" : props.half === true ? '24%' :"49%")};
-  margin: .5rem 0;
+  width: ${props => (props.full === true ? "100%" : props.half === true ? '23.5%' :"49%")};
+  margin: ${props => props.datePicker === true ? `0` : `.5rem 0`};
   @media (max-width: 451px) {
     width: 100%;
   }
@@ -111,8 +111,9 @@ export const InputWrapper = styled.div`
   margin-bottom: 1rem;
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-input::placeholder {
+  }
+  input::placeholder {
+  font-size: 1rem;
       color: ${props => props.errorFlag && `red`};
     }
   & > input {
@@ -142,7 +143,7 @@ cursor: pointer;
   border: ${props => props.errorFlag === true ? `red 1px solid` : `#7e7e7e 1px solid`};
   width: 100%;
   margin-bottom: 1rem;
-  padding: .5rem;
+  padding: ${props => props.datePicker === true ? '' : '.5rem;'};
   animation: ${props => (props.isOpen === true ? open : close)};
 `
 export const DropDownLabel = styled.div`
@@ -150,7 +151,7 @@ export const DropDownLabel = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
+  padding: ${props => props.datePicker === true && `.5rem`};
 
   
 `
