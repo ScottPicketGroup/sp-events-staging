@@ -21,12 +21,12 @@ const DatePicker = ({
   const [currentMonth, setCurrentMonth] = useState(date.getMonth())
   const [selectedDate, setSelectedDate] = useState()
 
-  const nextMonth = month && month + 1
   const { daysToDisplay, todaysDate, month } = useGetDaysOfMonth(
     currentMonth,
     nextMonth,
     currentYear
-  )
+    )
+    const nextMonth = month && month + 1
   // console.log('daysToDisplay', daysToDisplay)
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
