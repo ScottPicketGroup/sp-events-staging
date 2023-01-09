@@ -20,13 +20,13 @@ const DatePicker = ({
   const [currentYear, setCurrentYear] = useState(date.getFullYear())
   const [currentMonth, setCurrentMonth] = useState(date.getMonth())
   const [selectedDate, setSelectedDate] = useState()
+  const nextMonth = date.getMonth()
 
   const { daysToDisplay, todaysDate, month } = useGetDaysOfMonth(
     currentMonth,
     nextMonth,
     currentYear
     )
-
   // console.log('daysToDisplay', daysToDisplay)
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
