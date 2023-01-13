@@ -29,7 +29,7 @@ exports.sourceNodes = async ({
   const response = await fetch(url)
   const rawData = await response.json()
 
-  const data = rawData.data.filter(image => image.media_type === "IMAGE").slice(0, 8)
+  const data = await rawData.data.filter(image => image.media_type === "IMAGE").slice(0, 8)
 
   //loop through data and create Gatsby nodes
   data.forEach(instagramImage =>
