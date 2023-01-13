@@ -1,22 +1,32 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react"
 
 const useWatchScroll = () => {
-    const [scrollY, setScrollY] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
+  const [scrollDirection, setScrollDirection] = useState("down")
+  const logit = e => {
+    const window = e.currentTarget
+    
+    if (window.scrollY < scrollY) {
+      setScrollY(window.scrollY)
+      setScrollDirection("up")
+    } else {
+      setScrollY(window.scrollY)
+      setScrollDirection("down")
+    }
+  
+  }
 
-    const logit = () => setScrollY(window.pageYOffset)
+  useEffect(() => {
+    const watchScroll = () => {
+      window.addEventListener("scroll", logit)
+    }
+    watchScroll()
+    return () => {
+      window.removeEventListener("scroll", logit)
+    }
+  })
 
-    useEffect(() => {
-      const watchScroll = () => {
-        window.addEventListener("scroll", logit)
-      }
-      watchScroll()
-      return () => {
-        window.removeEventListener("scroll", logit)
-      }
-    })
-
-    const result = {scrollY: scrollY}
-    return result
+  return {scrollDirection, scrollY}
 }
 
 export default useWatchScroll

@@ -2,15 +2,19 @@ import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import { MenuContainer, MenuItem } from "../../StyledComponents/containers.css"
 import { useLocation } from "@reach/router"
-export function LeftMenu({ items, pageElements, executeScroll }) {
+import useWatchScroll from "../../Common/Hooks/useWatchScroll"
+export function LeftMenu({ items, pageElements, executeScroll, itemsRef }) {
   const [menuItems, setMenuItems] = useState([])
-  const [activeEl, setActiveEl] = useState(menuItems[0])
+  const [activeEl, setActiveEl] = useState(0)
   const location = useLocation().pathname
+
   useEffect(() => {
     let menuitemsToPush = []
     pageElements.map((e, i) =>
       e.faqSectionCollection
-        ? e.faqSectionCollection.map(faq => menuitemsToPush.push(faq.leftMenuHeading))
+        ? e.faqSectionCollection.map(faq =>
+            menuitemsToPush.push(faq.leftMenuHeading)
+          )
         : e.restaurants
         ? e.restaurants.map(venue => menuitemsToPush.push(venue.venueName))
         : e.leftMenuHeading == undefined
@@ -24,16 +28,26 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
           })
         : menuitemsToPush.push(e.leftMenuHeading)
     )
-    
+
     setMenuItems(menuitemsToPush)
-    setActiveEl(menuitemsToPush[0])
   }, [])
 
+  const { scrollDirection, scrollY } = useWatchScroll()
+  useEffect(() => {
+    itemsRef.current.forEach((item, i) => {
+      const bcr = item.getBoundingClientRect()
+      console.log("0", itemsRef.current[0].getBoundingClientRect().top)
+      if (scrollDirection == "up") {
+        bcr.top < 5 && bcr.top > -1 && setTimeout(setActiveEl(i), 500)
+      } else if (scrollDirection === "down") {
+        bcr.top < 5 && bcr.top > 0 && setTimeout(setActiveEl(i), 500)
+      }
+    })
+  }, [scrollY])
 
   const clickEl = (i, menuItem) => {
     executeScroll(i)
-    setActiveEl(menuItem)
-    
+    setActiveEl(i)
   }
 
   return (
@@ -46,6 +60,7 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
                 key={i}
                 onClick={() => clickEl(i, menuItem.name)}
                 activeEl={activeEl}
+                i={i}
                 menuItem={menuItem}
               >
                 {menuItem.name}
@@ -69,9 +84,11 @@ export function LeftMenu({ items, pageElements, executeScroll }) {
                 key={i}
                 onClick={() => clickEl(i, menuItem)}
                 activeEl={activeEl}
+                i={i}
                 menuItem={menuItem}
               >
                 {menuItem}
+                
               </MenuItem>
             )}
           </>

@@ -61,6 +61,7 @@ const page = useLocation().pathname.replace("/", '')
           scrollY={scrollY}
           items={items}
           heights={heights}
+          itemsRef={itemsRef}
         />
         <PageContainer page={page}>
           {pageSections.map((element, i) => (

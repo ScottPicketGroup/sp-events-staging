@@ -1,7 +1,6 @@
 import React, { useRef } from "react"
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage, StaticImage } from "gatsby-plugin-image"
 
-import InstaSlider from "../../../Common/InstaSlider/InstaSlider"
 import { Heading1 } from "../../../StyledComponents/typography.css"
 import {
   Grid,
@@ -14,9 +13,13 @@ import {
 } from "../../../Common/Header/header.css"
 import DynamicSlider from "../../../Dynamic/GallerySlider/GallerySlider"
 
+import { useInstgramImages } from "./useInstagramImages"
+
 const FollowUsOnSocial = ({ data }) => {
   const myRef = useRef(null)
-  const placeHolderArr = data.images
+  // const placeHolderArr = data.images
+
+  const images = useInstgramImages()
 
   return (
     <SectionContainer
@@ -28,25 +31,27 @@ const FollowUsOnSocial = ({ data }) => {
       <Heading1 marginBottom="sm">{data.pageName}</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
-        {/* {placeHolderArr.map((image, i) =>
+          {/* {placeHolderArr.map((image, i) =>
         <div style={{height: `280px`, aspectRatio: `1`, background: `grey`}} key={i}>{i}</div>
         )} */}
-          {data.images &&
-            data.images.map((image, i) =>
+          {images &&
+            images.map((image, i) =>
               i < 8 ? (
                 <Item key={i}>
                   <Heading1></Heading1>
                   <GatsbyImage
-                    image={getImage(image)}
+                    image={getImage(image.childImageSharp.gatsbyImageData)}
                     alt={image.title}
-                    style={{minHeight: `12vh`}}
+                    style={{ minHeight: `12vh`, aspectRatio:`1` }}
                   />
                 </Item>
               ) : null
             )}
         </Grid>
       </DesktopWrapper>
-      <MobileWrapper><DynamicSlider data={data} insta={true}/></MobileWrapper>
+      <MobileWrapper>
+        <DynamicSlider data={data} insta={true} />
+      </MobileWrapper>
     </SectionContainer>
   )
 }

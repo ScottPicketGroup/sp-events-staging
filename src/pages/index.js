@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState, useEffect, useCallback } from "react"
 
 import { graphql } from "gatsby"
 
@@ -9,7 +9,6 @@ import Seo from "../components/seo"
 // page components
 
 import FollowUsOnSocial from "../components/Pages/Landing/FollowOnSocial/FollowUsOnSocial"
-
 
 import {
   PageContainer,
@@ -25,22 +24,31 @@ import Feature from "../components/Dynamic/Feature/Feature"
 import FullScreenStaticImage from "../components/Dynamic/FullScreenStaticImage/FullScreenStaticImage"
 import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
 const Indextest = ({ data }) => {
-  const { heroElement, pageElements } =
-    data.contentful1LandingPageDynamic
+  const { heroElement, pageElements } = data.contentful1LandingPageDynamic
   const itemsRef = useRef([])
 
-  const { scrollY } = useWatchScroll()
+
+
   const { items, heights } = useRefAttributes(itemsRef)
-  const { width } = useWindowSize()
+
   const executeScroll = el =>
     itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
+
+ 
 
   return (
     <Layout>
       <Seo title="Welcome to Scott Pickett Events" />
       <Hero data={heroElement} />
       <PageWrapper>
-        <LeftMenu pageElements={pageElements}  executeScroll={executeScroll} scrollY={scrollY} items={items} heights={heights} refs={itemsRef}/>
+        <LeftMenu
+          pageElements={pageElements}
+          executeScroll={executeScroll}
+         
+          items={items}
+          heights={heights}
+          itemsRef={itemsRef}
+        />
         <PageContainer>
           {pageElements.map((element, i) => (
             <div ref={el => (itemsRef.current[i] = el)}>
@@ -49,17 +57,14 @@ const Indextest = ({ data }) => {
               ) : element.internal.type === "ContentfulEventTypesSection" ? (
                 <EventTypes data={element} />
               ) : element.internal.type === "ContentfulImageFullWidthStatic" ? (
-                <FullScreenStaticImage data={element}/>
+                <FullScreenStaticImage data={element} />
               ) : element.internal.type === "ContentfulFeatureElement" ? (
                 <Feature data={element} />
-              ) :   element.internal.type === "ContentfulInstaSliderTemporary" ? (
+              ) : element.internal.type === "ContentfulInstaSliderTemporary" ? (
                 <FollowUsOnSocial data={element} />
-              ) :
-              
-              null}
+              ) : null}
             </div>
           ))}
-         
         </PageContainer>
       </PageWrapper>
     </Layout>
@@ -70,105 +75,103 @@ export default Indextest
 
 export const query = graphql`
   query DynamicLandingQuery {
-    contentful1LandingPageDynamic(id: {eq: "dc275053-c87d-58e1-9a13-845a5accc174"}) {
-     
-          pageElements {
-            ... on ContentfulInstaSliderTemporary {
-              id
-              pageName
-              leftMenuHeading
-              internal {
-      
-              type}
-              images {
-                gatsbyImageData(placeholder: BLURRED, aspectRatio: 1)
-                
-              }
-            }
-            ... on ContentfulEventTypesSection {
-              id
-              internal {
-                type
-              }
-              greyBackground
-              heading
-              leftMenuHeading
-              eventTypes {
-                pageName
-                subheadingForGrid
-                heroElement {
-                  heroImage {
-                    gatsbyImageData(placeholder: BLURRED)
-                  }
-                  heroText {
-                    raw
-                  }
-                }
-                
-              }
-            }
-            ... on ContentfulFeatureElement {
-              id
-              leftMenuHeading
-              internal {
-                type
-              }
-              heading
-              isGreyBackground
-              image {
-                title
-                gatsbyImageData(placeholder: BLURRED)
-              }
-              introduction {
-                raw
-              }
-              linkLabel
-              linkUrl
-              secondSubHeading
-              subHeading
-            }
-            ... on ContentfulImageFullWidthStatic {
-              id
-              internal {
-                type
-              }
-              image {
-                fluid {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                }
-                gatsbyImageData(placeholder: BLURRED)
-                title
-              }
-            }
-            ... on ContentfulIntroElement {
-              id
-              leftMenuHeading
-              internal {
-                type
-              }
-              greyBackground
-              heading
-              introHalfWidth
-              introduction {
-                raw
-              }
-              linkLabel
-              linkUrl
-            }
+    contentful1LandingPageDynamic(
+      id: { eq: "dc275053-c87d-58e1-9a13-845a5accc174" }
+    ) {
+      pageElements {
+        ... on ContentfulInstaSliderTemporary {
+          id
+          pageName
+          leftMenuHeading
+          internal {
+            type
           }
-          heroElement {
-            heroImage {
-              gatsbyImageData(placeholder: BLURRED)
-              title
-            }
-            heroText {
-              raw
+          images {
+            gatsbyImageData(placeholder: BLURRED, aspectRatio: 1)
+          }
+        }
+        ... on ContentfulEventTypesSection {
+          id
+          internal {
+            type
+          }
+          greyBackground
+          heading
+          leftMenuHeading
+          eventTypes {
+            pageName
+            subheadingForGrid
+            heroElement {
+              heroImage {
+                gatsbyImageData(placeholder: BLURRED)
+              }
+              heroText {
+                raw
+              }
             }
           }
         }
-    
+        ... on ContentfulFeatureElement {
+          id
+          leftMenuHeading
+          internal {
+            type
+          }
+          heading
+          isGreyBackground
+          image {
+            title
+            gatsbyImageData(placeholder: BLURRED)
+          }
+          introduction {
+            raw
+          }
+          linkLabel
+          linkUrl
+          secondSubHeading
+          subHeading
+        }
+        ... on ContentfulImageFullWidthStatic {
+          id
+          internal {
+            type
+          }
+          image {
+            fluid {
+              base64
+              tracedSVG
+              srcWebp
+              srcSetWebp
+            }
+            gatsbyImageData(placeholder: BLURRED)
+            title
+          }
+        }
+        ... on ContentfulIntroElement {
+          id
+          leftMenuHeading
+          internal {
+            type
+          }
+          greyBackground
+          heading
+          introHalfWidth
+          introduction {
+            raw
+          }
+          linkLabel
+          linkUrl
+        }
+      }
+      heroElement {
+        heroImage {
+          gatsbyImageData(placeholder: BLURRED)
+          title
+        }
+        heroText {
+          raw
+        }
+      }
+    }
   }
 `

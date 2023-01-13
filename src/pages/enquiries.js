@@ -48,6 +48,7 @@ const Indextest = ({ data, errors, setErrors  }) => {
           scrollY={scrollY}
           items={items}
           heights={heights}
+          itemsRef={itemsRef}
         />
         <PageContainer>
           {pageElements.map((element, i) => (

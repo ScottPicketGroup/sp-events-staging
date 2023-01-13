@@ -1,8 +1,8 @@
 import React, { useRef } from "react"
-
+import { instagram } from "instagram-scraper-api";
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Slide, SliderContainer } from "./InstaSlider.css"
-import { Heading1 } from "../../StyledComponents/typography.css"
+
 
 const InstaSlider = ({ images }) => {
   const mouseDownRef = useRef(null)
@@ -18,6 +18,8 @@ const InstaSlider = ({ images }) => {
     else if (e.screenX < mouseDownRef.current) setCounter(counter - 1)
   }
 
+const user = instagram.user("marek.reid").then(data => console.log(data));
+console.log('user')
   return (
     <SliderContainer
       draggable="true"

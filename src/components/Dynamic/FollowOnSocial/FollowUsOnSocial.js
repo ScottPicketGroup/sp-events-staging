@@ -4,8 +4,6 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import InstaSlider from "../../../Common/InstaSlider/InstaSlider"
 import { Heading1 } from "../../../StyledComponents/typography.css"
 import {
-  Grid,
-  Item,
   SectionContainer,
 } from "../../../StyledComponents/containers.css"
 import {

@@ -19,7 +19,7 @@ const FooterVenueLinks = () => {
       <FooterExternalLink marginBottom="md">EXPERIENCES</FooterExternalLink>
       { menuItems[1].eventTypes.map((item, index) => (
        
-        <FooterLink marginBottom="sm" to={`/events/${item.pageName.toLowerCase().replace(" ", "-")}`} >     {item.pageName}</FooterLink>
+        <FooterLink marginBottom="sm" to={`/events/${item.pageName.toLowerCase().replace(" ", "-")}`} key={index}>     {item.pageName}</FooterLink>
        
       ))}
        

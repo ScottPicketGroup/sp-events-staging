@@ -202,7 +202,7 @@ export const MenuItem = styled.p`
   cursor: pointer;
   transition: all 1s ease;
   font-family: ${props =>
-    props.scrollPos > props.top && props.scrollPos < props.top + props.height
+    props.i === props.activeEl
       ? "CentraNo2Medium"
       : "CentraNo2Light"};
   a {
@@ -210,6 +210,8 @@ export const MenuItem = styled.p`
     margin-left: 1.25rem;
     font-family: "CentraNo2Light";
   }
+  transition: font-family .2s ease-in;
+  transition-delay: 1s;
   :first-child {
     font-family: ${props =>
       props.scrolly < props.sh ? "CentraNo2Medium" : ".1rem"};
