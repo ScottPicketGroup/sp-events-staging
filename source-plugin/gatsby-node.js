@@ -32,7 +32,7 @@ exports.sourceNodes = async ({
   const data = rawData.data && rawData.data.filter(image => image.media_type === "IMAGE").slice(0, 8)
 
   //loop through data and create Gatsby nodes
-  data.forEach(instagramImage =>
+  data && data.forEach(instagramImage =>
     createNode({
       ...instagramImage,
       id: createNodeId(`${POST_NODE_TYPE}-${instagramImage.id}`),
