@@ -43,7 +43,7 @@ const DynamicTemplate = ({ pageContext }) => {
       <Seo title="Welcome to Scott Pickett Events" />
       <Hero data={heroElement} />
       <PageWrapper>
-        <LeftMenu pageElements={pageElements}  executeScroll={executeScroll} scrollY={scrollY} items={items} heights={heights}/> 
+        <LeftMenu pageElements={pageElements}  executeScroll={executeScroll} scrollY={scrollY} items={items} heights={heights} itemsRef={itemsRef}/> 
         <PageContainer>
          {pageContext.eventData.pageElements.map((element, i) => (
             <div ref={el => (itemsRef.current[i] = el)}>
