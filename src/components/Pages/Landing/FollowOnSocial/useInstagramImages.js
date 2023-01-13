@@ -8,8 +8,7 @@ export const useInstgramImages = () => {
           totalCount
           edges {
             node {
-              url
-              childImageSharp {
+                childImageSharp {
                 gatsbyImageData
               }
             }
