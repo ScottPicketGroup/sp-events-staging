@@ -17,10 +17,10 @@ import { useInstgramImages } from "./useInstagramImages"
 
 const FollowUsOnSocial = ({ data }) => {
   const myRef = useRef(null)
-  // const placeHolderArr = data.images
+  
 
   const images = useInstgramImages()
-
+console.log('images', images)
   return (
     <SectionContainer
       marginTop="xl"
@@ -34,7 +34,7 @@ const FollowUsOnSocial = ({ data }) => {
           {/* {placeHolderArr.map((image, i) =>
         <div style={{height: `280px`, aspectRatio: `1`, background: `grey`}} key={i}>{i}</div>
         )} */}
-          {images &&
+         {images &&
             images.map((image, i) =>
               i < 8 ? (
                 <Item key={i}>
@@ -46,7 +46,7 @@ const FollowUsOnSocial = ({ data }) => {
                   />
                 </Item>
               ) : null
-            )}
+            )} *
         </Grid>
       </DesktopWrapper>
       <MobileWrapper>

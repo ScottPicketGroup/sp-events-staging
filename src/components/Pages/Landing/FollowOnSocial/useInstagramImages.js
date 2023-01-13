@@ -4,12 +4,15 @@ export const useInstgramImages = () => {
   const instagramImages = useStaticQuery(
     graphql`
       query instaImages {
-        allFile {
-          totalCount
+        allInstagramImage {
           edges {
             node {
+              localFile {
                 childImageSharp {
-                gatsbyImageData
+                  
+                  gatsbyImageData
+                }
+                absolutePath
               }
             }
           }
@@ -17,11 +20,10 @@ export const useInstgramImages = () => {
       }
     `
   )
-  return instagramImages.allFile.edges.reduce((nodes, image) => {
-    if (!!image.node.url && image.node.url.includes("insta")) {
-      nodes.push(image.node)
-    }
+  return instagramImages.allInstagramImage.edges.reduce((nodes, image) => {
+    nodes.push(image.node.localFile)
 
     return nodes
+    console.log('nodes', nodes)
   }, [])
 }
