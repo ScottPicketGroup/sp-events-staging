@@ -13,6 +13,7 @@
     "deadfile": "^2.0.1",
     "gatsby": "^3.11.1",
     "gatsby-plugin-gatsby-cloud": "^2.11.0",
+    "gatsby-plugin-google-gtag": "^5.4.0",
     "gatsby-plugin-image": "^1.11.0",
     "gatsby-plugin-manifest": "^3.11.0",
     "gatsby-plugin-offline": "^4.11.0",
