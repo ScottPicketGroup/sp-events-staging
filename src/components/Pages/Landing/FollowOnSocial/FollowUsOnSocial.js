@@ -15,12 +15,12 @@ import DynamicSlider from "../../../Dynamic/GallerySlider/GallerySlider"
 
 import { useInstgramImages } from "./useInstagramImages"
 
-const FollowUsOnSocial = ({ data }) => {
+const FollowUsOnSocial = ({  }) => {
   const myRef = useRef(null)
   
-
   const images = useInstgramImages()
-console.log('images', images)
+  const data = {urls: images.map(img => img.url), images: images.map(img => img.image)}
+
   return (
     <SectionContainer
       marginTop="xl"
@@ -31,22 +31,22 @@ console.log('images', images)
       <Heading1 marginBottom="sm">{data.pageName}</Heading1>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
-          {/* {placeHolderArr.map((image, i) =>
-        <div style={{height: `280px`, aspectRatio: `1`, background: `grey`}} key={i}>{i}</div>
-        )} */}
+       
          {images &&
-            images.map((image, i) =>
+            images.map((item, i) =>
               i < 8 ? (
                 <Item key={i}>
+                  <a href={`${item.url}`} target="_blank" >
                   <Heading1></Heading1>
                   <GatsbyImage
-                    image={getImage(image.childImageSharp.gatsbyImageData)}
-                    alt={image.title}
+                    image={getImage(item.image.gatsbyImageData)}
+                    alt={item.image.title}
                     style={{ minHeight: `12vh`, aspectRatio:`1` }}
                   />
+                  </a>
                 </Item>
               ) : null
-            )} *
+            )} 
         </Grid>
       </DesktopWrapper>
       <MobileWrapper>

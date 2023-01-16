@@ -13,13 +13,13 @@ import Controls from "./Controls"
 import Captions from "./Captions"
 
 const DynamicSlider = ({ data, insta }) => {
-  const { images, heading } = data
+  const { images, urls, heading } = data
   const [active, setActive] = React.useState(0)
   const [imagesArr, setImagesArr] = React.useState(images)
   React.useEffect(() => {
     if (data.images.length < 3) setImagesArr([...images, ...images])
   }, [])
-
+console.log('data', urls)
   React.useEffect(() => {
     const newArr = [...imagesArr]
     newArr.push(imagesArr[active])
@@ -39,15 +39,17 @@ const DynamicSlider = ({ data, insta }) => {
     <Container {...handlers} insta={insta}>
       {heading && <Heading1>{heading}</Heading1>}
       <ImageContainer insta={insta}>
+
         {imagesArr &&
           imagesArr.map((image, i) => (
+            <a href={insta && `${urls[i]}`} >
             <Card key={i} i={i} active={active} insta={insta}>
               <GalleryImage image={getImage(image)} insta={insta} />
 
               <Captions title={image.title} i={i} active={active} />
             </Card>
+          </a>
           ))}
-
         <Controls
           active={active}
           setActive={setActive}
