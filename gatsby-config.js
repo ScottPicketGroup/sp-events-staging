@@ -47,7 +47,7 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
         host: process.env.CONTENTFUL_HOST
       }
-    }
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
