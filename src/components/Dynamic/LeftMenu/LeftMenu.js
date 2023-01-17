@@ -36,7 +36,7 @@ export function LeftMenu({ items, pageElements, executeScroll, itemsRef }) {
   useEffect(() => {
     itemsRef.current.forEach((item, i) => {
       const bcr = item.getBoundingClientRect()
-      console.log("1", itemsRef.current[1].getBoundingClientRect().top)
+      
       if (scrollDirection == "up") {
         bcr.top < 5 && bcr.top > -1 && setTimeout(setActiveEl(i), 500)
       } else if (scrollDirection === "down") {
