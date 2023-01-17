@@ -14,7 +14,7 @@ const DropDownContainer = ({
   setIsOpen,
   field,
 }) => {
-    console.log('selectedOption', selectedOption)
+   
   return (
     <DropDownWrapper isOpen={isOpen} errorFlag={errored} datePicker={true}>
       <Label

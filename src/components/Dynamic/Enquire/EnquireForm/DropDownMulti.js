@@ -34,7 +34,7 @@ const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
     const options = [...selectedOption]
     !options.includes(option) && options.push(option)
     setSelectedOption(options)
-    // console.log("option", options)
+
     // setSelectedOption(option)
 
     setEventData({ ...eventData, [field.name]: selectedOption })

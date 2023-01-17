@@ -19,7 +19,7 @@ const DynamicSlider = ({ data, insta }) => {
   React.useEffect(() => {
     if (data.images.length < 3) setImagesArr([...images, ...images])
   }, [])
-console.log('data', urls)
+
   React.useEffect(() => {
     const newArr = [...imagesArr]
     newArr.push(imagesArr[active])

@@ -24,6 +24,6 @@ export const useInstgramImages = () => {
     nodes.push({image: image.node.localFile.childImageSharp, url: image.node.permalink})
     
     return nodes
-    console.log('nodes', nodes)
+   
   }, [])
 }

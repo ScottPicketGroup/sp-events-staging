@@ -27,7 +27,7 @@ const DatePicker = ({
     nextMonth,
     currentYear
     )
-  // console.log('daysToDisplay', daysToDisplay)
+
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
   const setDate = day => {
@@ -46,7 +46,7 @@ const DatePicker = ({
 
 const dayContainer = useRef()
 const dayContainerWidth = dayContainer.current && dayContainer.current.clientWidth
-console.log(dayContainerWidth / 2)
+
   return (
     <DatePickerContainer>
       <Nav

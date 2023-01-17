@@ -19,7 +19,7 @@ const InstaSlider = ({ images }) => {
   }
 
 const user = instagram.user("marek.reid").then(data => console.log(data));
-console.log('user')
+
   return (
     <SliderContainer
       draggable="true"
