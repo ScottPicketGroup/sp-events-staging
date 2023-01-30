@@ -36,11 +36,11 @@ export function LeftMenu({ items, pageElements, executeScroll, itemsRef }) {
   useEffect(() => {
     itemsRef.current.forEach((item, i) => {
       const bcr = item.getBoundingClientRect()
-      
+      console.table('bcr.top, bcr.bottom, scrollY', bcr.top < 0 && bcr.top > 0 - bcr.height ,  bcr.top, i)
       if (scrollDirection == "up") {
-        bcr.top < 5 && bcr.top > -1 && setTimeout(setActiveEl(i), 500)
+        bcr.top < 0 && bcr.top > 0 - bcr.height&& setTimeout(setActiveEl(i), 500)
       } else if (scrollDirection === "down") {
-        bcr.top < 5 && bcr.top > 0 && setTimeout(setActiveEl(i), 500)
+        bcr.top < 0 && bcr.top > 0 - bcr.height && setTimeout(setActiveEl(i), 500)
       }
     })
   }, [scrollY])
