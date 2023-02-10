@@ -53,7 +53,8 @@ const DropDownSelect = ({ field, errors, eventData, setEventData }) => {
           </BC3>
           <DropDownArrow isOpen={isOpen} />
         </DropDownLabel>
-        <OptionsWrapper
+    
+        {/* <OptionsWrapper
           ref={optionsWrapper}
           style={{ maxHeight: `${height}` }}
           height={height}
@@ -70,7 +71,7 @@ const DropDownSelect = ({ field, errors, eventData, setEventData }) => {
                 {option.label}
               </BC3>
             ))}
-        </OptionsWrapper>
+        </OptionsWrapper> */}
       </DropDownWrapper>
     </div>
     </FormField>

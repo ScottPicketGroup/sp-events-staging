@@ -37,14 +37,14 @@ const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
 
     // setSelectedOption(option)
 
-    setEventData({ ...eventData, [field.name]: selectedOption })
+    // setEventData({ ...eventData, [field.name]: selectedOption })
   }
 
   const removeItem = option => {
     selectedOption.filter(
       (item, index) => item === option && selectedOption.splice(index, 1)
     )
-    setEventData({ ...eventData, [field.name]: selectedOption })
+    // setEventData({ ...eventData, [field.name]: selectedOption })
   }
 
   return (
@@ -55,6 +55,15 @@ const DropDownMulti = ({ field, errors, eventData, setEventData }) => {
       >
         {field.label} {field.required && <span>*</span>}
       </Heading3>
+      <input
+        style={{
+          display: `none`,
+        }}
+        type="text"
+        name={field.label}
+        value={selectedOption}
+        placeholder={field.label}
+      />
       <div>
         <DropDownWrapper isOpen={isOpen} errorFlag={errored}>
           <DropDownLabel onClick={toggleSelectOpen}>

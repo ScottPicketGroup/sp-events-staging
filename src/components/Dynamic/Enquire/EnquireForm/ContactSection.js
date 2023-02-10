@@ -6,9 +6,11 @@ import { ContactFormContainer, FormField } from "./index.css"
 import InputContainer from "./InputContainer"
 
 export default function ContactSection({
+  state,
   contactData,
   setContactData,
-  errors
+  errors,
+  setErrors
 }) {
   return (
     <SectionContainer marginBottom="md" fullScreen paddingTop="lg" fullMob formTop>
@@ -18,7 +20,7 @@ export default function ContactSection({
           contactFields.map((field, i) => (
             <>
               <FormField key={i}>
-                <InputContainer field={field} setData={setContactData} data={contactData} errors={errors}/>
+                <InputContainer field={field} setData={setContactData} data={contactData} setErrors={setErrors} errors={errors} state={state}/>
               </FormField>
             </>
           ))}

@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react"
-
+import React, { useState, useRef, useEffect } from "react"
+import { useForm, ValidationError } from "@formspree/react"
 import ButtonContainer from "./ButtonContainer"
 import EventDetails from "./EventDetails"
 import ContactSection from "./ContactSection"
 import styled from "styled-components"
+import { contactFormFields } from "./contact-fields"
+import { EventFields } from "./event-fields"
 import CheckBox from "./CheckBox"
 import {
   BC2,
@@ -13,81 +15,44 @@ import {
 } from "../../../StyledComponents/typography.css"
 import newsLetterSend from "./FormFunctions/NewsLetterSend.js"
 import formSend from "./FormFunctions/FormSend"
+import { formSubmisionValidation } from "../FormLogic/formSubmitValidation"
 const EnquireForm = ({ executeScroll, scrollRef }) => {
   const form = useRef()
   const top = useRef()
   const [contactData, setContactData] = useState({})
   const [eventData, setEventData] = useState([])
+  const [formItems, setFormItems] = useState(contactFormFields)
   const [errors, setErrors] = useState({})
   const [emailSent, setEmailSent] = useState(false)
+  const [state, handleSubmit] = useForm("mnqypvaq")
 
-  const handleSubmit = event => {
-    // 👇️ prevent page refresh
-    event.preventDefault()
+//   const handleFormSubmit = (e, handleSubmit) => {
+//     // 👇️ prevent page refresh
+// e.preventDefault()
+//     formSubmisionValidation(formItems, errors, setErrors)
 
-    !contactData.firstName
-      ? setErrors(error => ({ ...error, firstName: true }))
-      : setErrors(error => ({ ...error, firstName: false }))
-    !contactData.lastName
-      ? setErrors(error => ({ ...error, lastName: true }))
-      : setErrors(error => ({ ...error, lastName: false }))
-    !contactData.email || !contactData.email.includes(".")
-      ? setErrors(error => ({ ...error, email: true }))
-      : setErrors(error => ({ ...error, email: false }))
-    !contactData.phone
-      ? setErrors(error => ({ ...error, phone: true }))
-      : setErrors(error => ({ ...error, phone: false }))
-    !eventData.typeOfEvent
-      ? setErrors(error => ({ ...error, typeOfEvent: true }))
-      : setErrors(error => ({ ...error, typeOfEvent: false }))
-    !eventData.startTime
-      ? setErrors(error => ({ ...error, startTime: true }))
-      : setErrors(error => ({ ...error, startTime: false }))
-    !eventData.numberOfPeople
-      ? setErrors(error => ({ ...error, numberOfPeople: true }))
-      : setErrors(error => ({ ...error, numberOfPeople: false }))
-    !eventData.whatAreYouPlanning
-      ? setErrors(error => ({ ...error, whatAreYouPlanning: true }))
-      : setErrors(error => ({ ...error, whatAreYouPlanning: false }))
-
-    if (
-      contactData.firstName &&
-      contactData.lastName &&
-      contactData.email &&
-      contactData.email.includes("@") &&
-      contactData.email.includes(".") &&
-      eventData.typeOfEvent &&
-      eventData.startTime &&
-      eventData.numberOfPeople &&
-      eventData.whatAreYouPlanning
-    ) {
-      formSend(
-        contactData,
-        eventData,
-        window.Email,
-        emailSent,
-        setEmailSent,
-        top,
-        errors
-      )
-      newsLetterSend(eventData, contactData)
-    }
-  }
-
+//     handleSubmit()
+//     if (!Object.values(errors).includes(true)) {
+//       newsLetterSend(eventData, contactData)
+//     }
+//   }
+//   console.log("state", state)
   return (
     <div ref={top}>
-      {!emailSent ? (
-        <form onSubmit={handleSubmit} ref={form}>
-          <ContactSection
-            errors={errors}
-            contactData={contactData}
-            setContactData={setContactData}
-          />
-          <EventDetails
-            eventData={eventData}
-            setEventData={setEventData}
-            errors={errors}
-          />
+      {!state.succeeded ? (
+       <form onSubmit={handleSubmit}>
+         
+          
+            <EventDetails
+              formItems={formItems}
+              setFormItems={setFormItems}
+              eventData={eventData}
+              setEventData={setEventData}
+              contactData={contactData}
+              setContactData={setContactData}
+              errors={errors}
+            />
+          
 
           <TixboxContainer>
             <div
@@ -119,6 +84,8 @@ const EnquireForm = ({ executeScroll, scrollRef }) => {
             errors={errors}
             contactData={contactData}
             eventData={eventData}
+            formItems={formItems} setErrors={setErrors}
+            handleSubmit={handleSubmit}
           />
         </form>
       ) : (

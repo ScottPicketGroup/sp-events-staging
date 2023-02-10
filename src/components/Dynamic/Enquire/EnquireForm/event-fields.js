@@ -59,8 +59,8 @@ export const EventFields = [
     dropDownOptions: [
       { value: "Private Residence", label: "Private Residence" },
       {
-        value: "Scott Pickett Group restaurant",
-        label: "Scott Pickett Group restaurant",
+        value: "Scott Pickett Group Restaurant",
+        label: "Scott Pickett Group Restaurant",
       },
       { value: "SP Events Partner venue", label: "SP Events Partner venue" },
       { value: "Other", label: "Other" },

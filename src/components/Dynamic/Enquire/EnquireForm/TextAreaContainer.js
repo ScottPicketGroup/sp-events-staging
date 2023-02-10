@@ -1,20 +1,25 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Heading3 } from "../../../StyledComponents/typography.css"
 
 import { TextAreaWrapper } from "./index.css"
 
-const TextAreaContainer = ({ field, error, data, setData, errors }) => {
-  const changeHandler = event => {
-    setData({ ...data, [event.target.name]: event.target.value })
-  }
+const TextAreaContainer = ({ field, id, errors, formItems, setFormItems }) => {
   const [errored, setErrored] = React.useState(false)
+  const [value, setValue] = React.useState("")
+  const handleInputChange = e => {
+    setValue(e.target.value)
+    const updatedFormFieldInput = Object.assign({}, formItems[id])
+    updatedFormFieldInput.value = e.target.value
+    const formItemss = formItems.slice()
+    formItemss[id] = updatedFormFieldInput
+    setFormItems(formItemss)
+  }
+  useEffect(() => {
+    const maybe = Object.entries(errors)
 
-  React.useEffect(() => {
-    // if(errors && errors.hasOwnProperty(field.name) === true) setErrored(true)
-    if (errors)
-      for (let [name, isErrored] of Object.entries(errors)) {
-        if (name === field.name && isErrored) setErrored(true)
-      }
+    Object.entries(errors).map(item =>
+      maybe[id][1] && value === "" ? setErrored(true) : setErrored(false)
+    )
   }, [errors])
 
   return (
@@ -30,8 +35,8 @@ const TextAreaContainer = ({ field, error, data, setData, errors }) => {
         errorFlag={errored}
         placeholder={field.placeHolder}
         name={field.name}
-        onChange={changeHandler}
         rows={15}
+        onChange={e => handleInputChange(e)}
       />
     </TextAreaWrapper>
   )

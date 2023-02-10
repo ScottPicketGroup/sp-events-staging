@@ -26,7 +26,7 @@ const DatePicker = ({
     currentMonth,
     nextMonth,
     currentYear
-    )
+  )
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -37,15 +37,11 @@ const DatePicker = ({
 
     setSelectedDate("" + day.date + day.month + day.year)
     setSelectedOption(day.date + " " + currentMonthName + " " + day.year)
-
-    setEventData({
-      ...eventData,
-      eventDate: day.date + " " + currentMonthName + " " + day.year,
-    })
   }
 
-const dayContainer = useRef()
-const dayContainerWidth = dayContainer.current && dayContainer.current.clientWidth
+  const dayContainer = useRef()
+  const dayContainerWidth =
+    dayContainer.current && dayContainer.current.clientWidth
 
   return (
     <DatePickerContainer>
@@ -56,14 +52,17 @@ const dayContainerWidth = dayContainer.current && dayContainer.current.clientWid
         setCurrentYear={setCurrentYear}
       />
       <CalendarWrapper>
-      <CalendarContainer>
-        {daysOfWeek.map((day, i) => (
-          <DayContainer day={day} ref={dayContainer} width={dayContainerWidth} >
-            <DateBC3>{day}</DateBC3>
-          </DayContainer>
-        ))}
-        {daysToDisplay.map((day, i) => (
-    
+        <CalendarContainer>
+          {daysOfWeek.map((day, i) => (
+            <DayContainer
+              day={day}
+              ref={dayContainer}
+              width={dayContainerWidth}
+            >
+              <DateBC3>{day}</DateBC3>
+            </DayContainer>
+          ))}
+          {daysToDisplay.map((day, i) => (
             <DayContainer
               key={i}
               selectedDate={selectedDate}
@@ -73,9 +72,8 @@ const dayContainerWidth = dayContainer.current && dayContainer.current.clientWid
             >
               <DateBC3>{day.date}</DateBC3>
             </DayContainer>
-          
-        ))}
-      </CalendarContainer>
+          ))}
+        </CalendarContainer>
       </CalendarWrapper>
     </DatePickerContainer>
   )

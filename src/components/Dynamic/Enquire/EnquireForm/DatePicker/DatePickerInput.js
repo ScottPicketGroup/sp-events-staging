@@ -19,7 +19,16 @@ const DatePickerInput = ({ field, eventData, errors, setEventData }) => {
   return (
     <FormField full={true} datePicker={true}>
       <Label errored={errored} field={field} />
-
+      <input
+        style={{
+          display: `none`,
+        }}
+        type="text"
+        name="Event Date"
+        value={selectedOption}
+        placeholder={field.label}
+    
+      />
       <DropDownContainer
         eventData={eventData}
         setEventData={setEventData}
