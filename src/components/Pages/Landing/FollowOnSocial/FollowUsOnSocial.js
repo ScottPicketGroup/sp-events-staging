@@ -23,7 +23,7 @@ const FollowUsOnSocial = ({}) => {
     urls: images.map(img => img.url),
     images: images.map(img => img.image),
   }
-
+  console.log("images", useInstagramImages())
   return (
     <SectionContainer
       marginTop="xl"
@@ -44,21 +44,20 @@ const FollowUsOnSocial = ({}) => {
       </SectionHeading>
       <DesktopWrapper>
         <Grid cols={4} full insta="1.25rem 1.25rem">
-          {images &&
-            images.map((item, i) =>
-              i < 8 ? (
-                <ImageItem key={i}>
-                  <a href={`${item.url}`} target="_blank">
-                    <Heading1></Heading1>
-                    <Image
-                      src={item.image}
-                      alt={item.image.title}
-                      style={{ minHeight: `12vh`, aspectRatio: `1` }}
-                    />
-                  </a>
-                </ImageItem>
-              ) : null
-            )}
+          {images.map((item, i) =>
+            i < 8 ? (
+              <ImageItem key={i}>
+                <a href={`${item.url}`} target="_blank">
+                  <Heading1></Heading1>
+                  <Image
+                    src={item.image}
+                    alt={item.image.title}
+                    style={{ minHeight: `12vh`, aspectRatio: `1` }}
+                  />
+                </a>
+              </ImageItem>
+            ) : null
+          )}
         </Grid>
       </DesktopWrapper>
       <MobileWrapper>

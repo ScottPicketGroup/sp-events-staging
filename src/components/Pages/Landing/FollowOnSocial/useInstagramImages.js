@@ -33,35 +33,35 @@ import axios from "axios"
 export const useInstagramImages = () => {
   const [instagramImages, setInstagramImages] = useState([])
   const [access_token, setAccess_token] = useState(
-    "IGQVJXM2NZAS2NpQll3QzRGOU1rMkptSjZAtRGhleTdDMm9WSmNsWGtRb2tYT1N4dTNqNGhEWWxla1lRLUJ5d1EzMktLWmdkZAjNlM0FiTUVJYVYtdElCUmtlYnZAXVUVfV2JmcDlCMUdGLWV3UGowMlVDYgZDZD"
+    "IGQVJVUS1wOExiLVNZATjJTcHRnZAmFNUG56YU0tdU9IZATIxSVM5S3RiZATNFbmtsRndkYnZAfckc4RzV4MFJNNXdGMGtoRnJKZAE1zbDVoNlNHVldBdmpqblAtS3UycVY5eTVIeDhlQTMyX2tJTXZATLXdZAZAgZDZD"
   )
   useEffect(() => {
     const fetchInstagramImages = async () => {
       try {
-        const userId = "YOUR_INSTAGRAM_USER_ID"
         let accessToken = access_token
         const clientId = "5349800808467561"
         const clientSecret = "8ceb2d2c34f2060fc9b52feb810866ec"
 
-        const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
+        // const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
 
-        axios
-          .get(refreshUrl)
-          .then(response => {
-            const newAccessToken = response.data.access_token
-            console.log("New Access Token:", newAccessToken)
-            setAccess_token(newAccessToken)
-            accessToken = newAccessToken
-          })
-          .catch(error => {
-            console.error("Error refreshing access token:", error)
-          })
+        // axios
+        //   .get(refreshUrl)
+        //   .then(response => {
+        //     const newAccessToken = response.data.access_token
+        //     console.log("New Access Token:", newAccessToken)
+        //     setAccess_token(newAccessToken)
+        //     accessToken = newAccessToken
+        //   })
+        //   .catch(error => {
+        //     console.error("Error refreshing access token:", error)
+        //   })
 
         // Make the API request to fetch the user's media
         const response = await fetch(
           `https://graph.instagram.com/me/media?fields=media_type,caption,permalink,media_url&access_token=${accessToken}`
         )
         const data = await response.json()
+        console.log("data", data)
         const images = data.data.filter(image => image.media_type === "IMAGE")
 
         // Sort the images by timestamp in descending order
