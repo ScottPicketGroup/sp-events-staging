@@ -37,7 +37,7 @@ export const useInstagramImages = () => {
     const fetchInstagramImages = async () => {
       try {
         let accessToken =
-          "IGQVJVLXVsc0J0aGJTWG1namk4c1kweGh1UGxfRWd5WkJWZA0dYV0RiNm5XTFE4Vy1zdG9XcGNzR2pxQTRHRGhMbE9LZAnN3VmNPTFdnYlljTzBvaUVzODctY0RzTU5hQVFRZATVhdndNMU1nYWhHNHlmZAAZDZD"
+          "IGQVJXUDItcUhibkZAucUVmejFZASXJaNjRNcUhVd19lNVFlQlZA3THFwSzl3U1ZAVX253OGdJWE5qaTRvZAk5XVHNKWGthdFdpOUVUY3h2dDdmNms3UW9sRU9FUE5OWVhQQ2V1OWstQWNfX2I5UVpKTklndQZDZD"
         const clientId = "5349800808467561"
         const clientSecret = "8ceb2d2c34f2060fc9b52feb810866ec"
 
