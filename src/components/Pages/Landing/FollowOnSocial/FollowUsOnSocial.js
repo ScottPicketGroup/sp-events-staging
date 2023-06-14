@@ -25,45 +25,51 @@ const FollowUsOnSocial = ({}) => {
   }
   console.log("images", useInstagramImages())
   return (
-    <SectionContainer
-      marginTop="xl"
-      marginBottom="xl"
-      overflow="true"
-      width="100vw"
-      ref={myRef}
-    >
-      <SectionHeading
-        marginBottom="sm"
-        style={{
-          //mobile styles
-          // desktop styles add media query
-          marginLeft: `26.5%`,
-        }}
-      >
-        Follow us on socials
-      </SectionHeading>
-      <DesktopWrapper>
-        <Grid cols={4} full insta="1.25rem 1.25rem">
-          {images.map((item, i) =>
-            i < 8 ? (
-              <ImageItem key={i}>
-                <a href={`${item.url}`} target="_blank">
-                  <Heading1></Heading1>
-                  <Image
-                    src={item.image}
-                    alt={item.image.title}
-                    style={{ minHeight: `12vh`, aspectRatio: `1` }}
-                  />
-                </a>
-              </ImageItem>
-            ) : null
-          )}
-        </Grid>
-      </DesktopWrapper>
-      <MobileWrapper>
-        {data.images.length > 0 && <DynamicSlider data={data} insta={true} />}
-      </MobileWrapper>
-    </SectionContainer>
+    <>
+      {images.length > 0 && (
+        <SectionContainer
+          marginTop="xl"
+          marginBottom="xl"
+          overflow="true"
+          width="100vw"
+          ref={myRef}
+        >
+          <SectionHeading
+            marginBottom="sm"
+            style={{
+              //mobile styles
+              // desktop styles add media query
+              marginLeft: `26.5%`,
+            }}
+          >
+            Follow us on socials
+          </SectionHeading>
+          <DesktopWrapper>
+            <Grid cols={4} full insta="1.25rem 1.25rem">
+              {images.map((item, i) =>
+                i < 8 ? (
+                  <ImageItem key={i}>
+                    <a href={`${item.url}`} target="_blank">
+                      <Heading1></Heading1>
+                      <Image
+                        src={item.image}
+                        alt={item.image.title}
+                        style={{ minHeight: `12vh`, aspectRatio: `1` }}
+                      />
+                    </a>
+                  </ImageItem>
+                ) : null
+              )}
+            </Grid>
+          </DesktopWrapper>
+          <MobileWrapper>
+            {data.images.length > 0 && (
+              <DynamicSlider data={data} insta={true} />
+            )}
+          </MobileWrapper>
+        </SectionContainer>
+      )}
+    </>
   )
 }
 
