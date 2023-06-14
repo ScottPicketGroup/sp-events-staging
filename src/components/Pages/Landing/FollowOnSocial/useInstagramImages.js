@@ -32,29 +32,12 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 export const useInstagramImages = () => {
   const [instagramImages, setInstagramImages] = useState([])
-  const [access_token, setAccess_token] = useState(
-    "IGQVJVeEN4VEc0RTdyODVsQ3lVQVhxMHJhNEN2cGYyNW83eDdQbjNqZAHVvSkg4OGdSUVVXVHM5ck9Nc2FXUDNqTXljTlNtX3lrNllVOFl1UW9IenhRRWxXZAUhwN3RRS3RDWjY4YWdWM2NtckZAlRi1YaAZDZD"
-  )
+
   useEffect(() => {
     const fetchInstagramImages = async () => {
       try {
-        let accessToken = access_token
-        const clientId = "5349800808467561"
-        const clientSecret = "8ceb2d2c34f2060fc9b52feb810866ec"
-
-        // const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
-
-        // axios
-        //   .get(refreshUrl)
-        //   .then(response => {
-        //     const newAccessToken = response.data.access_token
-        //     console.log("New Access Token:", newAccessToken)
-        //     setAccess_token(newAccessToken)
-        //     accessToken = newAccessToken
-        //   })
-        //   .catch(error => {
-        //     console.error("Error refreshing access token:", error)
-        //   })
+        let accessToken =
+          "IGQVJVeEN4VEc0RTdyODVsQ3lVQVhxMHJhNEN2cGYyNW83eDdQbjNqZAHVvSkg4OGdSUVVXVHM5ck9Nc2FXUDNqTXljTlNtX3lrNllVOFl1UW9IenhRRWxXZAUhwN3RRS3RDWjY4YWdWM2NtckZAlRi1YaAZDZD"
 
         // Make the API request to fetch the user's media
         const response = await fetch(
