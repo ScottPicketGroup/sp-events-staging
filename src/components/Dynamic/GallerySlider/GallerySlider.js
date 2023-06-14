@@ -11,11 +11,13 @@ import { getImage } from "gatsby-plugin-image"
 import { useSwipeable } from "react-swipeable"
 import Controls from "./Controls"
 import Captions from "./Captions"
+import { Item } from "../../StyledComponents/containers.css"
 
 const DynamicSlider = ({ data, insta }) => {
   const { images, urls, heading } = data
   const [active, setActive] = React.useState(0)
   const [imagesArr, setImagesArr] = React.useState(images)
+  console.log("data", data)
   React.useEffect(() => {
     if (data.images.length < 3) setImagesArr([...images, ...images])
   }, [])
@@ -39,16 +41,22 @@ const DynamicSlider = ({ data, insta }) => {
     <Container {...handlers} insta={insta}>
       {heading && <Heading1>{heading}</Heading1>}
       <ImageContainer insta={insta}>
-
         {imagesArr &&
           imagesArr.map((image, i) => (
-            <a href={insta && `${urls[i]}`} >
-            <Card key={i} i={i} active={active} insta={insta}>
-              <GalleryImage image={getImage(image)} insta={insta} />
-
-              <Captions title={image.title} i={i} active={active} />
-            </Card>
-          </a>
+            <a href={insta && `${urls[i]}`}>
+              <Card key={i} i={i} active={active} insta={insta}>
+                {!insta && (
+                  <GalleryImage image={getImage(image)} insta={insta} />
+                )}
+                {insta && (
+                  <ImageItem>
+                    {" "}
+                    <Image src={image} alt={image.title} />
+                  </ImageItem>
+                )}
+                <Captions title={image.title} i={i} active={active} />
+              </Card>
+            </a>
           ))}
         <Controls
           active={active}
@@ -61,3 +69,13 @@ const DynamicSlider = ({ data, insta }) => {
 }
 
 export default DynamicSlider
+
+export const ImageItem = styled(Item)`
+  height: 100%;
+  width: 100%;
+`
+export const Image = styled.img`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+`

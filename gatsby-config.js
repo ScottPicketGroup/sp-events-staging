@@ -42,11 +42,10 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACEID,
+        spaceId: "9pquwbuuz34d",
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
-        host: process.env.CONTENTFUL_HOST
-      }
+        accessToken: "TdFoNcwwyyUkzCgYFCkZFIldoi3q1OAWqJtw-to45Ig",
+      },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -54,12 +53,12 @@ module.exports = {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "G-C8JN41T94Q", // Google Analytics / GA
-        //  "AW-CONVERSION_ID", // Google Ads / Adwords / AW
-        //  "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+          //  "AW-CONVERSION_ID", // Google Ads / Adwords / AW
+          //  "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
-      
+
         // This object is used for configuration specific to this plugin
         pluginConfig: {
           // Puts tracking script in the head instead of the body
@@ -67,9 +66,9 @@ module.exports = {
           // Setting this parameter is also optional
           // respectDNT: true,
           // Avoids sending pageview hits from custom paths
-         // exclude: ["/preview/**", "/do-not-track/me/too/"],
+          // exclude: ["/preview/**", "/do-not-track/me/too/"],
           // Defaults to https://www.googletagmanager.com
-         // origin: "YOUR_SELF_HOSTED_ORIGIN",
+          // origin: "YOUR_SELF_HOSTED_ORIGIN",
         },
       },
     },
