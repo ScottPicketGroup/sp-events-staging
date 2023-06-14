@@ -37,7 +37,24 @@ export const useInstagramImages = () => {
     const fetchInstagramImages = async () => {
       try {
         let accessToken =
-          "IGQVJVeEN4VEc0RTdyODVsQ3lVQVhxMHJhNEN2cGYyNW83eDdQbjNqZAHVvSkg4OGdSUVVXVHM5ck9Nc2FXUDNqTXljTlNtX3lrNllVOFl1UW9IenhRRWxXZAUhwN3RRS3RDWjY4YWdWM2NtckZAlRi1YaAZDZD"
+          "IGQVJVLXVsc0J0aGJTWG1namk4c1kweGh1UGxfRWd5WkJWZA0dYV0RiNm5XTFE4Vy1zdG9XcGNzR2pxQTRHRGhMbE9LZAnN3VmNPTFdnYlljTzBvaUVzODctY0RzTU5hQVFRZATVhdndNMU1nYWhHNHlmZAAZDZD"
+        const clientId = "5349800808467561"
+        const clientSecret = "8ceb2d2c34f2060fc9b52feb810866ec"
+
+        const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
+        const newToken = ""
+
+        axios
+          .get(refreshUrl)
+          .then(response => {
+            const newAccessToken = response.data.access_token
+            console.log("New Access Token:", newAccessToken)
+
+            newToken = newAccessToken
+          })
+          .catch(error => {
+            console.error("Error refreshing access token:", error)
+          })
 
         // Make the API request to fetch the user's media
         const response = await fetch(
@@ -69,5 +86,5 @@ export const useInstagramImages = () => {
     fetchInstagramImages()
   }, [])
 
-  return { instagramImages, access_token }
+  return { instagramImages }
 }
