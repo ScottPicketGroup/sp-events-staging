@@ -14,7 +14,7 @@ import {
   executeScroll,
 } from "../../StyledComponents/containers.css"
 import FunctionTrackerForm from "./FunctionTrackerForm/FunctionTrackerForm"
-const Enquire = ({ data, page }) => {
+const FTEnquire = ({ data, page }) => {
   const {
     enquireHeading,
     greyBackground,
@@ -55,10 +55,10 @@ const Enquire = ({ data, page }) => {
             </Heading2>
           </IntroLink>
         )}
-        <EnquireForm scrollRef={heading} />
+        <FunctionTrackerForm />
       </SectionWrapper>
     </SectionContainer>
   )
 }
 
-export default Enquire
+export default FTEnquire

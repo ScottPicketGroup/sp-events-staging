@@ -22,6 +22,7 @@ import useWindowSize from "../components/Common/Hooks/useWindowDimensions"
 import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
 import Enquire from "../components/Dynamic/Enquire/Enquire"
 import { Helmet } from "react-helmet"
+import FTEnquire from "../components/Dynamic/Enquire/FunctionTrackerForm/FTEnquire"
 const Indextest = ({ data, errors, setErrors }) => {
   const { heroElement, pageElements } = data.contentful6Enquiries
   const itemsRef = useRef([])
@@ -53,7 +54,7 @@ const Indextest = ({ data, errors, setErrors }) => {
           {pageElements.map((element, i) => (
             <div ref={el => (itemsRef.current[i] = el)} key={i}>
               {element.internal.type === "ContentfulEnquireSection" ? (
-                <Enquire
+                <FTEnquire
                   data={element}
                   page={page}
                   errors={errors}
