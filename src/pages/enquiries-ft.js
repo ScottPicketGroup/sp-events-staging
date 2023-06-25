@@ -18,16 +18,6 @@ import useWatchScroll from "../components/Common/Hooks/useWatchScroll"
 import { Helmet } from "react-helmet"
 import { LeftMenu } from "../components/Dynamic/LeftMenu/LeftMenu"
 const Indextest = ({ data, errors, setErrors }) => {
-  const { heroElement, pageElements } = data.contentful6Enquiries
-  const itemsRef = useRef([])
-
-  const { scrollY } = useWatchScroll()
-  const { items, heights } = useRefAttributes(itemsRef)
-
-  const executeScroll = el =>
-    itemsRef.current[el].scrollIntoView({ behavior: "smooth" })
-  const page = useLocation().pathname.replace("/", "")
-
   return (
     <Layout>
       <Helmet>
