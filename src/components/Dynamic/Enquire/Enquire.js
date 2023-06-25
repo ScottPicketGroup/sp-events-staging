@@ -1,4 +1,4 @@
-import React, {useRef} from "react"
+import React, { useRef } from "react"
 
 import {
   Heading1,
@@ -8,7 +8,12 @@ import {
 import Renderer from "../../Common/Rich-Text-Renderers/IntroRenderer"
 import ArrowIcon from "../../../images/ArrowIcon"
 import EnquireForm from "./EnquireForm"
-import { SectionContainer, SectionWrapper, executeScroll} from "../../StyledComponents/containers.css"
+import {
+  SectionContainer,
+  SectionWrapper,
+  executeScroll,
+} from "../../StyledComponents/containers.css"
+import FunctionTrackerForm from "./FunctionTrackerForm/FunctionTrackerForm"
 const Enquire = ({ data, page }) => {
   const {
     enquireHeading,
@@ -18,17 +23,18 @@ const Enquire = ({ data, page }) => {
     linkUrl,
   } = data
 
-
-const heading = useRef()
+  const heading = useRef()
   return (
     <SectionContainer
-      paddingTop={page === 'enquiries' ? 'lg' : "xl"}
+      paddingTop={page === "enquiries" ? "lg" : "xl"}
       isGreyBackground={greyBackground}
       width="100vw"
       paddingBottom="lg"
     >
       <SectionWrapper width="73.5%">
-        <Heading1 marginBottom="sm" ref={heading}>{enquireHeading}</Heading1>
+        <Heading1 marginBottom="sm" ref={heading}>
+          {enquireHeading}
+        </Heading1>
         <Renderer node={enquireDescription} />
         {linkLabel && (
           <IntroLink to={`/${linkUrl}`}>
@@ -38,7 +44,8 @@ const heading = useRef()
             </Heading2>
           </IntroLink>
         )}
-        <EnquireForm scrollRef={heading}/>
+        {/* <EnquireForm scrollRef={heading} /> */}
+        <FunctionTrackerForm id="ftenquire665" />
       </SectionWrapper>
     </SectionContainer>
   )
