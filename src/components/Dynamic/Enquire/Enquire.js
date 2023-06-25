@@ -24,8 +24,17 @@ const Enquire = ({ data, page }) => {
   } = data
 
   const heading = useRef()
-  console.log("form info:", window.ftenquireinit(ftenquire1180, "spevents"))
-  console.log("window", window)
+  React.useEffect(() => {
+    const isBrowser = typeof window !== "undefined"
+    if (!isBrowser) {
+      return
+    }
+
+    return console.log(
+      "form info:",
+      window && window.ftenquireinit(1180, "spevents")
+    )
+  }, [])
   return (
     <SectionContainer
       paddingTop={page === "enquiries" ? "lg" : "xl"}
