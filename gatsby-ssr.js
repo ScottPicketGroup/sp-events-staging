@@ -8,7 +8,10 @@ const App = ({ element }) => {
     <>
       <Helmet>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
-       
+        <script
+          language="javascript"
+          src="https://spevents.functiontracker.com/public/v4/enquire.js"
+        ></script>
       </Helmet>
       <GlobalStyles />
       <Typography />

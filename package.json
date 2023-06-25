@@ -38,6 +38,7 @@
     "react-swipeable": "^6.2.0",
     "styled-components": "^5.3.0",
     "subscriptions-transport-ws": "^0.11.0",
+    "update": "^0.7.4",
     "ws": "^8.12.0"
   },
   "devDependencies": {

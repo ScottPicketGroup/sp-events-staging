@@ -6,7 +6,7 @@ const FooterContactDetails = () => {
   return (
     <FooterLinksColumn>
       <FooterItem marginBottom="md">CONTACT DETAILS</FooterItem>
-      <FooterItem>
+      <FooterItem marginBottom="md">
         Email us at{" "}
         <a
           mailto="Enquiries@spevents.com.au"
@@ -21,7 +21,7 @@ const FooterContactDetails = () => {
         .
       </FooterItem>
 
-      {/* <FooterItem>Phone: 0414 349 502</FooterItem> */}
+      <FooterItem>Phone: +61 8580 2455</FooterItem>
     </FooterLinksColumn>
   )
 }

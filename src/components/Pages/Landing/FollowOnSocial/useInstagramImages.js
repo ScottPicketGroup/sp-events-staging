@@ -36,10 +36,10 @@ export const useInstagramImages = () => {
   useEffect(() => {
     const fetchInstagramImages = async () => {
       try {
-        let accessToken =
-          "IGQVJXUDItcUhibkZAucUVmejFZASXJaNjRNcUhVd19lNVFlQlZA3THFwSzl3U1ZAVX253OGdJWE5qaTRvZAk5XVHNKWGthdFdpOUVUY3h2dDdmNms3UW9sRU9FUE5OWVhQQ2V1OWstQWNfX2I5UVpKTklndQZDZD"
-        const clientId = "5349800808467561"
-        const clientSecret = "8ceb2d2c34f2060fc9b52feb810866ec"
+        let accessToken = process.env.INSTAGRAM_ACCESS_TOKEN
+
+        const clientId = process.env.CLIENT_ID
+        const clientSecret = process.env.CLIENT_SECRET
 
         const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
         const newToken = ""
