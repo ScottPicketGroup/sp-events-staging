@@ -5,7 +5,9 @@ import styled from "styled-components"
 
 const FunctionTrackerForm = ({ data, errors, setErrors }) => {
   return (
-    <FunctionTrackerFormContainer id="ftenquire1180"></FunctionTrackerFormContainer>
+    <FunctionTrackerFormContainer id="ftenquire1180">
+      I am a form
+    </FunctionTrackerFormContainer>
   )
 }
 
