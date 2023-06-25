@@ -24,6 +24,8 @@ const Enquire = ({ data, page }) => {
   } = data
 
   const heading = useRef()
+  console.log("form info:", window.ftenquireinit(ftenquire1180, "spevents"))
+  console.log("window", window)
   return (
     <SectionContainer
       paddingTop={page === "enquiries" ? "lg" : "xl"}
