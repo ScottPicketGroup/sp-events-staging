@@ -32,7 +32,10 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 export const useInstagramImages = () => {
   const [instagramImages, setInstagramImages] = useState([])
-
+  console.log(
+    "process.env.INSTAGRAM_ACCESS_TOKEN",
+    process.env.INSTAGRAM_ACCESS_TOKEN
+  )
   useEffect(() => {
     const fetchInstagramImages = async () => {
       try {
@@ -41,20 +44,20 @@ export const useInstagramImages = () => {
         const clientId = process.env.CLIENT_ID
         const clientSecret = process.env.CLIENT_SECRET
 
-        const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
-        const newToken = ""
+        // const refreshUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}&client_secret=${clientSecret}&client_id=${clientId}`
+        // const newToken = ""
 
-        axios
-          .get(refreshUrl)
-          .then(response => {
-            const newAccessToken = response.data.access_token
-            console.log("New Access Token:", newAccessToken)
+        // axios
+        //   .get(refreshUrl)
+        //   .then(response => {
+        //     const newAccessToken = response.data.access_token
+        //     console.log("New Access Token:", newAccessToken)
 
-            newToken = newAccessToken
-          })
-          .catch(error => {
-            console.error("Error refreshing access token:", error)
-          })
+        //     newToken = newAccessToken
+        //   })
+        //   .catch(error => {
+        //     console.error("Error refreshing access token:", error)
+        //   })
 
         // Make the API request to fetch the user's media
         const response = await fetch(
