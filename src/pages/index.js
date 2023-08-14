@@ -60,7 +60,6 @@ const Indextest = ({ data }) => {
               ) : null}
             </div>
           ))}
-          {console.log(process.env.CONTENTFUL_SPACEID)}
         </PageContainer>
       </PageWrapper>
     </Layout>
