@@ -32,10 +32,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 export const useInstagramImages = () => {
   const [instagramImages, setInstagramImages] = useState([])
-  console.log(
-    "process.env.INSTAGRAM_ACCESS_TOKEN",
-    process.env.INSTAGRAM_ACCESS_TOKEN
-  )
+
   useEffect(() => {
     const fetchInstagramImages = async () => {
       try {

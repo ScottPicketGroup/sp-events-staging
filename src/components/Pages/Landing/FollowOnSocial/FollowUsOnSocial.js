@@ -23,7 +23,7 @@ const FollowUsOnSocial = ({}) => {
     urls: images.map(img => img.url),
     images: images.map(img => img.image),
   }
-  console.log("images", useInstagramImages())
+
   return (
     <>
       {images.length > 0 && (
