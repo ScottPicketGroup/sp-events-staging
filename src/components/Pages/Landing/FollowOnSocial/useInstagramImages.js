@@ -36,7 +36,7 @@ export const useInstagramImages = () => {
   useEffect(() => {
     const fetchInstagramImages = async () => {
       try {
-        let accessToken = process.env.INSTAGRAM_ACCESS_TOKEN
+        let accessToken = process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN
 
         const clientId = process.env.CLIENT_ID
         const clientSecret = process.env.CLIENT_SECRET
