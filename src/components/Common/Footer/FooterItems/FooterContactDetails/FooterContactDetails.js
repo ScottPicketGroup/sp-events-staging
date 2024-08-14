@@ -21,8 +21,9 @@ const FooterContactDetails = () => {
         .
       </FooterItem>
 
-      <FooterItem>Phone: +61 8580 2455</FooterItem>
+      <FooterItem>Phone: (03) 9089 7282</FooterItem>
     </FooterLinksColumn>
+
   )
 }
 
